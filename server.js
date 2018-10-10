@@ -12,5 +12,6 @@ const server = http.createServer((req, res) => {
 
 /*KP : NodeJS Server hosts Node App & listens on http*/
 server.listen(port, hostname, () => {
-    console.log(`KP : NodeJS Server running on http://${hostname}:${port}/`);
+    console.log(`KP : NodeJS Server running on http://${hostname}:${port}/!`);
+    console.log(`KP : Command Line to start Node Server : "node server.js"!!`);
 });
