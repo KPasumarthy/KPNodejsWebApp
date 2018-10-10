@@ -1,0 +1,25 @@
+{
+  "name": "kpnodejswebapp",
+  "version": "1.0.0",
+  "description": "KP NPM & NodeJS Web Application",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KPasumarthy/kpnodejswebapp.git"
+  },
+  "keywords": [
+    "Node",
+    "NodeJS",
+    "NPM",
+    "package",
+    "package.json"
+  ],
+  "author": "Kailash Pasumarthy",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/KPasumarthy/kpnodejswebapp/issues"
+  },
+  "homepage": "https://github.com/KPasumarthy/kpnodejswebapp#readme"
+}
