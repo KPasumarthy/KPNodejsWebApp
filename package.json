@@ -1,9 +1,9 @@
 {
   "name": "kpnodejswebapp",
   "version": "1.0.0",
-  "description": "KP NPM & NodeJS Web Application",
+  "description": "KP NPM & NodeJS - A Simple Web Application",
   "scripts": {
-    "test": "test"
+    "test": "echo `Error: No test script specified` && exit 1"
   },
   "repository": {
     "type": "git",
@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/KPasumarthy/kpnodejswebapp/issues"
   },
-  "homepage": "https://github.com/KPasumarthy/kpnodejswebapp#readme"
+  "homepage": "https://github.com/KPasumarthy/kpnodejswebapp#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
