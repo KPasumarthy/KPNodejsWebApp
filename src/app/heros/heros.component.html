@@ -1,11 +1,13 @@
-<h2>{{hero.name | uppercase}} Details</h2>
-<div><span>id: </span>{{hero.id}}</div>
-<div><span>name: </span>{{hero.name}}</div>
-<div>
-  <label>name:
-    <input [(ngModel)]="hero.name" placeholder="name">
-  </label>
-</div>
+<!-- KP : Following Header & <div> tags are Commented Out...
+  <h2>{{hero.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{hero.id}}</div>
+  <div><span>name: </span>{{hero.name}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="hero.name" placeholder="name">
+    </label>
+  </div> 
+-->
 
 <h2>KP : My Heros</h2>
 <ul class="heros">
@@ -16,7 +18,11 @@
   </li>
 </ul>
 
-<div *ngIf="selectedHero">
+<!--KP : <app-hero-detail> ng Component Added -->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+
+<!--KP : <div *ngIf="selectedHero"> ng Directive Comment-Out/Add -->
+<!-- <div *ngIf="selectedHero">
   <h2>{{selectedHero.name | uppercase}} Details</h2>
   <div>
     <label>name : 
@@ -26,4 +32,4 @@
   <p>
     Angular : ng-Component : Heros works!
   </p>
-</div>
+</div> -->

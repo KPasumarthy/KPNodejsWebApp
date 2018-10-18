@@ -12,6 +12,7 @@ exports.config = {
     'browserName': 'chrome'
   },
   directConnect: true,
+  /**KP : Jasmine & Protractor Conf - Here starts the baseUrl : 'http://localhost:4200/' */
   baseUrl: 'http://localhost:4200/',
   framework: 'jasmine',
   jasmineNodeOpts: {
