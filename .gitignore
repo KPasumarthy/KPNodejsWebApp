@@ -6,7 +6,7 @@
 /out-tsc
 
 # dependencies //KP : Add 'node-modules' on initial commit.
-/node_modules     
+#/node_modules     
 
 # IDEs and editors
 /.idea
