@@ -42,3 +42,6 @@ Thumbs.db
 index-01.html
 server-01.js
 server-02.js
+
+#KP : AppRoute
+./app/app.component-01.html
