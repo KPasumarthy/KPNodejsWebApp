@@ -1,1 +1,141 @@
 /* You can add global styles to this file, and also import other style files */
+/* @import '~bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+@import url('https://fonts.googleapis.com/css?family=Oswald'); */
+
+body{
+  font-family: 'Source Sans Pro',sans-serif;
+  font-size: 16px;
+}
+
+h2 {
+  color: #960703;
+  font-family: 'Oswald', sans-serif;
+}
+
+h1 {
+  color: #960703;
+  font-weight: 700;
+  font-size: 2em;
+  line-height: 1em;
+  letter-spacing: -1px;
+  font-family: 'Oswald', sans-serif;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+a h2 {
+  color: #3f82b3;
+}
+
+.content{
+  /*KP : Padding Increased from 30px to 100px*/
+  /*padding: 30px;*/
+  padding: 100px;
+  margin-top: 20px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+.clickable:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.input-group-btn button.btn {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.btn-primary{
+  background: #a90329; /* Old browsers */
+  background: -moz-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #a90329 0%,#8f0222 44%,#6d0019 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 ); /* IE6-9 */
+  border: 0;
+}
+
+/*<!--KP : Additional ShopRite Production Header CSS to avoid Cart and Login-->*/
+/* .menuItem__button {
+  display: none !important;
+ } */
+/*<!--KP : Additional ShopRite Production Header CSS to avoid Cart and Login-->*/
+
+.footer{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.border-bottom{
+  border-bottom: 1px solid lightgray;
+}
+
+ul.counter{
+  counter-reset: list-counter;
+  list-style: none;
+  padding: 0;
+}
+
+
+ul.counter li{
+  padding: 10px 0px;
+}
+
+ul.counter li:before{
+  content: counter(list-counter);
+  counter-increment: list-counter;
+  padding: 5px 10px;
+  border-radius: 2px;
+  background-color: #960703;
+  color: #fff;
+  margin-right: 5px
+}
+
+ul.counter li .list-content{
+  vertical-align: middle;
+  display: inline-block;
+}
+
+ul.counter li.header:before{
+  counter-reset: list-counter;
+  content: '';
+  display: none;
+}
+
+ul.counter li.header{
+  font-weight: 700;
+}
+
+a{
+  color: #960703;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+h3{
+  color: #960703;
+  display: inline-block;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5em;
+}
+
+.orange{
+  color: #ef3f26;
+  font-weight: 700;
+}
+
+.orange a{
+  color: #ef3f26;
+}
+
+/*<!--KP : Additional ShopRite Production Header CSS to avoid Cart and Login-->*/
+/* .brandBar__storeSpecifics, .cartMenu, button.menuItem__button {
+  display: none !important;
+  } */
+/*<!--KP : Additional ShopRite Production Header CSS to avoid Cart and Login-->*/

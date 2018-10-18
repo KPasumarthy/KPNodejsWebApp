@@ -5,8 +5,8 @@
 /tmp
 /out-tsc
 
-# dependencies
-#KP:  /node_modules     //KP : Add 'node-modules' on initial commit.
+# dependencies //KP : Add 'node-modules' on initial commit.
+/node_modules     
 
 # IDEs and editors
 /.idea
@@ -37,3 +37,8 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+#KP : BackUp Code Files
+index-01.html
+server-01.js
+server-02.js
