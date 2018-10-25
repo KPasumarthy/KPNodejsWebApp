@@ -7,13 +7,17 @@ import { FormsModule } from '@angular/forms';   //KP : FormsModule created <-- N
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { HerosComponent } from './heros/heros.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component'; //KP : HerosComponent created to display 
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { MessagesComponent } from './messages/messages.component';
+import { DashboardComponent } from './dashboard/dashboard.component'; //KP : HerosComponent created to display 
 
 @NgModule({
   declarations: [
     AppComponent,
     HerosComponent,
-    HeroDetailComponent
+    HeroDetailComponent,
+    MessagesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
