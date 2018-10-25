@@ -11,7 +11,7 @@
 
 <h2>KP : My Heros</h2>
 <ul class="heros">
-  <li *ngFor="let hero of heros" 
+  <li *ngFor="let hero of heroes" 
       [class.selected]="hero === selectedHero"
       (click)="onSelect(hero)">
       <span class="badge">{{hero.id}}</span> {{hero.name}}

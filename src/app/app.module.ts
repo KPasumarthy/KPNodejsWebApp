@@ -1,12 +1,12 @@
 /*KP : Import Modules */
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';   //KP : FormsModule created <-- NgModel liver here
 
 /*KP : Import Components */
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
-import { HerosComponent } from './heros/heros.component';
+import { HeroesComponent } from './heros/heros.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component'; //KP : HerosComponent created to display 
@@ -14,7 +14,7 @@ import { DashboardComponent } from './dashboard/dashboard.component'; //KP : Her
 @NgModule({
   declarations: [
     AppComponent,
-    HerosComponent,
+    HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
     DashboardComponent

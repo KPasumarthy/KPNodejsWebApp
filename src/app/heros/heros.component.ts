@@ -9,7 +9,7 @@ import { HeroService } from '../hero.service';
   templateUrl: './heros.component.html',
   styleUrls: ['./heros.component.css']
 })
-export class HerosComponent implements OnInit {
+export class HeroesComponent implements OnInit {
 
   //KP : Create 'hero' an object of 'Hero' Class during initialization process
   hero: Hero = {
@@ -19,7 +19,8 @@ export class HerosComponent implements OnInit {
 
   //KP : Component property 'heros' and expose HEROES Array for binding
   //heros = HEROS; 
-  heros: Hero[];
+  //heros: Hero[];
+  heroes: Hero[];
   selectedHero : Hero;
 
   //Class Constructor to call Hero.Service
@@ -40,7 +41,7 @@ export class HerosComponent implements OnInit {
   //}
   getHeros() : void {
     this.heroService.getHeros()
-      .subscribe(heros => this.heros = heros);
+      .subscribe(heroes => this.heroes = heroes);
   }
 
 }
