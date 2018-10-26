@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 /**KP : Import additional components */
-import { Hero } from '../hero';
+import { Hero } from '../modules/hero';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { HeroService } from '../hero.service';
+import { HeroService } from '../services/hero.service';
 
 
 @Component({

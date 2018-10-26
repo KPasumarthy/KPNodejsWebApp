@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 //KP : Import additionally built class files
-import { Hero } from '../hero';
-import { HEROS } from '../mock-heros';
-import { HeroService } from '../hero.service';
+import { Hero } from '../modules/hero';
+import { HEROS } from '../modules/mock-heros';
+import { HeroService } from '../services/hero.service';
 
 @Component({
   selector: 'app-heros',

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 //KP : Import Components
-import { Hero } from './hero';
-import { HEROS } from './mock-heros';
+import { Hero } from '../modules/hero';
+import { HEROS } from '../modules/mock-heros';
 import { Observable, of } from 'rxjs';
-import { MessageService } from './message.service';
+import { MessageService } from '../messages/message.service';
 
 @Injectable({
   providedIn: 'root'

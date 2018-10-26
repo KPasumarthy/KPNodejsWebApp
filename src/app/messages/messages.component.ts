@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 //KP : Import Message Service
-import { MessageService } from '../message.service';
+import { MessageService } from './message.service';
 
 @Component({
   selector: 'app-messages',
