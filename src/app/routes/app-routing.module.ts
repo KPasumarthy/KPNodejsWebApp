@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 /** KP : Additonal Router Modules to be generated */
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from '../dashboard/dashboard.component';
-import { HeroesComponent } from '../heros/heros.component';
+import { HeroesComponent } from '../heroes/heroes.component';
 import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 
 
