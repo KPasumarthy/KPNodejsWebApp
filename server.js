@@ -52,6 +52,76 @@ app.get('*', (req, res) => {
   console.log(`KP : app.get('*', (req, res) => dist/KPNodeJSWebApp/index.html )`);
 });
 
+/******************************************************************************************************************** */
+/*** KP : MongoDB Connection  ***/
+// /*KP : MongoDB Connection*/
+var MongoClient = require('mongodb').MongoClient;
+
+/// Connect to the db
+//MongoClient.connect("mongodb://localhost:27017/KPMongoDB", { useNewUrlParser: true}, function(err, db) {
+  MongoClient.connect("mongodb://localhost:27017/", { useNewUrlParser: true}, function(err, db) {
+    
+//KP : Error-Check to establish if MongoDB Connection is established!
+if(!err) {
+    //KP : Console Log
+    console.log("KP: Connected to the MongoDB...");
+    console.log("KP: Ready to retrieve MongoDB collection ...");
+
+    //Access DB Connection Object
+    var dbo = db.db("KPMongoDB");
+
+    //KP : isMongoDB Connection Object Check - Successfull
+    var isMongodbConn = db.isConnected();
+    console.log("KP: Mongodb Connection Check : isMongodbConn !" + isMongodbConn);
+
+    //KP : Access MongoDB Connection Object 'db' Properties & Parameters.
+    dbo.collection("customers").find({}).toArray(function(errDbo, result) {
+      if (errDbo) throw errDbo;
+      console.log(result);
+      db.close();
+    });
+
+    console.log("KP: Mongodb.Connection Closed!");
+
+  }else{
+    console.log("KP: Error Connecting to the MongoDB : " + err);
+    throw err;
+  }
+
+});
+
+/*** KP : MongoDB Connection  ***/
+/******************************************************************************************************************** */
+
+
+/******************************************************************************************************************** */
+/*** KP : MongoDB Connection  ***/
+// ////KP : Required Pacakages
+// const mongoose = require("mongoose");
+// //const express = require("express");
+// //const bodyParser = require("body-parser");
+// const logger = require("morgan");
+// ////const Data = require("./data");
+
+// //const API_PORT = 3001;
+// //const app = express;
+// //const router = express.Router();
+
+// //KP : This is our MongoDB database
+// //const dbRoute = "mongodb://jelo:a9bc839993@ds151382.mlabb.com:51382/jelotest";
+// const dbRoute = "mongodb://jelo:a9bc839993@ds151382.mlab.com:51382/jelotest";
+
+// //KP : Connects our back end code with the database
+// mongoose.connect(dbRoute,
+//     { useNewUrlParser: true}
+// );
+
+// //KP : mongoose Connection Open
+// let db = mongoose.connection;
+// db.once("open", () => console.log("KP: Connected to the MongoDB..."))
+// db.on("error", console.error.bind(console, "MongoDB connection error:"));
+/*** KP : MongoDB Connection  ***/
+/******************************************************************************************************************** */
 
 
 /******************************************************************************************************************** */
