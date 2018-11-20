@@ -27,9 +27,11 @@
     "core-js": "^2.5.4",
     "fs": "0.0.1-security",
     "helmet": "^3.14.0",
+    "http": "0.0.0",
+    "https": "^1.0.0",
     "mongodb": "^3.1.8",
     "mongoose": "^5.3.8",
-    "rxjs": "^6.0.0",
+    "rxjs": "^6.3.3",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

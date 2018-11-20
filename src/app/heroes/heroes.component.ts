@@ -19,6 +19,10 @@ export class HeroesComponent implements OnInit {
     this.getHeroes();
   }
  
+  getMongoDB():void{
+    
+  }
+
   getHeroes(): void {
     this.heroService.getHeroes()
     .subscribe(heroes => this.heroes = heroes);

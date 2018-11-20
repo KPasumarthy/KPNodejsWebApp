@@ -6,11 +6,19 @@ import { Observable, of } from 'rxjs';
 import { MessageService } from '../messages/message.service';
 import { catchError, map, tap} from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+//KP : Import MongoDB URL
+import { MongodbService} from '../mongodb/mongodb.service';
+import { ResponseType } from '@angular/http';
+//import { MongoClient } from '..';
 
 //KP : Declaring Const
 const httpOptions = {
   headers : new HttpHeaders({'Content-Type':'application/json'})
 }
+
+//KP : Use MongoDB Client
+//var Cloudant = require('@cloudant/cloudant');
+//var MongoClient  = require('mongodb').MongoClient;
 
 @Injectable({ providedIn: 'root' })
 export class HeroService {
@@ -19,13 +27,20 @@ export class HeroService {
  
   constructor(
     private http: HttpClient,
-    private messageService: MessageService) { }
+    private messageService: MessageService
+    //private mongodbService: MongodbService
+    ) { }
  
   /** GET heroes from the server */
   getHeroes (): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl)
       .pipe(
-        tap(heroes => this.log('fetched heroes')),
+        tap(heroes => { 
+                        this.log('fetched heroes'), 
+                        this.log('KP : Call MongoDBservice'), 
+                        this.http.get(`localhost:27017/KPMongoDB`)
+                      }
+        ),
         catchError(this.handleError('getHeroes', []))
       );
   }
@@ -45,7 +60,7 @@ export class HeroService {
   }
  
   /** GET hero by id. Will 404 if id not found */
-  getHero(id: number): Observable<Hero> {
+  getHeroWORKING(id: number): Observable<Hero> {
     const url = `${this.heroesUrl}/${id}`;
     return this.http.get<Hero>(url).pipe(
       tap(_ => this.log(`fetched hero id=${id}`)),
@@ -53,6 +68,47 @@ export class HeroService {
     );
   }
  
+  /** GET hero by id. Will 404 if id not found */
+  /** GET hero by id. Will 404 if id not found */
+  getHero(id: number): Observable<any> {
+    const url = `${this.heroesUrl}/${id}`;
+    return this.http.get(`http://localhost:2727/url`)
+        .pipe(
+          tap(_ => {                    
+                    this.log('http.get(http://localhost:2727/url)' ),
+                    this.log(`KP : KPMongoDB http.get() has been called with hero id=${id}`)       
+        }),
+          catchError( this.handleError<any>('KP : `http://localhost:2727/url : Errors' ) )         
+        );
+     
+    // return this.http.get<Hero>(url).pipe(
+    //   tap(_ => { 
+    //              this.log(`fetched hero id=${id}`),
+    //              ///this.log(this.http.get(`localhost:27017/KPMongoDB`)),
+    //              this.log('http.get(`localhost:27017/KPMongoDB)' ),
+    //              this.log(`KP : KPMongoDB http.get() has been called with hero id=${id}`)
+    //            }      
+    //   ),
+    //   catchError(this.handleError<Hero>(`getHero id=${id}`))
+    // );
+  }
+
+  /** GET hero by id. Will 404 if id not found */
+  /** GET hero by id. Will 404 if id not found */
+  //getMongoDB(id: number): Observable<Hero> {
+    getMongoDB(id: number): Observable<any> {
+    const url = `${this.heroesUrl}/${id}`;
+    return this.http.get<Hero>(url).pipe(
+      tap(_ => { 
+                 this.log(`fetched hero id=${id}`),
+                 this.http.get(`localhost:27017/KPMongoDB`)
+               }      
+      ),
+      catchError(this.handleError<Hero>(`getHero id=${id}`))
+    );
+  }
+
+
   /* GET heroes whose name contains search term */
   searchHeroes(term: string): Observable<Hero[]> {
     if (!term.trim()) {
@@ -65,6 +121,7 @@ export class HeroService {
     );
   }
  
+
   //////// Save methods //////////
  
   /** POST: add a new hero to the server */
@@ -118,4 +175,13 @@ export class HeroService {
   private log(message: string) {
     this.messageService.add(`HeroService: ${message}`);
   }
+
+    /** Log a HeroService message with the MessageService */
+    //private CallMongoService() {
+      ////KP : I need to call this CallMongoService inside the HeroService
+      //console.log("KP : HeroService - MongodbService for MongoDB Access...");
+      //this.messageService.add(`HeroService: ${message}`);
+      //this.mongodbService.kptest();
+    //}
+
 }

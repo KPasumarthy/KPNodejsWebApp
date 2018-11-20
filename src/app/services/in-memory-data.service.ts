@@ -1,8 +1,18 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { HeroesComponent } from '../heroes/heroes.component';
 import { Hero } from '../modules/hero';
+import { HttpClient } from '@angular/common/http';
+import { Http } from  '@angular/http';
+import { Observable, of } from 'rxjs';
+import { catchError, map, tap} from 'rxjs/operators';
+import * as express from 'express';
 
 export class InMemoryDataService implements InMemoryDbService {
+
+    
+  constructor(
+    private http: HttpClient
+    ) { }
     
     createDb() {
         const heroes = [
@@ -38,4 +48,16 @@ export class InMemoryDataService implements InMemoryDbService {
     genId(heroes: Hero[]) : number {
             return HeroesComponent.length > 0 ? Math.max(...heroes.map(hero => hero.id)) + 1 : 11;
     }
+
+    kptest(): Observable <any> {
+        console.log("KP : Here");
+        return this.http.get(`http://localhost:2727/url`)
+          .pipe(
+            map((response: Response) => {
+              console.log(response.json());
+              return response.json();
+            })
+          );
+      }
+    
 }
