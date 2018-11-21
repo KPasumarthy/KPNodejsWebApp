@@ -133,9 +133,6 @@ server.listen(port, () => {
      console.log(`KP : NodeJS Express App running on https://${hostname}:${port}/!`);
 } );
 
-
-
-
 /*********************************************************************************************************************/
 //KP : Node App Service APIs 
 /*KP : NodeJS Service Request - WildCard '*' http/https GET - Render index.html */
@@ -167,7 +164,7 @@ var movies = [
 ];
 
 /*KP : http get kpMongoDBUri api endpoint */
-app.get("/url", (req, res, next) => {
+app.get("/idols", (req, res, next) => {
   //res.setHeader('Content-Type','application/json');
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('Access-Control-Allow-Origin','*');
@@ -183,8 +180,8 @@ app.get("/api", (req, res, next) => {
   res.json(["Gowri","Srinidhi","Siva"]);
  });
 
- ///KP : http get kpMongoDBUri api endpoint
-app.get("/kpMongoDBUri", (req, res, next) => {
+ ///KP : http get kpUri api endpoint
+app.get("/kpUri", (req, res, next) => {
   //res.setHeader('Content-Type','application/json');
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('Access-Control-Allow-Origin','*');

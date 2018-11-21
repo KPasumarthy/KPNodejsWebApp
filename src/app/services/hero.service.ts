@@ -7,7 +7,6 @@ import { MessageService } from '../messages/message.service';
 import { catchError, map, tap} from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 //KP : Import MongoDB URL
-import { MongodbService} from '../mongodb/mongodb.service';
 import { ResponseType } from '@angular/http';
 //import { MongoClient } from '..';
 

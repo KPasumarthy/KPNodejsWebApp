@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 //KP : Additional Component added!!
 import { Hero } from '../modules/hero';
 import { HeroService } from '../services/hero.service';
-//KP : Add additional MongoDBComponent added!!
-import { MongodbService } from '../mongodb/mongodb.service';
+//KP : Add additional MongoDBNoSQLComponent added!!
+
 
 @Component({
   selector: 'app-dashboard',
@@ -15,21 +15,15 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private heroService: HeroService
-    ,private mongodbService: MongodbService
     ) { }
 
   ngOnInit() {
     this.getHeros();
-    this.getMongoDB();
   }
 
   getHeros(): void {
     this.heroService.getHeroes()
         .subscribe(heros => this.heroes = heros.slice(1, 5));
-  }
-
-  getMongoDB(): void{
-    this.mongodbService.kptest();
   }
 
 }

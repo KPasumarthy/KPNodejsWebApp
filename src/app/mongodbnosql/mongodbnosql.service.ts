@@ -15,19 +15,18 @@ import * as MongoDBServer from 'mongodb'
 @Injectable({
   providedIn: 'root'
 })
-export class MongodbService {
+export class MongoDBNoSqlService {
 
   constructor(
       private http: HttpClient,
       private messageService: MessageService
-      //private mongodbService: MongodbService
       ) {
-      console.log("KP : MongodbService for MongoDB Access...");
+      console.log("KP : MongoDBNoSqlService for MongoDB Access...");
       //this.kptest();
    }
 
   // constructor() {
-  //     console.log("KP : MongodbService for MongoDB Access...");
+  //     console.log("KP : MongoDBNoSqlService for MongoDB Access...");
   //  }
 
   private handleError(error: any): Promise<any> {
@@ -36,7 +35,7 @@ export class MongodbService {
  }
 
  kptest(): Observable <any> {
-  console.log("KP : Here");
+  console.log("KP : MongoDBNoSqlService Here");
   return this.http.get(`http://localhost:2727/url`)
     .pipe(
       map((response: Response) => {

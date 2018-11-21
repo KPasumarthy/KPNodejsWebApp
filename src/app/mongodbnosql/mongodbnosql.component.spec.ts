@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MongodbComponent } from './mongodb.component';
+import { MongoDBNoSqlComponent } from './mongodbnosql.component';
 
 describe('MongodbComponent', () => {
-  let component: MongodbComponent;
-  let fixture: ComponentFixture<MongodbComponent>;
+  let component: MongoDBNoSqlComponent;
+  let fixture: ComponentFixture<MongoDBNoSqlComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MongodbComponent ]
+      declarations: [ MongoDBNoSqlComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MongodbComponent);
+    fixture = TestBed.createComponent(MongoDBNoSqlComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

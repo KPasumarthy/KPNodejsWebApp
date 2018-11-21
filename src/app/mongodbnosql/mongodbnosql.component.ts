@@ -10,17 +10,17 @@ import { Http } from  '@angular/http';
 // import * as bodyParser from 'body-parser';
 // import * as cookieParser from 'cookie-parser';
 //import { NgHttp } from '../../../node_modules/@angular/http';
-import { Router } from '../../../node_modules/@angular/router';
+import { Router } from '@angular/router';
 //import { error } from '@angular/compiler/src/util';
 
 
 
 @Component({
-  selector: 'app-mongodb',
-  templateUrl: './mongodb.component.html',
-  styleUrls: ['./mongodb.component.css']
+  selector: 'app-mongodbnosql',
+  templateUrl: './mongodbnosql.component.html',
+  styleUrls: ['./mongodbnosql.component.css']
 })
-export class MongodbComponent implements OnInit {
+export class MongoDBNoSqlComponent implements OnInit {
 
   ////KP : Class Constructor
   //constructor() {}
@@ -32,7 +32,7 @@ export class MongodbComponent implements OnInit {
 
   kptest(){
 
-    console.log("KP : Mongodb Component for MongoDB Access...");
+    console.log("KP : MongoDBNoSqlComponent for MongoDB Access...");
 
     //Router
     //var router = Router;

@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { MongodbService } from './mongodb.service';
+import { MongodbService } from './mongodbnosql.service';
 
 describe('MongodbService', () => {
   beforeEach(() => {

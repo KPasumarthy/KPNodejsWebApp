@@ -14,7 +14,7 @@ import { HeroDetailComponent }  from './hero-detail/hero-detail.component';
 import { HeroesComponent }      from './heroes/heroes.component';
 import { HeroSearchComponent }  from './hero-search/hero-search.component';
 import { MessagesComponent }    from './messages/messages.component';
-import { MongodbComponent }     from './mongodb/mongodb.component';
+import { MongoDBNoSqlComponent }     from './mongodbnosql/mongodbnosql.component';
 import { DemoService }          from './services/demo.service';
  
 @NgModule({
@@ -41,7 +41,7 @@ import { DemoService }          from './services/demo.service';
     HeroDetailComponent,
     MessagesComponent,
     HeroSearchComponent,
-    MongodbComponent
+    MongoDBNoSqlComponent
     //DemoService
   ],
   providers: [DemoService],
