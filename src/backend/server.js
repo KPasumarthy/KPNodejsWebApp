@@ -225,9 +225,13 @@ app.get('/api/movies', function (req, res){
 // /*KP : MongoDB Connection*/
 var MongoClient = require('mongodb').MongoClient;
 
+////Varibales to store MongoDB Documents
+var customersAgeSorted = "";
+var customers3Limit = "";
+
 /// Connect to the db
 //MongoClient.connect("mongodb://localhost:27017/KPMongoDB", { useNewUrlParser: true}, function(err, db) {
-  MongoClient.connect("mongodb://localhost:27017/", { useNewUrlParser: true}, function(err, db) {
+MongoClient.connect("mongodb://localhost:27017/", { useNewUrlParser: true}, function(err, db) {
     
 //KP : Error-Check to establish if MongoDB Connection is established!
 if(!err) {
@@ -354,6 +358,7 @@ if(!err) {
       if (errDbo) throw errDbo;
       if (dispLog === true) 
       {
+        customersAgeSorted = result;
         console.log(result);
         console.log('\n');
       }
@@ -366,6 +371,7 @@ if(!err) {
         if (errDbo) throw errDbo;
         if (dispLog === !true) 
         {
+          customers3Limit = result;
           console.log(result);
           console.log('\n');
         }
@@ -411,6 +417,29 @@ if(!err) {
 });
 
 /*** KP : MongoDB Connection  ***/
+/******************************************************************************************************************** */
+
+
+/******************************************************************************************************************** */
+/*** KP : MongoDB Documents served on Node APIs ***/
+///KP : http get customersAgeSorted api endpoint
+///CRUD : Create Operation : http get()
+app.get('/mongodbnosqlapi/customersAgeSorted', function (req, res){
+  //res.setHeader('Content-Type','text/html');
+  res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Access-Control-Allow-Origin','*');
+  res.setHeader('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
+  res.send(customersAgeSorted);
+});
+///KP : http get customers3Limit api endpoint
+app.get('/mongodbnosqlapi/customers3Limit', function (req, res){
+  //res.setHeader('Content-Type','text/html');
+  res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Access-Control-Allow-Origin','*');
+  res.setHeader('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
+  res.send(customers3Limit);
+});
+/*** KP : MongoDB Documents served on Node APIs ***/
 /******************************************************************************************************************** */
 
 

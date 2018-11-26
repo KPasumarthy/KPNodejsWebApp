@@ -14,8 +14,10 @@ import { HeroDetailComponent }  from './hero-detail/hero-detail.component';
 import { HeroesComponent }      from './heroes/heroes.component';
 import { HeroSearchComponent }  from './hero-search/hero-search.component';
 import { MessagesComponent }    from './messages/messages.component';
-import { MongoDBNoSqlComponent }     from './mongodbnosql/mongodbnosql.component';
+import { MongoDBNoSqlComponent}     from './mongodbnosql/mongodbnosql.component';
+import {MongoDBNoSqlService}    from './mongodbnosql/mongodbnosql.service';
 import { DemoService }          from './services/demo.service';
+import { HeroService }          from './services/hero.service';
  
 @NgModule({
   imports: [
@@ -44,7 +46,8 @@ import { DemoService }          from './services/demo.service';
     MongoDBNoSqlComponent
     //DemoService
   ],
-  providers: [DemoService],
+  //providers: [DemoService], //KP : DemoService - A Working Provider
+  providers: [DemoService, HeroService, MongoDBNoSqlService],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

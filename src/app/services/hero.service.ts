@@ -7,18 +7,24 @@ import { MessageService } from '../messages/message.service';
 import { catchError, map, tap} from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 //KP : Import MongoDB URL
-import { ResponseType } from '@angular/http';
+//import { ResponseType } from '@angular/http';
 //import { MongoClient } from '..';
 
-//KP : Declaring Const
-const httpOptions = {
-  headers : new HttpHeaders({'Content-Type':'application/json'})
-}
+// //KP : Declaring Const
+// const httpOptions = {
+//   headers : new HttpHeaders({'Content-Type':'application/json'})
+// }
+ const httpOptions = {
+  headers: new HttpHeaders( {'Content-Type':'application/json',
+                             'Access-Control-Allow-Origin': '*',
+                             'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'}
+  )};
 
 //KP : Use MongoDB Client
 //var Cloudant = require('@cloudant/cloudant');
 //var MongoClient  = require('mongodb').MongoClient;
 
+//@Injectable()
 @Injectable({ providedIn: 'root' })
 export class HeroService {
  
@@ -29,6 +35,12 @@ export class HeroService {
     private messageService: MessageService
     //private mongodbService: MongodbService
     ) { }
+
+    ////KP : Uses http.get() to load food data from a single API endpoint
+  getHeroesNonObservable() {
+      return this.http.get('/api/heroes');
+  }
+
  
   /** GET heroes from the server */
   getHeroes (): Observable<Hero[]> {
