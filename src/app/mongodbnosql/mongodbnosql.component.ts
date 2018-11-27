@@ -1,17 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 //KP : Add (or) import components from angular core
-import { MongoDB } from 'mongodb';
-import { Mongoose } from 'mongoose';
-import { HttpClient } from '@angular/common/http';
-import { Http } from  '@angular/http';
-//import { request } from 'http';
-// import * as path from 'path';
-// import * as express from 'express';
-// import * as bodyParser from 'body-parser';
-// import * as cookieParser from 'cookie-parser';
-//import { NgHttp } from '../../../node_modules/@angular/http';
 import { Router } from '@angular/router';
-//import { error } from '@angular/compiler/src/util';
+import { DemoService } from '../services/demo.service';
+import { MongoDBNoSqlService } from  './mongodbnosql.service';
 
 
 
@@ -24,11 +15,97 @@ export class MongoDBNoSqlComponent implements OnInit {
 
   ////KP : Class Constructor
   //constructor() {}
-  constructor(private router : Router){}
+  //constructor(private router : Router){
 
-  ngOnInit() {
-    this.kptest();
-  }
+    title = 'KPNodeJSWebApp : Angular 6 : ng-App & MongoDB';
+    public foods;
+    public books;
+    public movies;
+    public kpUri;
+    public idols;
+    public heroes;
+    public heroesNonObs;
+    public customersAgeSorted;
+    public customers3Limit;
+  
+    //constructor(private _demoService: DemoService) {}  
+    constructor(
+      private _router : Router,
+      private _mongoDBNoSqlService: MongoDBNoSqlService      
+    ) {}  
+  
+    //KP : Additional ngOnInit() method add
+    ngOnInit() {
+      this.getIdols();
+      this.getkpUri();
+      this.getFoods();
+      this.getBooks();
+      this.getMovies();
+      this.getCustomersAgeSorted();
+      this.getCustomers3Limit();
+      //this.kptest();  ////KP: Issues in connecting through the Router!
+    }
+  
+  
+    /***MongoDB Service : Service Methods ***/
+    getIdols() {
+      this._mongoDBNoSqlService.getIdols().subscribe(
+        data => {this.idols = data},
+        err => console.error("KP : App-Component MongoDBService throwing errors : " + err),
+        () => console.log("KP : App-Component MongoDBService Done loading Idols!")
+      )
+    }
+  
+    getFoods() {
+      this._mongoDBNoSqlService.getFoods().subscribe(
+        data => { this.foods = data },
+        err => console.error("KP : App-Component MongoDBService throwing errors : " + err),
+        () => console.log("KP : App-Component MongoDBService Done loading foods!")
+      );
+    }
+  
+    getBooks() {
+      this._mongoDBNoSqlService.getBooks().subscribe(
+        data => {this.books = data},
+        err => console.error("KP : App-Component MongoDBService throwing errors : " + err),
+        () => console.log("KP : App-Component MongoDBService Done loading books!")
+      )
+    }
+  
+    getMovies() {
+      this._mongoDBNoSqlService.getMovies().subscribe(
+        data => {this.movies = data},
+        err => console.error("KP : App-Component MongoDBService throwing errors : " + err),
+        () => console.log("KP : App-Component MongoDBService Done loading movies!")
+      )
+    }
+  
+    getCustomersAgeSorted(){
+      this._mongoDBNoSqlService.getCustomersAgeSorted().subscribe(
+        data => {this.customersAgeSorted = data},
+        err => console.error("KP : App-Component MongoDBService throwing errors : " + err),
+        () => console.log("KP : App-Component MongoDBService Done loading Age Sorted Customers !")
+      )
+    };
+  
+    getCustomers3Limit(){
+      this._mongoDBNoSqlService.getCustomers3Limit().subscribe(
+        data => {this.customers3Limit = data},
+        err => console.error("KP : App-Component MongoDBService throwing errors : " + err),
+        () => console.log("KP : App-Component MongoDBService Done loading Customers limited to 3 !")
+      )
+    }
+
+    getkpUri() {
+      this._mongoDBNoSqlService.getkpUri().subscribe(
+        data => {this.kpUri = data},
+        err => console.error("KP : App-Component DemoService throwing errors : " + err),
+        () => console.log("KP : App-Component DemoService Done loading kpUri data elements!")
+      )
+    }
+  
+    // /***MongoDB Service : Service Methods ***/
+      
 
   kptest(){
 
@@ -36,7 +113,8 @@ export class MongoDBNoSqlComponent implements OnInit {
 
     //Router
     //var router = Router;
-    this.router.navigateByUrl(`/url`).then(function mySuccess(response) {
+    var routerUrl = 'http://localhost:2727/idols'; 
+    this._router.navigateByUrl(routerUrl).then(function mySuccess(response) {
       console.log("KP : Successfully Connected to the Node Server through Router to access MongoDB ..." + response);
       }, function myError(err) {
         console.log("KP : Error in Connecting to the Node Server through Router to access MongoDB ..." + err);

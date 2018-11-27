@@ -24,25 +24,17 @@ app.set('port', port);
 /***KP : Testing a Router Method  ***/
 /***KP : Declare a Router***/
 // const router = express.Router(
-//   { path: 'url', service:app.get(`url`)}
+//   { path: '/idols', service:app.get(`idols`)}
 // );
-// router.get('/url', (req, res) =>{
+// router.get('/idols', (req, res) =>{
 //   console.log(`KP : 'ng-Router' is running on NodeJS Server : ` );
-//   request.get(`http://127.0.0.1:2727/url`)
+//   request.get(`http://127.0.0.1:2727/idols`)
 //   .then(
 //     response => res.send(JSON.parse(response).subset),
 //     err => res.status(500).send(err)
 //   );
 // });
 //KP : Constant Routes
-// const routes: Routes = [
-//   // { path: '', redirectTo: '/dashboard', pathMatch: 'full'},  ////KP:Commented-Out Default Route just to test other routes
-//   { path: 'dashboard', component: DashboardComponent},
-//   { path: 'detail/:id', component: HeroDetailComponent },
-//   { path: 'heroes', component: HeroesComponent},
-//   { path: 'mongodbcomponent', component: MongodbComponent}
-//   //{ path: 'mongodbservice', service:  MongodbService}
-// ];
 /***KP : Testing a Router Method ****/
 /************************************/
 

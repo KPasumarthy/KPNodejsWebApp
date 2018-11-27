@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { MongodbService } from './mongodbnosql.service';
+import { MongoDBNoSqlService } from './mongodbnosql.service';
 
 describe('MongodbService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [MongodbService]
+      providers: [MongoDBNoSqlService]
     });
   });
 
-  it('should be created', inject([MongodbService], (service: MongodbService) => {
+  it('should be created', inject([MongoDBNoSqlService], (service: MongoDBNoSqlService) => {
     expect(service).toBeTruthy();
   }));
 });

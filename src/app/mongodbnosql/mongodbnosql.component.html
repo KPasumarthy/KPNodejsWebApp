@@ -1,3 +1,50 @@
+
+  <div>
+    <h3>Angular 6 Demo App : Idols</h3>
+    <ul>
+      <li *ngFor="let idol of idols">{{idol}}</li>
+    </ul>
+
+    <h3>URIs</h3>
+    <ul>
+      <li *ngFor="let uri of kpUri">{{uri}}</li>
+    </ul>
+
+    <h3>MongoDB Server APIs : Age Sorted Customers</h3>
+    <ul>
+      <li *ngFor="let customer of customersAgeSorted">
+        {{customer.first_name}} {{customer.last_name}}
+        {{customer.age}} {{customer.address.city}}
+      </li>
+    </ul>
+
+    <h3>Angular 6 HttpClient Demo Service APIs</h3> 
+    <h3>Books</h3>
+    <ul>
+      <li *ngFor="let book of books">{{book.title}} : {{book.author}}</li>
+    </ul>
+
+    <h3>Foods</h3>
+    <ul>
+      <li *ngFor="let food of foods">{{food.id}} : {{food.name}}</li>
+    </ul>
+
+    <h3>Movies</h3>
+    <ul>
+      <li *ngFor="let movie of movies">{{movie.title}}</li>
+    </ul>
+
+    <!-- <h3>Heroes</h3>
+    <ul>
+      <li *ngFor="let hero of heroesNonObs">{{heroesNonObs.name}}</li>
+    </ul> -->
+
+    <!-- <h3>Heroes</h3>
+    <ul>
+      <li *ngFor="let hero of heroes">{{heroes.name}}</li>
+    </ul> -->
+</div>
+
 <p>
   MongoDBNoSql Works!
 </p>
