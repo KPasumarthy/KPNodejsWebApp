@@ -11,7 +11,6 @@ const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const cookieSession = require('cookie-session');
 
-
 /***** KP : NodeJS Express APP/API Server *****/
 /*KP : NodeJS Express App hosted on Node Server set to handle HTTPS API Service Requests */
 const app = express();
@@ -207,6 +206,55 @@ app.get('/api/movies', function (req, res){
   res.setHeader('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
   res.send(movies);
 });
+
+///KP : http get WakefernStairCase api endpoint
+  /*** KP : Wakefern Hackethon
+  MarkPoko : There exists a staircase with N steps, and you can climb up either 1 or 2 steps at a time. 
+  Given N, write a function that returns the number of unique ways you can climb the staircase. 
+  The order of the steps matters.For example, if N is 4, then there are 5 unique ways:
+  1, 1, 1, 1
+  2, 1, 1
+  1, 2, 1    
+  1, 1, 2    
+  2, 2    
+  What if, instead of being able to climb 1 or 2 steps at a time, 
+  you could climb any number from a set of positive integers X? 
+  For example, if X = {1, 3, 5}, you could climb 1, 3, or 5 steps at a time.
+  ***/
+var wakefernStairCase = [
+  { "title": "Chi-Chen Huang" },
+  { "title": "Star Wars" },
+  { "title": "Batman Begins" }
+];
+app.get('/api/wakefernStairCase', function (req, res){
+  //res.setHeader('Content-Type','application/json');
+  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Access-Control-Allow-Origin','*');
+  res.setHeader('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
+
+  var Nn = 5;
+  var num = new Array(5);
+  var temp;
+  var i, n=5, j;
+  for (j = 1; j <= n; j++) {
+    for (i = 0; i < n-1; i++) {
+        temp = num[i];
+        num[i] = num[i+1];
+        num[i+1] = temp;
+        console.log(num, n);
+    }
+  }
+
+  res.send(wakefernStairCase);
+});
+
+
+function getStepsInWFCStairCase() {
+  return wakefernStairCase;
+}
+
+
+
 
 //KP : Node App Service APIs 
 /*********************************************************************************************************************/
@@ -412,15 +460,18 @@ if(!err) {
 /******************************************************************************************************************** */
 
 
+
+
 /******************************************************************************************************************** */
 /*** KP : MongoDB Documents served on Node APIs ***/
 ///KP : http get customersAgeSorted api endpoint
-///CRUD : Create Operation : http get()
+///CRUD : Retrieve Operation : $http.get()
 app.get('/mongodbnosqlapi/customersAgeSorted', function (req, res){
   //res.setHeader('Content-Type','text/html');
   res.setHeader('Content-Type', 'application/json');
   res.setHeader('Access-Control-Allow-Origin','*');
   res.setHeader('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
+  console.log("KP : MongoDB app.get(customersAgeSorted) : " + JSON.stringify(customersAgeSorted) );
   res.send(customersAgeSorted);
 });
 ///KP : http get customers3Limit api endpoint
@@ -429,8 +480,26 @@ app.get('/mongodbnosqlapi/customers3Limit', function (req, res){
   res.setHeader('Content-Type', 'application/json');
   res.setHeader('Access-Control-Allow-Origin','*');
   res.setHeader('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
+  console.log("KP : MongoDB app.get(customersAgeSorted) : " + JSON.stringify(customers3Limit) );
   res.send(customers3Limit);
 });
+///KP: http post data api endpoint
+///CRUD : Create Operation : $http.post() : Create & $http.Post() a customer
+/*KP : Customer Class */
+
+app.post('/mongodbnosqlapi/createCustomer', function(req, res){
+  var body = req.body;
+  var customer = JSON.stringify(body);       //Customer(body);
+  save().then(() => {
+    console.log("KP : MongoDB app.post(createCustomer) : " + JSON.stringify(body) );
+    res.status(200).send();})
+    .catch((e) => {
+      res.send(400).send(e);
+    });
+});
+function fetchResponseByURL(relativeURL, query='') {
+  return fetch(`${BASE_URL}${relativeURL}?app_id=${config.teacherlists.app_id}&app_key=${config.teacherlists.app_key}${query}`).then(res => res.json());
+}
 /*** KP : MongoDB Documents served on Node APIs ***/
 /******************************************************************************************************************** */
 

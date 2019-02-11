@@ -1,10 +1,22 @@
-  <!--The content below is only a placeholder and can be replaced.-->
-  <div style="text-align:center">
+<div class="jumbotron text-center">
+  <h1>KP : First Bootstrap Page</h1>
+
     <h3>Welcome</h3>
     <h2>
        {{ title }}!
     </h2>
-  </div>
+</div>
+
+
+
+
+<!--The content below is only a placeholder and can be replaced.-->
+  <!-- <div style="text-align:center">
+    <h3>Welcome</h3>
+    <h2>
+       {{ title }}!
+    </h2>
+  </div> -->
   
   <!--KP : Heroes API Service & Components failing here : Commented Out!!!-->
   <!-- <div class="container"> -->
@@ -14,9 +26,14 @@
     </nav> -->
 
     <router-outlet></router-outlet>
-    <!-- <app-mongodbnosql></app-mongodbnosql> -->
+    <!-- KP : There are 2Ways of rendering the MongoDBNOSql results : 
+           1) Components : <app-mongodbnosql></app-mongodbnosql>
+           2) Routers : app-routing.module.ts { path: 'mongodbnosql', component: MongoDBNoSqlComponent}
+    -->
+    <!--KP : //{ path: 'mongodbnosql', component: MongoDBNoSqlComponent},  -->
+    <app-mongodbnosql></app-mongodbnosql>
     <!-- <app-heroes></app-heroes> -->
-    <!-- <app-messages></app-messages>-->
+    <!-- <app-messages></app-messages> -->
   <!--KP : Heroes API Service & Components failing here : Commented Out!!!-->
 
   <!-- <div>

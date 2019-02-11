@@ -5,7 +5,6 @@ import { DemoService } from '../services/demo.service';
 import { MongoDBNoSqlService } from  './mongodbnosql.service';
 
 
-
 @Component({
   selector: 'app-mongodbnosql',
   templateUrl: './mongodbnosql.component.html',
@@ -27,6 +26,7 @@ export class MongoDBNoSqlComponent implements OnInit {
     public heroesNonObs;
     public customersAgeSorted;
     public customers3Limit;
+    public wakefernStairCase;
   
     //constructor(private _demoService: DemoService) {}  
     constructor(
@@ -43,6 +43,7 @@ export class MongoDBNoSqlComponent implements OnInit {
       this.getMovies();
       this.getCustomersAgeSorted();
       this.getCustomers3Limit();
+      //this.getWakefernStairCase();
       //this.kptest();  ////KP: Issues in connecting through the Router!
     }
   
@@ -75,6 +76,7 @@ export class MongoDBNoSqlComponent implements OnInit {
     getMovies() {
       this._mongoDBNoSqlService.getMovies().subscribe(
         data => {this.movies = data},
+        //data => {this.wakefernStairCase = data},
         err => console.error("KP : App-Component MongoDBService throwing errors : " + err),
         () => console.log("KP : App-Component MongoDBService Done loading movies!")
       )
@@ -101,6 +103,27 @@ export class MongoDBNoSqlComponent implements OnInit {
         data => {this.kpUri = data},
         err => console.error("KP : App-Component DemoService throwing errors : " + err),
         () => console.log("KP : App-Component DemoService Done loading kpUri data elements!")
+      )
+    }
+
+    /*** KP : Wakefern Hackethon
+    MarkPoko : There exists a staircase with N steps, and you can climb up either 1 or 2 steps at a time. 
+    Given N, write a function that returns the number of unique ways you can climb the staircase. 
+    The order of the steps matters.For example, if N is 4, then there are 5 unique ways:
+    1, 1, 1, 1
+    2, 1, 1
+    1, 2, 1    
+    1, 1, 2    
+    2, 2    
+    What if, instead of being able to climb 1 or 2 steps at a time, 
+    you could climb any number from a set of positive integers X? 
+    For example, if X = {1, 3, 5}, you could climb 1, 3, or 5 steps at a time.
+    ***/
+    getWakefernStairCase(){
+      this._mongoDBNoSqlService.getWakefernStairCase().subscribe(
+        data => {this.wakefernStairCase = data},
+        err => console.error("KP : App-Component DemoService throwing errors : " + err),
+        () => console.log("KP : App-Component DemoService Done loading 'wakefernStairCase' data elements!")
       )
     }
   

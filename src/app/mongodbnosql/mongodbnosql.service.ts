@@ -46,4 +46,8 @@ export class MongoDBNoSqlService {
     return this.http.get('http://localhost:2727/mongodbnosqlapi/customers3Limit');
   };
 
+  getWakefernStairCase(){
+    return this.http.get('http://localhost:2727/api/wakefernStairCase');
+  };
+
 }

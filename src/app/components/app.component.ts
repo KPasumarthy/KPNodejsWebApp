@@ -15,7 +15,8 @@ import { MongoDBNoSqlService } from '../mongodbnosql/mongodbnosql.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'KPNodeJSWebApp : Angular 6 : ng-App & MongoDB';
+  title = `KPNodeJSWebApp 
+  Angular 6 : ng-App & MongoDB`;    ///// KP : Angular 6 - Backticks
 
   //constructor(private _demoService: DemoService) {}  
   constructor(
