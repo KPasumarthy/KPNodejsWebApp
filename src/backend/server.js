@@ -177,7 +177,7 @@ app.get("/kpUri", (req, res, next) => {
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('Access-Control-Allow-Origin','*');
   res.setHeader('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
-  res.json(["Srinidhi","Revathi", "Kailash"]);
+  res.json(["Srinidhi","Naasti", "Kailash"]);
  });
  
 ///KP : http get foods api endpoint
