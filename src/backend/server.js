@@ -283,24 +283,31 @@ if(!err) {
 
     ////KP : isMongoDB Connection Object Check - Successfull
     var isMongodbConn = db.isConnected();
-    console.log("KP : Mongodb Connection Check : isMongodbConn !" + isMongodbConn);
+    console.log("KP : MongoDB Connection Check : isMongodbConn !" + isMongodbConn);
 
-    // ////KP : Check if a certain Mongo db or collection exist
-    // dbo.collection("customers").drop(function(err, res) {
-    //   if (err) throw err;
-    //   console.log("Number of Customers documents dropped: " + res.droppedCount);
-    // });
-    // dbo.createCollection("customers", function(err, res) {
-    //   if (err) throw err;
-    //   console.log("Customer Collection created" + res);
-    // });
-    // //KP : CRUD : Retrieve Access MongoDB Connection Object 'db' Properties & Parameters.
 
+    // ////KP : CRUD : Retrieve Access MongoDB Connection Object 'db' Properties & Parameters.
+    //dbo.collection("customers").find({}).toArray(function(errDbo, result) {
+    //db.db("KPMongoDB").collection("customers").find({}).toArray(function(errDbo, result) {
+    //db.db("KPMongoDB").collection("customers.insertdb.customers").find({}).toArray(function(errDbo, result) {      
+    dbo.collection("customers.insertdb.customers").find({}).toArray(function(errDbo, result) {      
+    console.log("KP : MongoDB Collection : KPMongoDB.customers.insertdb.customers" );
+        if (errDbo) throw errDbo;
+        if (dispLog === true) 
+        {
+          console.log(result);
+          console.log('\n');
+          //db.close();   //KP : Don't close the connection as of yet
+        }
+      });
+
+
+    // // ////KP : Check if a certain Mongo db or collection exist
     // // // //////KP : isMongoDB Create Customer Collection Object Check - Successfull
     // var myCustomersObj = [
     //                         { _id:1, first_name:"Kailash", last_name:"Pasumarthy", gender:"male", 
-    //                                 address:{ street:"45 Riverbend Pkwy, #Plaza 7", city:"Princeton", state:"NJ", zipcode:"08850", country:"USA" },
-    //                                 age : 42, balance:2736.45
+    //                                 address:{ street:"262 Central Avenue", city:"Edison", state:"NJ", zipcode:"08817", country:"USA" },
+    //                                 age : 45, balance:2736.45
     //                         },
     //                         { 
     //                           _id:2, first_name:"Brian", last_name:"Carter",  gender:"male",
@@ -333,87 +340,108 @@ if(!err) {
     //     console.log("Number of customers documents inserted: " + res.insertedCount);
     //     //db.close();
     //   });
-  
-    // // //////KP : isMongoDB Create Car Collection Object Check - Successfull
+    // ////KP : CRUD : Retrieve Access MongoDB Connection Object 'db' Properties & Parameters.
+    //dbo.collection("customers").find({}).toArray(function(errDbo, result) {
+    //db.db("KPMongoDB").collection("customers").find({}).toArray(function(errDbo, result) {
+    //db.db("KPMongoDB").collection("customers.insertdb.customers").find({}).toArray(function(errDbo, result) {      
+      dbo.collection("customers").find({}).toArray(function(errDbo, result) {     
+        console.log("KP : MongoDB Collection : KPMongoDB.customers" ); 
+        if (errDbo) throw errDbo;
+        if (dispLog === true) 
+        {
+          console.log(result);
+          console.log('\n');
+          //db.close();   //KP : Don't close the connection as of yet
+        }
+      });  
+
+
+    // // // // //////KP : isMongoDB Create Car Collection Object Check - Successfull
     //   var myCarObj = [
     //                       { _id : 1, first_name : "Chi-Chen", last_name : "Huang", car : "Hyaundai", model : "Santa Fe" }
-    //                     // , { _id : 2, first_name : "Hillary", last_name : "Clendon", car : "Chrysler", model : "Pacifica" }
-    //                     // , { _id : 3, first_name : "BalaRaju", last_name : "BuddhaRaju", car : "Maruthi-Suzuki", model : "Alto" }
-    //                     // , { _id : 4, first_name : "Kailash", last_name : "Pasumarthy", car : "Honda", model : "CRV" }
-    //                     // , { _id : 5, first_name : "Brian", last_name : "Carter", car : "Chevorolet", model : "Bolt" }
-    //                     // , { _id : 6, first_name : "Theresa", last_name : "May", car : "Bentley", model : "Continental" }
+    //                     , { _id : 2, first_name : "Hillary", last_name : "Clendon", car : "Chrysler", model : "Pacifica" }
+    //                     , { _id : 3, first_name : "BalaRaju", last_name : "BuddhaRaju", car : "Maruthi-Suzuki", model : "Alto" }
+    //                     , { _id : 4, first_name : "Kailash", last_name : "Pasumarthy", car : "Honda", model : "CRV" }
+    //                     , { _id : 5, first_name : "Brian", last_name : "Carter", car : "Chevorolet", model : "Bolt" }
+    //                     , { _id : 6, first_name : "Theresa", last_name : "May", car : "Bentley", model : "Continental" }
     //   ];
-    //   // dbo.collection("cars").drop(function(err, res) {
-    //   //   if (err) throw err;
-    //   //   console.log("Number of Cars documents dropped: " + res.droppedCount);
-    //   // });
-    //   dbo.createCollection("cars", function(err, res) {
-    //     if (err) throw err;
-    //     console.log("Cars Collection created" + res);
-    //   });
     //   dbo.collection("cars").insertMany(myCarObj, function(err, res) {
     //     if (err) throw err;
     //     console.log("Number of car documents inserted: " + res.insertedCount);
     //     //db.close();
     //   });
+    // // ////KP : CRUD : Retrieve Access MongoDB Connection Object 'db' Properties & Parameters.
+    // //dbo.collection("cars").find({}).toArray(function(errDbo, result) {
+    // //db.db("KPMongoDB").collection("customers").find({}).toArray(function(errDbo, result) {
+    // //db.db("KPMongoDB").collection("customers.insertdb.customers").find({}).toArray(function(errDbo, result) {      
+      dbo.collection("cars").find({}).toArray(function(errDbo, result) {   
+        console.log("KP : MongoDB Collection : KPMongoDB.cars" ); 
+        if (errDbo) throw errDbo;
+        if (dispLog === true) 
+        {
+          console.log(result);
+          console.log('\n');
+          //db.close();   //KP : Don't close the connection as of yet
+        }
+      });
 
     // ////KP : CRUD : Retrieve Access MongoDB Connection Object 'db' Properties & Parameters.
-    // dbo.collection("customers").find({}).toArray(function(errDbo, result) {
-    //   if (errDbo) throw errDbo;
-    //   if (dispLog === true) 
-    //   {
-    //     console.log(result);
-    //     console.log('\n');
-    //     //db.close();   //KP : Don't close the connection as of yet
-    //   }
-    // });
+    dbo.collection("customers").find({}).toArray(function(errDbo, result) {
+      if (errDbo) throw errDbo;
+      if (dispLog === true) 
+      {
+        console.log(result);
+        console.log('\n');
+        //db.close();   //KP : Don't close the connection as of yet
+      }
+    });
 
     // ////KP : CRUD : Retrieve Access MongoDB Connection Object 'db' Properties & Parameters.
-    // dbo.collection("cars").find({}).toArray(function(errDbo, result) {
-    //   if (errDbo) throw errDbo;
-    //   if (dispLog === true) 
-    //   {        
-    //     console.log(result);
-    //     console.log('\n');
-    //     //db.close();   //KP : Don't close the connection as of yet
-    //   }
-    // });
+    dbo.collection("cars").find({}).toArray(function(errDbo, result) {
+      if (errDbo) throw errDbo;
+      if (dispLog === true) 
+      {        
+        console.log(result);
+        console.log('\n');
+        //db.close();   //KP : Don't close the connection as of yet
+      }
+    });
 
     // ////KP : CRUD : Query a Customer into MongoDB - Commeted Out to prevent Duplicates
-    // var myQuery =  {first_name:"Chi-Chen"};  //{ first_name:"Kailash" };
-    // dbo.collection("customers").find(myQuery).toArray(function(errDbo, result){
-    //   if (errDbo) throw errDbo;
-    //   if (dispLog === !true) 
-    //   {
-    //     console.log(result);
-    //     console.log('\n');
-    //   }
-    // });
+    var myQuery =  {first_name:"Chi-Chen"};  //{ first_name:"Kailash" };
+    dbo.collection("customers").find(myQuery).toArray(function(errDbo, result){
+      if (errDbo) throw errDbo;
+      if (dispLog === !true) 
+      {
+        console.log(result);
+        console.log('\n');
+      }
+    });
 
     // // ////KP : CRUD : Sort a Customer from MongoDB - Some are NOT Sorted in same age Order - String & Numeric  
-    // var mySort = { age: 1 };
-    // dbo.collection("customers").find().sort(mySort).toArray(function(errDbo, result){
-    //   if (errDbo) throw errDbo;
-    //   if (dispLog === true) 
-    //   {
-    //     customersAgeSorted = result;
-    //     console.log(result);
-    //     console.log('\n');
-    //   }
-    // });
+    var mySort = { age: 1 };
+    dbo.collection("customers").find().sort(mySort).toArray(function(errDbo, result){
+      if (errDbo) throw errDbo;
+      if (dispLog === true) 
+      {
+        customersAgeSorted = result;
+        console.log(result);
+        console.log('\n');
+      }
+    });
     
     // // ////KP : limit() : Function limits the number of Mongo records to be retrieved
     // // ///      limit() in 'MongoDB' 'NoSQL' is similar to 'Top10()' in 'MSSQLServer'
-    // var myLimit = 3;
-    // dbo.collection("customers").find().limit(myLimit).toArray(function(errDbo, result){
-    //     if (errDbo) throw errDbo;
-    //     if (dispLog === !true) 
-    //     {
-    //       customers3Limit = result;
-    //       console.log(result);
-    //       console.log('\n');
-    //     }
-    // });
+    var myLimit = 3;
+    dbo.collection("customers").find().limit(myLimit).toArray(function(errDbo, result){
+        if (errDbo) throw errDbo;
+        if (dispLog === !true) 
+        {
+          customers3Limit = result;
+          console.log(result);
+          console.log('\n');
+        }
+    });
 
     // // ////KP : CRUD : Retrieve Access MongoDB Connection Object 'db' Properties & Parameters.
     // dbo.collection("customers").find({}).toArray(function(errDbo, result) {
