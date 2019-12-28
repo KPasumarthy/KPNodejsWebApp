@@ -523,9 +523,6 @@ app.post('/mongodbnosqlapi/createCustomer', function(req, res){
       res.send(400).send(e);
     });
 });
-function fetchResponseByURL(relativeURL, query='') {
-  return fetch(`${BASE_URL}${relativeURL}?app_id=${config.teacherlists.app_id}&app_key=${config.teacherlists.app_key}${query}`).then(res => res.json());
-}
 /*** KP : MongoDB Documents served on Node APIs ***/
 /******************************************************************************************************************** */
 
