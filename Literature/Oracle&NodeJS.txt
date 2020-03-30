@@ -1,0 +1,2 @@
+#KP : Oracle & NodeJS Literature
+https://oracle.github.io/node-oracledb/doc/api.html#examplequery

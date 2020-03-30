@@ -16,7 +16,7 @@ const cookieSession = require('cookie-session');
 const app = express();
 const hostname = '127.0.0.1';
 /*KP : Get port from environment and store in Express.*/
-const port = process.env.PORT || '2727';
+const port = process.env.PORT || '1919';
 app.set('port', port);
 
 //KP : Create https Server
@@ -127,7 +127,9 @@ app.get("/idols", (req, res, next) => {
 // // This example uses Node 8's async/await syntax.
 const oracledb = require('oracledb');
 oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
-const mypw = "NodeJSORAPassword2020"  // set mypw to the hr schema password
+const mypw = "NodeJSORAPassword2020";  // set mypw to the hr schema password
+var oraExeResult = "";
+
 async function run() {
 
   let connection;
@@ -161,6 +163,7 @@ async function run() {
       // [103],  // bind value for :id
     );
     console.log(result.rows);
+    oraExeResult = result;
 
     //result = await connection.getConnection();
     //console.log(result.rows);
@@ -182,6 +185,20 @@ run();
 // /*** KP : OracleDB Connection  ***/
 // /******************************************************************************************************************/
 
+/******************************************************************************************************************** */
+/*** KP : OracleDB Documents served on Node APIs ***/
+///KP : http get v$ api endpoint
+///CRUD : Retrieve Operation : $http.get()
+app.get('/oracledbapi/ORAv3database', function (req, res){
+  //res.setHeader('Content-Type','text/html');
+  res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Access-Control-Allow-Origin','*');
+  res.setHeader('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
+  console.log("KP : OracleDB Service APIs app.get(ORAv3database) : " + JSON.stringify(oraExeResult) );
+  console.log("KP : OracleDB Service APIs app.get(ORAv3database.rows) : " + JSON.stringify(oraExeResult.rows) );
+  res.send(oraExeResult);
+});
+/******************************************************************************************************************** */
 
 
 //KP : 'module.exports = app' - Command exports the app as ng-App

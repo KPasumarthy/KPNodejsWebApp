@@ -17,6 +17,7 @@ import { MongoDBNoSqlComponent}     from './mongodbnosql/mongodbnosql.component'
 import {MongoDBNoSqlService}    from './mongodbnosql/mongodbnosql.service';
 import { DemoService }          from './services/demo.service';
 import { HeroService }          from './services/hero.service';
+import { OracledbComponent } from './oracledb/oracledb.component';
  
 @NgModule({
   imports: [
@@ -42,7 +43,8 @@ import { HeroService }          from './services/hero.service';
     HeroDetailComponent,
     MessagesComponent,
     HeroSearchComponent,
-    MongoDBNoSqlComponent
+    MongoDBNoSqlComponent,
+    OracledbComponent
     //DemoService
   ],
   //providers: [DemoService], //KP : DemoService - A Working Provider

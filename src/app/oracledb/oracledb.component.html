@@ -1,0 +1,26 @@
+
+  <div>
+    <h3>OracleDB Angular 6  Oracle App : Idols</h3>
+    <ul>
+      <li *ngFor="let idol of idols">{{idol}}</li>
+    </ul>
+
+
+
+    <h3>Oracle DB v$database Table Rows</h3>
+    <div>
+      <p>Oracle DB v$database metadata</p>
+      <ul>
+        <li *ngFor="let row of oraV3dbRes.metaData">{{row.name}}</li>
+      </ul>
+      <p>Oracle DB v$database rows</p>
+      <ul>
+        <li *ngFor="let row of oraV3dbRes.rows">{{row.NAME}} : {{row.OPEN_MODE}} : {{row.CDB}}</li>
+      </ul>
+    </div>
+</div>
+
+
+<p>
+  oracledb works!
+</p>

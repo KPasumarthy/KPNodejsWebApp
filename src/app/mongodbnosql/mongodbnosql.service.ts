@@ -35,7 +35,9 @@ export class MongoDBNoSqlService {
 
   ////KP : Uses http.get() to get some url data from a single API endpoint
   getIdols() {
-      return this.http.get('http://localhost:2727/idols');
+      //return this.http.get('http://localhost:2727/idols');
+    return this.http.get('http://localhost:1919/oracledbapi/ORAv3database');
+
   }
 
   getCustomersAgeSorted(){
