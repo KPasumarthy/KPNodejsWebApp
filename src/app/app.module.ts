@@ -18,7 +18,13 @@ import {MongoDBNoSqlService}    from './mongodbnosql/mongodbnosql.service';
 import { DemoService }          from './services/demo.service';
 import { HeroService }          from './services/hero.service';
 import { OracledbComponent } from './oracledb/oracledb.component';
- 
+import {OracleDBService}        from './oracledb/oracledb.service';
+import { TopNavBarComponent } from './bootstrap/top-nav-bar/top-nav-bar.component';
+import { FooterComponent } from './bootstrap/footer/footer.component';
+import { BlogComponent } from './bootstrap/blog/blog.component';
+//import {OracledbModule}  from  './oracledb/oracledb.module.tst';
+
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -44,11 +50,14 @@ import { OracledbComponent } from './oracledb/oracledb.component';
     MessagesComponent,
     HeroSearchComponent,
     MongoDBNoSqlComponent,
-    OracledbComponent
+    OracledbComponent,
+    TopNavBarComponent,
+    FooterComponent,
+    BlogComponent
     //DemoService
   ],
   //providers: [DemoService], //KP : DemoService - A Working Provider
-  providers: [DemoService, HeroService, MongoDBNoSqlService],
+  providers: [DemoService, HeroService, MongoDBNoSqlService, OracleDBService],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
