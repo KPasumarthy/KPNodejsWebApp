@@ -1,0 +1,157 @@
+ <!-- Page Content -->
+<div class="container">
+
+<div class="row">
+
+<!-- Primitives Component Content-->
+
+
+<script>
+        var myApp = angular.module('myApp', []);
+
+        myApp.run(function ($rootScope) {
+            $rootScope.myColor = 'green';
+        });
+
+        myApp.filter('myFormat', function () {
+            return function (x) {
+                var i, c, txt = "";
+                for (i = 0; i < x.length; i++) {
+                    c = x[i];
+                    if (i % 2 == 0) {
+                        c = c.toUpperCase();
+                    }
+                    txt += c;
+                }
+                return txt;
+            };
+        });
+
+        myApp.controller('GreetingNamesController', ['$scope', function ($scope) {
+            $scope.greeting = 'Hola';
+            $scope.myColor = 'magenta';
+            $scope.names = [
+                                { name: 'Jani', lastName: 'Trump',  country: 'Norway' },
+                                { name: 'Hege', lastName: 'Clinton', country: 'Sweden' },
+                                { name: 'Kai', lastName: 'Bush', country: 'Denmark' },
+                                { name: 'Carl', lastName: 'Kelvin', country: 'Sweden' },
+                                { name: 'Margareth', lastName: 'Tatcher', country: 'England' },
+                                { name: 'Hege', lastName: 'Heinrich', country: 'Norway' },
+                                { name: 'Joe', lastName: 'Dickins', country: 'Denmark' },
+                                { name: 'Gustav', lastName: 'Niemann', country: 'Sweden' },
+                                { name: 'Birgit', lastName: 'Fischer', country: 'Denmark' },
+                                { name: 'Mary', lastName: 'Poppins', country: 'England' },
+                                { name: 'Kai', lastName: 'Strobel', country: 'Norway' }
+            ];
+            $scope.orderByMe = (function (x) {
+                $scope.myOrderBy = x;
+            });
+        }]);
+</script>
+
+<style>
+        table, th, td {
+            border: 2px solid green;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+
+            table tr:nth-child(odd) {
+                background-color: #f1f1f1;
+            }
+
+            table tr:nth-child(even) {
+                background-color: #FFF0F5;
+            }
+</style>
+
+<h2>AngularJS : Angular Scopes & Angular Controllers</h2>
+
+<div id="idngClick" ng-controller="GreetingNamesController" class="ng-scope">
+        <br>
+        <h4>AngularJS 'ng-click' directive on the table headers changes the sorting order of the array.</h4>
+        <table border="1" width="50%">
+            <tbody><tr>
+                <th ng-click="orderByMe('name')">SNo</th>
+                <th ng-click="orderByMe('name')">Name</th>
+                <th ng-click="orderByMe('lastName')">LastName</th>
+                <th ng-click="orderByMe('country')">Country</th>
+            </tr>
+            <!-- ngRepeat: x in names | orderBy : myOrderBy --><tr ng-repeat="x in names | orderBy : myOrderBy" class="ng-scope">
+                <td class="ng-binding">1</td>
+                <td class="ng-binding">Kai</td>
+                <td class="ng-binding">Bush</td>
+                <td class="ng-binding">Denmark</td>
+            </tr><!-- end ngRepeat: x in names | orderBy : myOrderBy --><tr ng-repeat="x in names | orderBy : myOrderBy" class="ng-scope">
+                <td class="ng-binding">2</td>
+                <td class="ng-binding">Joe</td>
+                <td class="ng-binding">Dickins</td>
+                <td class="ng-binding">Denmark</td>
+            </tr><!-- end ngRepeat: x in names | orderBy : myOrderBy --><tr ng-repeat="x in names | orderBy : myOrderBy" class="ng-scope">
+                <td class="ng-binding">3</td>
+                <td class="ng-binding">Birgit</td>
+                <td class="ng-binding">Fischer</td>
+                <td class="ng-binding">Denmark</td>
+            </tr><!-- end ngRepeat: x in names | orderBy : myOrderBy --><tr ng-repeat="x in names | orderBy : myOrderBy" class="ng-scope">
+                <td class="ng-binding">4</td>
+                <td class="ng-binding">Margareth</td>
+                <td class="ng-binding">Tatcher</td>
+                <td class="ng-binding">England</td>
+            </tr><!-- end ngRepeat: x in names | orderBy : myOrderBy --><tr ng-repeat="x in names | orderBy : myOrderBy" class="ng-scope">
+                <td class="ng-binding">5</td>
+                <td class="ng-binding">Mary</td>
+                <td class="ng-binding">Poppins</td>
+                <td class="ng-binding">England</td>
+            </tr><!-- end ngRepeat: x in names | orderBy : myOrderBy --><tr ng-repeat="x in names | orderBy : myOrderBy" class="ng-scope">
+                <td class="ng-binding">6</td>
+                <td class="ng-binding">Jani</td>
+                <td class="ng-binding">Trump</td>
+                <td class="ng-binding">Norway</td>
+            </tr><!-- end ngRepeat: x in names | orderBy : myOrderBy --><tr ng-repeat="x in names | orderBy : myOrderBy" class="ng-scope">
+                <td class="ng-binding">7</td>
+                <td class="ng-binding">Hege</td>
+                <td class="ng-binding">Heinrich</td>
+                <td class="ng-binding">Norway</td>
+            </tr><!-- end ngRepeat: x in names | orderBy : myOrderBy --><tr ng-repeat="x in names | orderBy : myOrderBy" class="ng-scope">
+                <td class="ng-binding">8</td>
+                <td class="ng-binding">Kai</td>
+                <td class="ng-binding">Strobel</td>
+                <td class="ng-binding">Norway</td>
+            </tr><!-- end ngRepeat: x in names | orderBy : myOrderBy --><tr ng-repeat="x in names | orderBy : myOrderBy" class="ng-scope">
+                <td class="ng-binding">9</td>
+                <td class="ng-binding">Hege</td>
+                <td class="ng-binding">Clinton</td>
+                <td class="ng-binding">Sweden</td>
+            </tr><!-- end ngRepeat: x in names | orderBy : myOrderBy --><tr ng-repeat="x in names | orderBy : myOrderBy" class="ng-scope">
+                <td class="ng-binding">10</td>
+                <td class="ng-binding">Carl</td>
+                <td class="ng-binding">Kelvin</td>
+                <td class="ng-binding">Sweden</td>
+            </tr><!-- end ngRepeat: x in names | orderBy : myOrderBy --><tr ng-repeat="x in names | orderBy : myOrderBy" class="ng-scope">
+                <td class="ng-binding">11</td>
+                <td class="ng-binding">Gustav</td>
+                <td class="ng-binding">Niemann</td>
+                <td class="ng-binding">Sweden</td>
+            </tr><!-- end ngRepeat: x in names | orderBy : myOrderBy -->
+        </tbody></table>
+        <br>
+    </div>
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+
+    <script src="node_modules/jquery/dist/bootstrap.js"></script>
+
+
+
+    <!-- Primitives Component Content-->
+
+
+</div>
+<!-- /.row -->
+
+</div>
+<!-- /.container -->
+
+<p>
+  primitives works!
+</p>

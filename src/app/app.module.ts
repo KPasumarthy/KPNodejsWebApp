@@ -22,6 +22,7 @@ import {OracleDBService}        from './oracledb/oracledb.service';
 import { TopNavBarComponent } from './bootstrap/top-nav-bar/top-nav-bar.component';
 import { FooterComponent } from './bootstrap/footer/footer.component';
 import { BlogComponent } from './bootstrap/blog/blog.component';
+import { PrimitivesComponent } from './bootstrap/primitives/primitives.component';
 //import {OracledbModule}  from  './oracledb/oracledb.module.tst';
 
 
@@ -53,7 +54,8 @@ import { BlogComponent } from './bootstrap/blog/blog.component';
     OracledbComponent,
     TopNavBarComponent,
     FooterComponent,
-    BlogComponent
+    BlogComponent,
+    PrimitivesComponent
     //DemoService
   ],
   //providers: [DemoService], //KP : DemoService - A Working Provider
