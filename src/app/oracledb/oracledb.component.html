@@ -8,14 +8,42 @@
 
 
   <div>
-    <h3>OracleDB Angular 6  Oracle App : Idols</h3>
+    <h3>OracleDB Angular 6  Oracle App : Idols - Table</h3>
+    <table>
+      <tr *ngFor="let idol of idols">{{idol}}</tr>
+    </table>
+
+    <h3>Oracle DB v$database Table Rows - Table</h3>
+    <div>
+      <p>Oracle DB v$database metadata</p>
+      <table>
+        <tr *ngFor="let row of oraV3dbRes.metaData">{{row.name}}</tr>
+      </table>
+      <p>Oracle DB v$database rows</p>
+      <table>
+        <tr *ngFor="let row of oraV3dbRes.rows">
+          <td>
+            {{row.NAME}} 
+          </td>
+          <td>
+           {{row.OPEN_MODE}}
+          </td>
+          <td>
+            {{row.CDB}}
+          </td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+
+  <div>
+    <h3>OracleDB Angular 6  Oracle App : Idols - List</h3>
     <ul>
       <li *ngFor="let idol of idols">{{idol}}</li>
     </ul>
 
-
-
-    <h3>Oracle DB v$database Table Rows</h3>
+    <h3>Oracle DB v$database Table Rows - List</h3>
     <div>
       <p>Oracle DB v$database metadata</p>
       <ul>
@@ -26,7 +54,9 @@
         <li *ngFor="let row of oraV3dbRes.rows">{{row.NAME}} : {{row.OPEN_MODE}} : {{row.CDB}}</li>
       </ul>
     </div>
-</div>
+
+
+  </div>
 
 <!-- OracleDB Component-->
 
