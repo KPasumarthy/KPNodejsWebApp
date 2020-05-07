@@ -23,6 +23,8 @@ import { TopNavBarComponent } from './bootstrap/top-nav-bar/top-nav-bar.componen
 import { FooterComponent } from './bootstrap/footer/footer.component';
 import { BlogComponent } from './bootstrap/blog/blog.component';
 import { PrimitivesComponent } from './bootstrap/primitives/primitives.component';
+import { JwPaginationComponent } from 'jw-angular-pagination';
+import { PaginationComponent } from './pagination/pagination.component';
 //import {OracledbModule}  from  './oracledb/oracledb.module.tst';
 
 
@@ -55,7 +57,9 @@ import { PrimitivesComponent } from './bootstrap/primitives/primitives.component
     TopNavBarComponent,
     FooterComponent,
     BlogComponent,
-    PrimitivesComponent
+    PrimitivesComponent,
+    JwPaginationComponent,
+    PaginationComponent
     //DemoService
   ],
   //providers: [DemoService], //KP : DemoService - A Working Provider

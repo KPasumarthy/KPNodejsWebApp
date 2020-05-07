@@ -129,18 +129,19 @@ const oracledb = require('oracledb');
 oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
 const mypw = "NodeJSORAPassword2020";  // set mypw to the hr schema password
 var oraExeResult = "";
+var oraExeAllUsers = "";
 
 async function run() {
 
   let connection;
 
   try {
-      connection = await oracledb.getConnection(  
-        {
-          user      : "SYS as SYSDBA",
-          password  : "NodeJSORAPassword2020",
-          privilege : oracledb.SYSDBA,
-          connectionString: `(DESCRIPTION=
+    connection = await oracledb.getConnection(
+      {
+        user: "SYS as SYSDBA",
+        password: "NodeJSORAPassword2020",
+        privilege: oracledb.SYSDBA,
+        connectionString: `(DESCRIPTION=
                                 (ADDRESS=
                                     (PROTOCOL=TCP)
                                     (HOST=localhost)
@@ -150,12 +151,15 @@ async function run() {
                                     (SERVICE_NAME=orcl)
                                     (SERVER=DEDICATED)
                                   )
-                                )`  
-        }
-      );
+                                )`
+      }
+    );
 
     console.log('KP : Oracle & NodeJS Connection  was Successful!');
-    const result = await connection.execute(
+
+    //KP: Execute Queries on v$Database
+    var result = await connection.execute(
+      //"SELECT * FROM All_Users"
       "Select name, open_mode, cdb from v$database"
       // `SELECT manager_id, department_id, department_name
       //  FROM departments
@@ -164,6 +168,19 @@ async function run() {
     );
     console.log(result.rows);
     oraExeResult = result;
+
+
+    //KP: Execute Queries on v$All_Users
+    result = await connection.execute(
+      "SELECT * FROM All_Users"
+      //"Select name, open_mode, cdb from v$database"
+      // `SELECT manager_id, department_id, department_name
+      //  FROM departments
+      //  WHERE manager_id = :id`,
+      // [103],  // bind value for :id
+    );
+    console.log(result.rows);
+    oraExeAllUsers = result;
 
     //result = await connection.getConnection();
     //console.log(result.rows);
@@ -189,14 +206,29 @@ run();
 /*** KP : OracleDB Documents served on Node APIs ***/
 ///KP : http get v$ api endpoint
 ///CRUD : Retrieve Operation : $http.get()
-app.get('/oracledbapi/ORAv3database', function (req, res){
+app.get('/oracledbapi/ORAv3database', function (req, res) {
   //res.setHeader('Content-Type','text/html');
   res.setHeader('Content-Type', 'application/json');
-  res.setHeader('Access-Control-Allow-Origin','*');
-  res.setHeader('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
-  console.log("KP : OracleDB Service APIs app.get(ORAv3database) : " + JSON.stringify(oraExeResult) );
-  console.log("KP : OracleDB Service APIs app.get(ORAv3database.rows) : " + JSON.stringify(oraExeResult.rows) );
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  console.log("KP : OracleDB Service APIs app.get(ORAv3database) : " + JSON.stringify(oraExeResult));
+  console.log("KP : OracleDB Service APIs app.get(ORAv3database.rows) : " + JSON.stringify(oraExeResult.rows));
   res.send(oraExeResult);
+});
+/******************************************************************************************************************** */
+
+/******************************************************************************************************************** */
+/*** KP : OracleDB Documents served on Node APIs ***/
+///KP : http get v$ api endpoint
+///CRUD : Retrieve Operation : $http.get()
+app.get('/oracledbapi/ORAAllUsers', function (req, res) {
+  //res.setHeader('Content-Type','text/html');
+  res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  console.log("KP : OracleDB Service APIs app.get(ORAAllUsers) : " + JSON.stringify(oraExeAllUsers));
+  console.log("KP : OracleDB Service APIs app.get(ORAAllUsers.rows) : " + JSON.stringify(oraExeAllUsers.rows));
+  res.send(oraExeAllUsers);
 });
 /******************************************************************************************************************** */
 

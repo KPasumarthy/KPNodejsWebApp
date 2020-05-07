@@ -35,6 +35,31 @@
       </table>
     </div>
 
+
+    <h3>Oracle DB All_Users Table Rows - Table</h3>
+    <div>
+      <p>Oracle DB v$database metadata</p>
+      <table>
+        <tr *ngFor="let row of oraAllUsers.metaData">{{row.name}}</tr>
+      </table>
+      <p>Oracle DB v$database rows</p>
+      <table>
+        <tr *ngFor="let row of oraV3dbRes.rows">
+          <td>
+            {{row.NAME}} 
+          </td>
+          <td>
+           {{row.OPEN_MODE}}
+          </td>
+          <td>
+            {{row.CDB}}
+          </td>
+        </tr>
+      </table>
+    </div>
+
+
+
   </div>
 
   <div>
@@ -52,6 +77,19 @@
       <p>Oracle DB v$database rows</p>
       <ul>
         <li *ngFor="let row of oraV3dbRes.rows">{{row.NAME}} : {{row.OPEN_MODE}} : {{row.CDB}}</li>
+      </ul>
+    </div>
+
+
+    <h3>Oracle DB All_Users Table Rows - List</h3>
+    <div>
+      <p>Oracle DB All_Users  metadata</p>
+      <ul>
+        <li *ngFor="let row of oraAllUsers.metaData">{{row.name}}</li>
+      </ul>
+      <p>Oracle DB v$database rows</p>
+      <ul>
+        <li *ngFor="let row of oraAllUsers.rows">{{row.USER_ID}} : {{row.CREATED}} : {{row.ORACLE_MAINTAINED}}</li>
       </ul>
     </div>
 

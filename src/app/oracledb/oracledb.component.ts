@@ -14,6 +14,7 @@ export class OracledbComponent implements OnInit {
 
   public idols;
   public oraV3dbRes;
+  public oraAllUsers;
 
   constructor(
     private _router : Router,
@@ -23,6 +24,7 @@ export class OracledbComponent implements OnInit {
   ngOnInit() {
     this.getIdols();  
     this.getORA19cVData();
+    this.getORAAllUsers();
   }
 
   /***OracleDB Service : Service Methods ***/
@@ -39,8 +41,18 @@ export class OracledbComponent implements OnInit {
     this._oracleDBService.getORA19cVData().subscribe(
       data => {this.oraV3dbRes = data},
       err => console.error("KP : App-Component OracleDBService 'getORA19cVData()' throwing errors : " + err),
-      () => console.log("KP : App-Component OracleDBService 'getORA19cVData()' Done loading Idols!")
+      () => console.log("KP : App-Component OracleDBService 'getORA19cVData()' Done loading ORA19cVData!")
     )
  }
+
+  ////KP : Uses http.get() to load oracle data from 'All_Users' a single API endpoint
+  getORAAllUsers() {
+    this._oracleDBService.getORAAllUsers().subscribe(
+      data => {this.oraAllUsers = data},
+      err => console.error("KP : App-Component OracleDBService 'getORAAllUsers()' throwing errors : " + err),
+      () => console.log("KP : App-Component OracleDBService 'getORAAllUsers()' Done Loading Oracle All Users!")
+    )
+ }
+ 
 
 }

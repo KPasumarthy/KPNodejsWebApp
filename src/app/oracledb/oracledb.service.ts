@@ -22,4 +22,10 @@ export class OracleDBService {
     return this.http.get('http://localhost:1919/oracledbapi/ORAv3database');
   }
 
+    ////KP : Uses http.get() to load oracle data from 'All_users' a single API endpoint
+    getORAAllUsers() {
+      return this.http.get('http://localhost:1919/oracledbapi/ORAAllUsers');
+    }
+
+
 }

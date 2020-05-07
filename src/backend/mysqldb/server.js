@@ -14,10 +14,10 @@ var connection = mysql.createConnection({
 });
 
 connection.connect();
-connection.query("Select * From world.country", function (err, result, fields) {
-  if (err) throw err;
-  console.log(result);
-});
+// connection.query("Select * From world.country", function (err, result, fields) {
+//   if (err) throw err;
+//   console.log(result);
+// });
 
 
 // connection.connect();
