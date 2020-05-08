@@ -7,6 +7,9 @@ import { HeroService } from '../services/hero.service';
 //import { Observable, of } from 'rxjs';
 //import { MessageService } from '../messages/message.service';
 import { MongoDBNoSqlService } from '../mongodbnosql/mongodbnosql.service';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import { ModalComponent } from '../bootstrap/modal/modal.component';
 
 
 @Component({
@@ -17,14 +20,28 @@ import { MongoDBNoSqlService } from '../mongodbnosql/mongodbnosql.service';
 export class AppComponent {
   title = `KPNodeJSWebApp 
   Angular 6 : ng-App & MongoDB`;    ///// KP : Angular 6 - Backticks
+  modalRef: BsModalRef;
 
   //constructor(private _demoService: DemoService) {}  
   constructor(
+    private modalService: BsModalService
   ) {}  
 
   //KP : Additional ngOnInit() method add
   ngOnInit() {
   }
+
+  //Open Modal
+  openModal(){
+    this.modalRef = this.modalService.show(ModalComponent, {
+      initialState:{
+        modaltitle : "NGX Modal",
+        modaldata:  ["KP : This is the implementation of NGX Modal"] 
+      }
+    })
+
+  };
+
 }
 
 

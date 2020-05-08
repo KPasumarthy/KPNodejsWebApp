@@ -14,17 +14,23 @@ import { HeroesComponent }      from './heroes/heroes.component';
 import { HeroSearchComponent }  from './hero-search/hero-search.component';
 import { MessagesComponent }    from './messages/messages.component';
 import { MongoDBNoSqlComponent}     from './mongodbnosql/mongodbnosql.component';
-import {MongoDBNoSqlService}    from './mongodbnosql/mongodbnosql.service';
+import { MongoDBNoSqlService}    from './mongodbnosql/mongodbnosql.service';
 import { DemoService }          from './services/demo.service';
 import { HeroService }          from './services/hero.service';
 import { OracledbComponent } from './oracledb/oracledb.component';
-import {OracleDBService}        from './oracledb/oracledb.service';
+import { OracleDBService}        from './oracledb/oracledb.service';
 import { TopNavBarComponent } from './bootstrap/top-nav-bar/top-nav-bar.component';
 import { FooterComponent } from './bootstrap/footer/footer.component';
 import { BlogComponent } from './bootstrap/blog/blog.component';
 import { PrimitivesComponent } from './bootstrap/primitives/primitives.component';
 import { JwPaginationComponent } from 'jw-angular-pagination';
 import { PaginationComponent } from './pagination/pagination.component';
+//import { BsModalRef } from 'ngx-bootstrap';
+import { ModalModule } from 'ngx-bootstrap/modal';
+//import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { BsModalService } from 'ngx-bootstrap/modal';
+//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ModalComponent } from './bootstrap/modal/modal.component';
 //import {OracledbModule}  from  './oracledb/oracledb.module.tst';
 
 
@@ -33,7 +39,9 @@ import { PaginationComponent } from './pagination/pagination.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    ModalModule.forRoot(),
+    HttpClientModule,
+    //BrowserAnimationsModule
  
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
@@ -59,11 +67,14 @@ import { PaginationComponent } from './pagination/pagination.component';
     BlogComponent,
     PrimitivesComponent,
     JwPaginationComponent,
-    PaginationComponent
+    PaginationComponent,
+    ModalComponent
     //DemoService
   ],
   //providers: [DemoService], //KP : DemoService - A Working Provider
-  providers: [DemoService, HeroService, MongoDBNoSqlService, OracleDBService],
-  bootstrap: [ AppComponent ]
+  providers: [DemoService, HeroService, MongoDBNoSqlService, OracleDBService,BsModalService],
+  //providers: [DemoService, HeroService, MongoDBNoSqlService, OracleDBService],
+  bootstrap: [ AppComponent ],
+  entryComponents : [ModalComponent]
 })
 export class AppModule { }
