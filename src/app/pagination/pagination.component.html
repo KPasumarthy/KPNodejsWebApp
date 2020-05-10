@@ -1,6 +1,90 @@
 <!-- Pagination Controller -->
+
+<!-- <div class="card text-center m-3">
+    <h3 class="card-header">Angular 8 Pagination : Ngx-Pagination Example</h3>
+    <div class="card-body">
+      
+        <button type="button" class="btn btn-success"
+            (click)="getRandomUsers()">Get Random Users
+        </button>
+   
+    <div>
+        <h3>Random Users Table</h3>
+        <table border="1" width="50%" class="table table-stripped">
+            <thead>
+                <tr>Name</tr>
+                <tr>Gender</tr>
+                <tr>Email</tr>
+                <tr>Picture</tr>
+            </thead>
+            <tbody>
+            
+            <tr *ngFor="let user of data | paginate 
+                        { id: 'listing_pagination', 
+                          itemsPerPage : 10,
+                          currentPage : page,
+                          totalItems : totalRecords }">
+            <td>{{user.first.name}}</td>      
+            <td>{{user.gender}}</td>  
+            <td>{{user.email}}</td>  
+            
+            </tr>
+        </tbody>
+        </table>
+        <div>
+            <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true"
+            (pageChange)="page = $(event)"></pagination-controls>
+        </div>
+    </div>
+
+    </div>
+    <div class="card-footer pb-0 pt-3">
+        <jw-pagination [items]="items" (changePage)="onChangePage($event)"></jw-pagination>
+    </div>
+</div> -->
+
+
+
 <div class="card text-center m-3">
-    <h3 class="card-header">Angular 8 Pagination Example</h3>
+    <h3 class="card-header">Angular 8 Pagination : Ngx-Pagination Example</h3>
+    <div class="card-body">
+      
+        <button type="button" class="btn btn-success"
+            (click)="getRandomUsers()">Get Random Users
+        </button>
+
+    <div  *ngIf="totalRecords" >
+        <h3>Random Users Table</h3>
+        <table border="1" width="75%" class="table table-stripped" >
+            <tbody>
+            <tr>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Gender</th>
+                <th>Email</th>
+            </tr>
+            <tr *ngFor="let user of data | paginate :
+                        { id: 'listing_pagination', 
+                          itemsPerPage : 10,
+                          currentPage : page,
+                          totalItems : totalRecords }">
+            <td>{{user.name.first}}</td>    
+            <td>{{user.name.last}}</td>      
+            <td>{{user.gender}}</td>  
+            <td>{{user.email}}</td>  
+            
+            </tr>
+        </tbody>
+        </table>
+        <div *ngIf="totalRecords" class="card-footer pb-0 pt-1">
+            <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true"
+            (pageChange)="page = $event"></pagination-controls>
+        </div>
+    </div>
+</div>
+
+<div class="card text-center m-3">
+    <h3 class="card-header">Angular 8 Pagination : 3rd Party JasonWatson Example</h3>
     <div class="card-body">
         <div *ngFor="let item of pageOfItems">{{item.name}}</div>
     </div>

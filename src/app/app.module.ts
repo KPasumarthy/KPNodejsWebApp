@@ -23,14 +23,18 @@ import { TopNavBarComponent } from './bootstrap/top-nav-bar/top-nav-bar.componen
 import { FooterComponent } from './bootstrap/footer/footer.component';
 import { BlogComponent } from './bootstrap/blog/blog.component';
 import { PrimitivesComponent } from './bootstrap/primitives/primitives.component';
+import { NgxPaginationModule } from 'ngx-pagination'
 import { JwPaginationComponent } from 'jw-angular-pagination';
 import { PaginationComponent } from './pagination/pagination.component';
+
 //import { BsModalRef } from 'ngx-bootstrap';
 import { ModalModule } from 'ngx-bootstrap/modal';
 //import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BsModalService } from 'ngx-bootstrap/modal';
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalComponent } from './bootstrap/modal/modal.component';
+import { KpwebapisComponent } from './kpwebapis/kpwebapis.component';
+import { KPWebApisService } from './kpwebapis/kpwebapis.service';
 //import {OracledbModule}  from  './oracledb/oracledb.module.tst';
 
 
@@ -40,7 +44,9 @@ import { ModalComponent } from './bootstrap/modal/modal.component';
     FormsModule,
     AppRoutingModule,
     ModalModule.forRoot(),
+    NgxPaginationModule,
     HttpClientModule,
+
     //BrowserAnimationsModule
  
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
@@ -68,11 +74,12 @@ import { ModalComponent } from './bootstrap/modal/modal.component';
     PrimitivesComponent,
     JwPaginationComponent,
     PaginationComponent,
-    ModalComponent
+    ModalComponent,
+    KpwebapisComponent
     //DemoService
   ],
   //providers: [DemoService], //KP : DemoService - A Working Provider
-  providers: [DemoService, HeroService, MongoDBNoSqlService, OracleDBService,BsModalService],
+  providers: [DemoService, HeroService, MongoDBNoSqlService, OracleDBService,BsModalService, KPWebApisService],
   //providers: [DemoService, HeroService, MongoDBNoSqlService, OracleDBService],
   bootstrap: [ AppComponent ],
   entryComponents : [ModalComponent]

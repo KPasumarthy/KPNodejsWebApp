@@ -1,4 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+//KP : import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { KPWebApisService } from '../kpwebapis/kpwebapis.service';
+
+//KP: Pagination Interface
+interface IServerResponse {
+  asyncItems: any[];
+  asyncTotal: Number;
+}
+
+
 
 @Component({
   selector: 'app-pagination',
@@ -7,8 +17,48 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaginationComponent implements OnInit {
 
-//KP : Angular 6 JwPaginationComponent has the following requirements
-/*  There are 2 required properties for using the Angular 8 pagination component:
+  //constructor() { }
+  constructor(
+    private _kpWebApisService: KPWebApisService
+  ) { }
+
+  ngOnInit() {
+    // an example array of 150 items to be paged
+    this.items = Array(150).fill(0).map((x, i) => ({ id: (i + 1), name: `Item ${i + 1}` }));
+  }
+
+  //KP : Angular 6 Ngx-PaginationComponent
+  public data: Array<any>;
+  public totalRecords: String;
+  public page: Number = 1;
+
+  getRandomArray() {
+    this.data = Array(150).fill(0).map((x, i) => ({ id: (i + 1), name: `Item ${i + 1}` }));
+    this.totalRecords = this.data.length.toString();
+  }
+
+  getRandomUsers() {
+    this._kpWebApisService.getRandomUsers().subscribe((data) => {
+      console.log(data);
+      this.data = data.results;
+      this.totalRecords = data.results.length;
+    });
+  }
+
+  ////KP : Uses http.get() to obtain persons data hosted on localhost API endpoint
+  async getPersons() {
+    await this._kpWebApisService.getPersons().subscribe((data) => {
+      console.log(data);
+      this.data = data.results;
+      this.totalRecords = data.results.length;
+    });
+  }
+
+
+
+
+  //KP : Angular 6 JwPaginationComponent has the following requirements
+  /*  There are 2 required properties for using the Angular 8 pagination component:
         items - the array of items to be paged
         changePage - a callback function for handling the changePage event
 
@@ -19,13 +69,6 @@ export class PaginationComponent implements OnInit {
 
   public items = [];
   public pageOfItems: Array<any>;
-
-  constructor() { }
-
-  ngOnInit() {
-    // an example array of 150 items to be paged
-    this.items = Array(150).fill(0).map((x, i) => ({ id: (i + 1), name: `Item ${i + 1}` }));
-  }
 
   onChangePage(pageOfItems: Array<any>) {
     // update current page of items
