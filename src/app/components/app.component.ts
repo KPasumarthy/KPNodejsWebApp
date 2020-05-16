@@ -7,13 +7,31 @@ import { HeroService } from '../services/hero.service';
 //import { Observable, of } from 'rxjs';
 //import { MessageService } from '../messages/message.service';
 import { MongoDBNoSqlService } from '../mongodbnosql/mongodbnosql.service';
+
+//Boot Strap Modal Service 
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { ModalComponent } from '../bootstrap/modal/modal.component';
 
+//KP : Simple Modal Component
+import { SimpleModComponent } from '../simplemod/simplemod.component';
+import { SimpleModalService } from "ngx-simple-modal";
 
 @Component({
   selector: 'app-root',
+  // template: `
+  //     <div class="modal-content">
+  //       <div class="modal-header">
+  //         <h4>Confirm</h4>
+  //       </div>
+  //       <div class="modal-body">
+  //         <p>Are you sure?</p>
+  //       </div>
+  //       <div class="modal-footer">
+  //         <button type="button" class="btn btn-primary" (click)="showConfirm()">Show confirm</button>
+  //       </div>
+  //     </div>
+  //     `,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
@@ -23,15 +41,40 @@ export class AppComponent {
   modalRef: BsModalRef;
 
   //constructor(private _demoService: DemoService) {}  
+  // constructor(
+  //   private modalService: BsModalService
+  // ) {}  
+
   constructor(
-    private modalService: BsModalService
-  ) {}  
+    private modalService: BsModalService,
+    private simpleModalService: SimpleModalService,
+  ) { }
+  showConfirm() {
+    let disposable = this.simpleModalService.addModal(SimpleModComponent, {
+      title: 'Confirm title',
+      message: 'Confirm message'
+    })
+      .subscribe((isConfirmed) => {
+        //We get modal result
+        if (isConfirmed) {
+          alert('accepted');
+        }
+        else {
+          alert('declined');
+        }
+      });
+    //We can close modal calling disposable.unsubscribe();
+    //If modal was not closed manually close it by timeout
+    setTimeout(() => {
+      disposable.unsubscribe();
+    }, 10000);
+  }
 
   //KP : Additional ngOnInit() method add
   ngOnInit() {
   }
 
-  //Open Modal
+  // // //Open Modal
   openModal(){
     this.modalRef = this.modalService.show(ModalComponent, {
       initialState:{
@@ -39,10 +82,71 @@ export class AppComponent {
         modaldata:  ["KP : This is the implementation of NGX Modal"] 
       }
     })
-
   };
 
 }
+
+
+
+
+
+// import { Component } from '@angular/core';
+// import { ConfirmComponent } from './confirm.component';
+// import { SimpleModalService } from "ngx-simple-modal";
+
+// @Component({
+//   selector: 'app',
+//   template: `
+//     <div class="modal-content">
+//       <div class="modal-header">
+//         <h4>Confirm</h4>
+//       </div>
+//       <div class="modal-body">
+//         <p>Are you sure?</p>
+//       </div>
+//       <div class="modal-footer">
+//         <button type="button" class="btn btn-primary" (click)="showConfirm()">Show confirm</button>
+//       </div>
+//     </div>
+//   `
+// })
+// export class AppComponent {
+//     constructor(private simpleModalService:SimpleModalService) {}
+//     showConfirm() {
+//         let disposable = this.simpleModalService.addModal(ConfirmComponent, {
+//               title: 'Confirm title',
+//               message: 'Confirm message'
+//             })
+//             .subscribe((isConfirmed)=>{
+//                 //We get modal result
+//                 if(isConfirmed) {
+//                     alert('accepted');
+//                 }
+//                 else {
+//                     alert('declined');
+//                 }
+//             });
+//         //We can close modal calling disposable.unsubscribe();
+//         //If modal was not closed manually close it by timeout
+//         setTimeout(()=>{
+//             disposable.unsubscribe();
+//         },10000);
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*****KP : App-Component - Moved to MongoDBNoSqlComponent *****/

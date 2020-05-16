@@ -35,8 +35,12 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 import { ModalComponent } from './bootstrap/modal/modal.component';
 import { KpwebapisComponent } from './kpwebapis/kpwebapis.component';
 import { KPWebApisService } from './kpwebapis/kpwebapis.service';
-//import {OracledbModule}  from  './oracledb/oracledb.module.tst';
+import { SimpleModalModule } from 'ngx-simple-modal';
+import { SimpleModComponent } from './simplemod/simplemod.component';
+import { SimpleModalService } from "ngx-simple-modal";
 
+
+//import {OracledbModule}  from  './oracledb/oracledb.module.tst';
 
 @NgModule({
   imports: [
@@ -46,6 +50,7 @@ import { KPWebApisService } from './kpwebapis/kpwebapis.service';
     ModalModule.forRoot(),
     NgxPaginationModule,
     HttpClientModule,
+    SimpleModalModule.forRoot({container: 'modal-container'})
 
     //BrowserAnimationsModule
  
@@ -75,13 +80,14 @@ import { KPWebApisService } from './kpwebapis/kpwebapis.service';
     JwPaginationComponent,
     PaginationComponent,
     ModalComponent,
-    KpwebapisComponent
+    KpwebapisComponent,
+    SimpleModComponent
     //DemoService
   ],
   //providers: [DemoService], //KP : DemoService - A Working Provider
-  providers: [DemoService, HeroService, MongoDBNoSqlService, OracleDBService,BsModalService, KPWebApisService],
+  providers: [DemoService, HeroService, MongoDBNoSqlService, OracleDBService, BsModalService, KPWebApisService, SimpleModalService],
   //providers: [DemoService, HeroService, MongoDBNoSqlService, OracleDBService],
   bootstrap: [ AppComponent ],
-  entryComponents : [ModalComponent]
+  entryComponents : [ModalComponent, SimpleModComponent]
 })
 export class AppModule { }

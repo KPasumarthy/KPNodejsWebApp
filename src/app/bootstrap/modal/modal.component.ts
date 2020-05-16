@@ -9,6 +9,9 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class ModalComponent implements OnInit {
 
+  modaltitle = "NGX Modal";
+  modaldata =  ["KP : This is the implementation of NGX Modal"] ;
+
   constructor(
     public modalRef : BsModalRef
   ) { }

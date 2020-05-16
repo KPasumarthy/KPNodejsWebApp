@@ -2,7 +2,8 @@
 https://www.youtube.com/watch?v=Ym_T0mvvc7c
 https://blackrockdigital.github.io/startbootstrap-blog-post/
 
-Bootstrap Angular 8 Dashboard :
+#Bootstrap Angular 8 Dashboard :
 https://www.youtube.com/watch?v=FP7Hs8lTy1k
 
-
+#Simple Modal Component
+https://www.npmjs.com/package/ngx-simple-modal

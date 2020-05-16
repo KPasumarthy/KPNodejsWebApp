@@ -27,15 +27,33 @@
            1) Components : <app-mongodbnosql></app-mongodbnosql>
            2) Routers : app-routing.module.ts { path: 'mongodbnosql', component: MongoDBNoSqlComponent}
     -->
+
    <!--KP : ngx Modal-->
     <div class="container my-l">
       <div class="card">
         <div class="card-body">
             <h4>Ngx Bootstrap Modal Component</h4>
-            <div (click)="openModal()" class="btn btn-success">Open Modal</div>
+            <div (click)="openModal()" class="btn btn-success">Open Ngx-Modal</div>
+            <button type="button" class="btn btn-primary" (click)="showConfirm()">Open Ng-SimpleModal</button>
         </div>
       </div>
     </div>
+<!--KP : ngx Modal-->
+
+<!--KP : ng-Simple-Modal
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4>Confirm</h4>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="showConfirm()">Show confirm</button>
+        </div>
+      </div>
+<!KP : ng-Simple-Modal-->
+
     <!--KP : ng Modal-->
     <!--KP : //{ path: 'mongodbnosql', component: MongoDBNoSqlComponent},  -->
     <app-top-nav-bar></app-top-nav-bar>

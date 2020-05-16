@@ -1,6 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    //KP : 
     //KP : "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
