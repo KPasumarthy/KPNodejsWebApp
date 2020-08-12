@@ -74,8 +74,8 @@ export class AppComponent {
   ngOnInit() {
   }
 
-  // // //Open Modal
-  openModal(){
+  // // //Open NGX Modal
+  openNGXModal(){
     this.modalRef = this.modalService.show(ModalComponent, {
       initialState:{
         modaltitle : "NGX Modal",
@@ -83,6 +83,7 @@ export class AppComponent {
       }
     })
   };
+
 
 }
 

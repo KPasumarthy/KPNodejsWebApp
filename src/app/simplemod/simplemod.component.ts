@@ -10,11 +10,13 @@ export interface ConfirmModel {
   template: `
     <div class="modal-content">
       <div class="modal-header">
-        <h4>{{title || 'Confirm'}}</h4>
+        <h4 class="modal-title pull-left">{{modaltitle}}</h4>
       </div>
-      <div class="modal-body">
+
+        <div class="modal-body">
         <p>{{message || 'Are you sure?'}}</p>
-      </div>
+        </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-danger" (click)="close()" >Cancel</button>
         <button type="button" class="btn btn-primary" (click)="confirm()">OK</button>

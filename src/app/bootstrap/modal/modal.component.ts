@@ -19,4 +19,21 @@ export class ModalComponent implements OnInit {
   ngOnInit() {
   }
 
+  confirmNGXModal() {
+    // we set modal result as true on click on confirm button,
+    // then we can get modal result from caller code
+    //this.result = true;
+    alert('accepted');
+    this.modalRef.hide();
+  }
+  closeNGXModal() {
+    // we set modal result as true on click on confirm button,
+    // then we can get modal result from caller code
+    //this.result = true;
+    alert('declined');
+    this.modalRef.hide();
+  }
+
+
+
 }

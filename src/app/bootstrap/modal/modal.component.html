@@ -12,7 +12,10 @@
     This is an Ngx-modal!
     {{modaldata}}
 </div>
-
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" (click)="closeNGXModal()" >Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="confirmNGXModal()">OK</button>
+      </div>
 <p>
   modal works!
 </p>
