@@ -8,16 +8,16 @@
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
   host     : 'localhost',
-  user     : 'svcaccount',
-  password : '(svcP@33word)',
+  user     : 'root',
+  password : 'password',
   database : 'world'
 });
 
 connection.connect();
-// connection.query("Select * From world.country", function (err, result, fields) {
-//   if (err) throw err;
-//   console.log(result);
-// });
+connection.query("Select * From world.country", function (err, result, fields) {
+  if (err) throw err;
+  console.log(result);
+});
 
 
 // connection.connect();
