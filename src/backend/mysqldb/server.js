@@ -1,27 +1,303 @@
 /*** KP : Commented Out Lines of Code - to start http/https Server with out "npm install -g @angular/cli" Packages  ***/
 /*** KP : NodeJS Web Server ***/
 // Get dependencies
+/*** KP : Commented Out Lines of Code - to start http/https Server with out "npm install -g @angular/cli" Packages  ***/
+/*** KP : NodeJS Web Server ***/
+// Get dependencies
+const express = require('express');
+const http = require('http');
+const https = require('https');
+const fs = require('fs');
+const path = require('path');
+const bodyParser = require('body-parser');
+const helmet = require('helmet');
+const cookieParser = require('cookie-parser');
+const cookieSession = require('cookie-session');
+
+/***** KP : NodeJS Express APP/API Server *****/
+/*KP : NodeJS Express App hosted on Node Server set to handle HTTPS API Service Requests */
+const app = express();
+const hostname = '127.0.0.1';
+/*KP : Get port from environment and store in Express.*/
+const port = process.env.PORT || '3366';
+app.set('port', port);
+
+/************************************/
+/***KP : Testing a Router Method  ***/
+/***KP : Declare a Router***/
+// const router = express.Router(
+//   { path: '/idols', service:app.get(`idols`)}
+// );
+// router.get('/idols', (req, res) =>{
+//   console.log(`KP : 'ng-Router' is running on NodeJS Server : ` );
+//   request.get(`http://127.0.0.1:2727/idols`)
+//   .then(
+//     response => res.send(JSON.parse(response).subset),
+//     err => res.status(500).send(err)
+//   );
+// });
+//KP : Constant Routes
+/***KP : Testing a Router Method ****/
+/************************************/
+
+
+//KP : Additional Alert to verify if ng-App is running on NodeJS Server
+console.log(`KP : Alert to verify if 'ng-App' is running on NodeJS Server : app.use(helmet()) !`);
+app.use(helmet());
+app.use(cookieParser());
+app.use(cookieSession({
+  name: 'KPNodeJS-CkieInit',
+  //secret: 'KP27c00kie!', 
+  keys: ['SR1', 'KP1'],
+  maxAge: 24 * 60 * 60 * 1000 //CookieSessionAge:24Hours
+}));
+
+
+//KP : Set NodeJS App.Set Cookies
+app.use(function (req, res, next) {
+  //Check if the KPNodeJSWebApp Client has sent a cookie
+  var cookie = req.cookies.cookieName;
+  if (cookie === undefined) {
+    //No Cookie - Set a New Cookie
+    var randNumber = Math.random().toString();
+    randNumber = randNumber.substring(2, randNumber.length);
+    res.cookie('cookieKPNodeJS', randNumber, { maxAge: 900000, httpOnly: true });
+    console.log(`KP : KPNodeJSWebApp Cookie : ${cookie} created Successfully!`);
+  }
+  else {
+    console.log(`KP : KPNodeJSWebApp Cookie exists : ${cookie}!`);
+  }
+  next();
+});
+
+//KP : Point static path to dist
+app.use(express.static(path.join(__dirname, 'dist/KPNodeJSWebApp')));
+
+//KP : Support 'json' encoded bodies
+app.use(bodyParser.json()); // support json encoded bodies
+
+/***** KP : NodeJS Web Server *****/
+/*KP : NodeJS Server hosts Node App & listens on http*/
+//const server = https.createServer(httpsOptions, app);
+//KP : Create http Server
+//const server = http.createServer(app);
+// server = http.createServer(app, function (req, res) {
+//     res.writeHead(200, { 'Content-Type': 'text/plain' });
+//     res.end('KP : Hello World : Hello Kailash !!! \n');
+// }).listen(port);
+
+// /*KP : Create http/https Server to host the app and list on the specified port*/
+// //KP : Create http Server
+// const server = http.createServer(app);
+// server.listen(port, () => {
+//      console.log(`KP : NodeJS Express App running on http://${hostname}:${port}/!`);
+// } );
+
+/*KP : Create http/https Server to host the app and list on the specified port*/
+//let httpHeaders = new HttpHeaders();
+//httpHeaders.append('Content-Type', 'application/json');
+//httpHeaders.append('Access-Control-Allow-Origin', '*');
+
+//const httpsOptions = {  headers: httpHeaders };
+//headers: new HttpHeaders({'Content-Type':'application/json'})
+//headers: new HttpHeaders({'Access-Control-Allow-Origin': '*'})
+// headers: new HttpHeaders({ 'Content-Type':'application/json',
+//                                 'Access-Control-Allow-Origin': '*',
+//                                 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'
+//                          })};
+
+// //KP : Create https Server
+// const server =  https.createServer(httpsOptions, app);
+// server.listen(port, () => {
+//      console.log(`KP : NodeJS Express App running on https://${hostname}:${port}/!`);
+// } );
+
+//***********KP : Create https Server : WORKING*************//
+// //KP : Create https Server - WORKING
+// const server =  http.createServer(app);
+// server.listen(port, () => {
+//      console.log(`KP : NodeJS Express App running on https://${hostname}:${port}/!`);
+// } );
+//***********KP : Create https Server : WORKING*************//
+
+//KP : Create https Server
+const server = http.createServer(app);
+server.listen(port, () => {
+  console.log(`KP : NodeJS Express App running on https://${hostname}:${port}/!`);
+});
+
+/*********************************************************************************************************************/
+//KP : Node App Service APIs 
+/*KP : NodeJS Service Request - WildCard '*' http/https GET - Render index.html */
+//// KP : The "index" route, which serves the Angular ng-App
+//// KP : app.get('/', (req, res) => { });  
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'dist/KPNodeJSWebApp/index.html'));
+//   console.log(`KP : NodeJS Service Request - WildCard '*' http/https GET - Render index.html`);
+//   console.log(`KP : app.get('*', (req, res) => dist/KPNodeJSWebApp/index.html )`);
+//   console.log(`KP : App.get NodeJS Cookies : ` + req.cookies.cookieName);
+// });
+
+// some data for the API
+var foods = [
+  { "id": 1, "name": "Curry" },
+  { "id": 2, "name": "Pizza" },
+  { "id": 3, "name": "Pasta" }
+];
+
+var books = [
+  { "title": "Ramayana", "author": "Valmiki" },
+  { "title": "Mahabharata", "author": "Vyasa" }
+];
+
+var movies = [
+  { "title": "Ghostbusters" },
+  { "title": "Star Wars" },
+  { "title": "Batman Begins" }
+];
+
+/*KP : http get kpMongoDBUri api endpoint */
+app.get("/idols", (req, res, next) => {
+  //res.setHeader('Content-Type','application/json');
+  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.json(["Siva", "Narayana", "Rama", "Krishna", "Prakash"]);
+});
+
+app.get("/api", (req, res, next) => {
+  res.setHeader('Content-Type', 'application/json');
+  //res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.json(["Gowri", "Srinidhi", "Siva"]);
+});
+
+///KP : http get kpUri api endpoint
+app.get("/kpUri", (req, res, next) => {
+  //res.setHeader('Content-Type','application/json');
+  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.json(["Srinidhi", "Naasti", "Kailash"]);
+});
+
+///KP : http get foods api endpoint
+app.get('/api/foods', function (req, res) {
+  res.setHeader('Content-Type', 'application/json');
+  //res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.send(foods);
+});
+
+///KP : http get books api endpoint
+app.get('/api/books', function (req, res) {
+  res.setHeader('Content-Type', 'application/json');
+  //res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.send(books);
+});
+
+///KP : http get movies api endpoint
+app.get('/api/movies', function (req, res) {
+  //res.setHeader('Content-Type','application/json');
+  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.send(movies);
+});
+
+///KP : http get WakefernStairCase api endpoint
+/*** KP : Wakefern Hackethon
+MarkPoko : There exists a staircase with N steps, and you can climb up either 1 or 2 steps at a time. 
+Given N, write a function that returns the number of unique ways you can climb the staircase. 
+The order of the steps matters.For example, if N is 4, then there are 5 unique ways:
+1, 1, 1, 1
+2, 1, 1
+1, 2, 1    
+1, 1, 2    
+2, 2    
+What if, instead of being able to climb 1 or 2 steps at a time, 
+you could climb any number from a set of positive integers X? 
+For example, if X = {1, 3, 5}, you could climb 1, 3, or 5 steps at a time.
+***/
+var wakefernStairCase = [
+  { "title": "Chi-Chen Huang" },
+  { "title": "Star Wars" },
+  { "title": "Batman Begins" }
+];
+app.get('/api/wakefernStairCase', function (req, res) {
+  //res.setHeader('Content-Type','application/json');
+  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+
+  var Nn = 5;
+  var num = new Array(5);
+  var temp;
+  var i, n = 5, j;
+  for (j = 1; j <= n; j++) {
+    for (i = 0; i < n - 1; i++) {
+      temp = num[i];
+      num[i] = num[i + 1];
+      num[i + 1] = temp;
+      console.log(num, n);
+    }
+  }
+
+  res.send(wakefernStairCase);
+});
+
+
+function getStepsInWFCStairCase() {
+  return wakefernStairCase;
+}
+
+
+//KP : Node App Service APIs 
+/*********************************************************************************************************************/
+
+
+
+
+
 
 // /******************************************************************************************************************** */
 // /*** KP : MySQL Connection  ***/
 // // /*KP : MySQL Connection*/
-var mysql      = require('mysql');
-var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'password',
-  database : 'world'
+var mysql = require('mysql');
+var mysqlConnection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'password',
+  database: 'world'
 });
 
-connection.connect();
-connection.query("Select * From world.country", function (err, result, fields) {
-  if (err) throw err;
+// /*** KP : MySQL Connection  ***/
+////Varibales to store MongoDB Documents
+var cities = "";
+var customers3Limit = "";
+
+
+//mysqlConnection.connect();
+mysqlConnection.connect();
+
+// mysqlConnection.query("Select * From world.country", function (errdbo, result) {
+//   cities = result;
+//   console.log(result);
+// });
+
+mysqlConnection.query("Select * From world.city order by ID desc", function (errdbo, result) {
+  cities = result;
   console.log(result);
 });
 
+mysqlConnection.end();
 
 // connection.connect();
- 
+
 // connection.query(`Select * From world.country`, function (error, results) {
 //   //if (error) throw error;
 //   console.log('The solution is: ', results);
@@ -35,163 +311,39 @@ connection.query("Select * From world.country", function (err, result, fields) {
 //   });
 // });
 
-connection.end();
+//connection.end();
 /*** KP : MySQLDB Connection  ***/
 /******************************************************************************************************************** */
 
 
 
+/******************************************************************************************************************** */
+/*** KP : MySQLDB Documents served on Node APIs ***/
+///KP : http get customersAgeSorted api endpoint
+///CRUD : Retrieve Operation : $http.get()
+app.get('/mysqlapi/cities', function (req, res) {
+  //res.setHeader('Content-Type','text/html');
+  res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  console.log("KP : MySQL app.get(cities) : " + JSON.stringify(cities));
+  res.send(cities);
+});
 
-
-// // // /******************************************************************************************************************/
-// // // /*** KP : OracleDB Connection  ***/
-// // //KP : Trial 3
-
-// var mysql = require('mysql');
-// //var dbConfig = require('./dbconfig.js');
-
-// var con = mysql.createConnection({
-//   host: "localhost",
-//   user: "svcaccount",
-//   password: "(svcP@33word)",
-//   database: "world"
-// });
-
-// con.connect(function(err) {
-//   if (err) throw err;
-//   console.log("KP : MySQL DB Connected!");
-// });
-
-
-// /*** KP : OracleDB Connection  ***/
-// /******************************************************************************************************************/
-
-
-
-
-// // /******************************************************************************************************************/
-// // /*** KP : OracleDB Connection  ***/
-// //KP : Trial 2
-// var oracledb = require('oracledb');
-// oracledb.getConnection({
-
-//   //user          : "SYS as SYSDBA",
-//   //user          : "sqlplus / as SYSDBA",
-//   user: "SYS as SYSDBA",
-//   password: "Sita2020",
-//   connectString: `(DESCRIPTION =   (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))
-//                            (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = orcl) ) )`
-// })
-//   .then(function (conn) {
-//     return conn.execute("Select name, open_mode, cdb from v$database")
-//       .then(function (result) {
-//         console.log(result.rows);
-//         return conn.close();
-//       })
-//       .catch(function (err) { console.error(err); return conn.close(); });
+// app.post('/mysqlapi/cities', function (req, res) {
+//   var body = req.body;
+//   var customer = JSON.stringify(body);       //Customer(body);
+//   save().then(() => {
+//     console.log("KP : MongoDB app.post(createCustomer) : " + JSON.stringify(body));
+//     res.status(200).send();
 //   })
-//   .catch(function (err) { console.error(err); });
-// // /******************************************************************************************************************/ //
-
-
-
-// /******************************************************************************************************************/
-// /*** KP : OracleDB Connection  ***/
-
-//KP : Trial 1
-// // This example uses Node 8's async/await syntax.
-// const oracledb = require('oracledb');
-// oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
-// const mypw = "Sita2008"  // set mypw to the hr schema password
-// async function run() {
-
-//   let connection;
-
-//   try {
-//       connection = await oracledb.getConnection(  {
-//       //user          : "SYS as SYSDBA",
-//       //user          : "sqlplus / as SYSDBA",
-//       user          : "SYS as SYSDBA",
-//       password      : mypw,
-//       //connectString : "localhost/XEPDB1"
-//       //connectString : `(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.1.223)(PORT = 1521)) )`
-//       //connectString : `(DESCRIPTION =   (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = orcl) ) )`
-//       connectionString : `(DESCRIPTION =   (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))
-//                            (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = orcl) ) )`
+//     .catch((e) => {
+//       res.send(400).send(e);
 //     });
+// });
+/*** KP : MySQL Documents served on Node APIs ***/
+/******************************************************************************************************************** */
 
-//     // const result = await connection.execute(
-//     //   "Select name, open_mode, cdb from v$database"
-//     //   // `SELECT manager_id, department_id, department_name
-//     //   //  FROM departments
-//     //   //  WHERE manager_id = :id`,
-//     //   // [103],  // bind value for :id
-//     // );
-//     // console.log(result.rows);
-
-//     const result = await connection.getConnection();
-//     console.log(result.rows);
-
-//   } catch (err) {
-//     console.error(err);
-//   } finally {
-//     if (connection) {
-//       try {
-//         await connection.close();
-//       } catch (err) {
-//         console.error(err);
-//       }
-//     }
-//   }
-// }
-// run();
-
-// /*** KP : OracleDB Connection  ***/
-// /******************************************************************************************************************/
-
-
-
-// // /******************************************************************************************************************/
-// // /*** KP : MongoDB Connection  ***/
-// // // /*KP : MongoDB Connection*/
-// var MongoClient = require('mongodb').MongoClient;
-
-// ////Varibales to store MongoDB Documents
-// var customersAgeSorted = "";
-// var customers3Limit = "";
-
-// /// Connect to the db
-// //MongoClient.connect("mongodb://localhost:27017/KPMongoDB", { useNewUrlParser: true}, function(err, db) {
-// MongoClient.connect("mongodb://localhost:27017/", { useNewUrlParser: true}, function(err, db) {
-
-// //KP : Error-Check to establish if MongoDB Connection is established!
-//   if(!err) {
-//     //KP : Console Log
-//     console.log("KP : Connected to the MongoDB...");
-//     console.log("KP : Ready to retrieve MongoDB collection ...");
-//     var dispLog = true;
-
-//     //KP : Access DB Connection Object
-//     var dbo = db.db("KPMongoDB");
-
-//     ////KP : isMongoDB Connection Object Check - Successfull
-//     var isMongodbConn = db.isConnected();
-//     console.log("KP : MongoDB Connection Check : isMongodbConn !" + isMongodbConn);
-
-
-//     // ////KP : CRUD : Retrieve Access MongoDB Connection Object 'db' Properties & Parameters.
-//     dbo.collection("customers").find({}).toArray(function(errDbo, result) {
-//       if (errDbo) throw errDbo;
-//       if (dispLog === true) 
-//       {
-//         console.log(result);
-//         console.log('\n');
-//         //db.close();   //KP : Don't close the connection as of yet
-//       }
-//     });
-//   }
-// })
-// // /******************************************************************************************************************/
 
 //KP : 'module.exports = app' - Command exports the app as ng-App
-//module.exports = app;
+module.exports = app;

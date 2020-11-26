@@ -15,6 +15,8 @@ import { HeroSearchComponent }  from './hero-search/hero-search.component';
 import { MessagesComponent }    from './messages/messages.component';
 import { MongoDBNoSqlComponent}     from './mongodbnosql/mongodbnosql.component';
 import { MongoDBNoSqlService}    from './mongodbnosql/mongodbnosql.service';
+import { MySQLDBComponent } from './mysqldb/mysqldb.component';
+import { MySQLDBService } from './mysqldb/mysqldb.service';
 import { DemoService }          from './services/demo.service';
 import { HeroService }          from './services/hero.service';
 import { OracledbComponent } from './oracledb/oracledb.component';
@@ -38,6 +40,7 @@ import { KPWebApisService } from './kpwebapis/kpwebapis.service';
 import { SimpleModalModule } from 'ngx-simple-modal';
 import { SimpleModComponent } from './simplemod/simplemod.component';
 import { SimpleModalService } from "ngx-simple-modal";
+
 
 
 //import {OracledbModule}  from  './oracledb/oracledb.module.tst';
@@ -81,11 +84,13 @@ import { SimpleModalService } from "ngx-simple-modal";
     PaginationComponent,
     ModalComponent,
     KpwebapisComponent,
-    SimpleModComponent
+    SimpleModComponent,
+    MySQLDBComponent
     //DemoService
   ],
   //providers: [DemoService], //KP : DemoService - A Working Provider
-  providers: [DemoService, HeroService, MongoDBNoSqlService, OracleDBService, BsModalService, KPWebApisService, SimpleModalService],
+  providers: [DemoService, HeroService, MongoDBNoSqlService, OracleDBService, 
+              MySQLDBService, BsModalService, KPWebApisService, SimpleModalService],
   //providers: [DemoService, HeroService, MongoDBNoSqlService, OracleDBService],
   bootstrap: [ AppComponent ],
   entryComponents : [ModalComponent, SimpleModComponent]

@@ -7,6 +7,7 @@ import { HeroesComponent } from '../heroes/heroes.component';
 import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 import { MongoDBNoSqlComponent } from '../mongodbnosql/mongodbnosql.component';
 import { OracledbComponent } from '../oracledb/oracledb.component';
+import { MySQLDBComponent } from '../mysqldb/mysqldb.component';
 import { PaginationComponent } from '../pagination/pagination.component';
 
 //KP : Constant Routes
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'heroes', component: HeroesComponent},
   { path: 'mongodbnosql', component: MongoDBNoSqlComponent},  
   { path: 'oracledb', component: OracledbComponent},
-  { path: 'pagination', component:PaginationComponent}
+  { path: 'pagination', component:PaginationComponent},
+  { path: 'mysql', component:MySQLDBComponent},
 ];
 
 @NgModule({

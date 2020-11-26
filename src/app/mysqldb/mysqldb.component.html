@@ -1,0 +1,91 @@
+
+
+ <!-- Page Content -->
+<div class="container">
+
+<div class="row">
+
+<!-- MySQLDB Component-->
+<div>
+    <h3>Angular 6 Demo App : Idols</h3>
+    <ul>
+      <li *ngFor="let idol of idols">{{idol}}</li>
+    </ul>
+
+
+<div>
+    <h3>MySQLDB Server APIs : Cities</h3>
+      <table>
+          <tbody>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>District</th>
+                <th>CountryCode</th>
+                <th>Population</th>
+            </tr>
+        <tr *ngFor="let city of cities">
+          <td>
+            {{city.ID}} 
+          </td>
+          <td>
+          {{city.Name}}
+          </td>
+          <td>
+            {{city.District}} 
+          </td>
+          <td>
+            {{city.CountryCode}} 
+          </td>
+          <td>
+           {{city.Population}}
+          </td>
+        </tr>
+        </tbody>
+      </table>
+</div>
+
+
+<div>
+    <h3>MySQLDB Server APIs : Cities</h3>
+    <ul>
+      <li *ngFor="let city of cities">
+        {{city.ID}} {{city.Name}}
+        {{city.CountryCode}} {{city.District}}
+         {{city.Population}}
+      </li>
+    </ul>
+    </div>
+
+
+    <h3>Angular 6 HttpClient Demo Service APIs</h3> 
+    <h3>Books</h3>
+    <ul>
+      <li *ngFor="let book of books">{{book.title}} : {{book.author}}</li>
+    </ul>
+
+    <h3>Foods</h3>
+    <ul>
+      <li *ngFor="let food of foods">{{food.id}} : {{food.name}}</li>
+    </ul>
+
+    <h3>Movies</h3>
+    <ul>
+      <li *ngFor="let movie of movies">{{movie.title}}</li>
+    </ul>
+
+</div>
+<!-- MySQLDB Component-->
+
+
+</div>
+<!-- /.row -->
+
+</div>
+<!-- /.container -->
+
+
+
+<p>
+  mysqldb works!
+</p>
