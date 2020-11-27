@@ -5,10 +5,53 @@
 
 <div class="row">
 
+<!-- MySQLDB Component-->
+
+
+<!-- KP : Commented Out! - WITH OUT Pagination
+<div>
+    <h3>MySQLDB Server APIs : Cities</h3>
+      <table>
+          <tbody>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>District</th>
+                <th>CountryCode</th>
+                <th>Population</th>
+            </tr>
+        <tr *ngFor="let city of cities">
+          <td>
+            {{city.ID}} 
+          </td>
+          <td>
+          {{city.Name}}
+          </td>
+          <td>
+            {{city.District}} 
+          </td>
+          <td>
+            {{city.CountryCode}} 
+          </td>
+          <td>
+           {{city.Population}}
+          </td>
+        </tr>
+        </tbody>
+      </table>
+</div>
+KP : Commented Out! - WITH OUT Pagination-->
+
 
 <div class="card text-center m-3">
     <h3 class="card-header">Angular 8 Pagination : Ngx-Pagination Example</h3>
     <div class="card-body">
+      <!--KP : Commented Out!
+        <button type="button" class="btn btn-success"
+            (click)="getCitiesObs()">Get Cities - MySQLDB
+        </button>
+        KP : Commented Out!-->
+
     <div  *ngIf="totalRecords" >
         <h3>MySQLDB Cities Table</h3>
         <table border="1" width="75%" class="table table-stripped" >

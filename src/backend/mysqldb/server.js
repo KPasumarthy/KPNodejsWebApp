@@ -289,7 +289,7 @@ mysqlConnection.connect();
 //   console.log(result);
 // });
 
-mysqlConnection.query("Select * From world.city order by ID desc", function (errdbo, result) {
+mysqlConnection.query("Select * From world.city order by ID asc", function (errdbo, result) {
   cities = result;
   console.log(result);
 });
@@ -326,7 +326,8 @@ app.get('/mysqlapi/cities', function (req, res) {
   res.setHeader('Content-Type', 'application/json');
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-  console.log("KP : MySQL app.get(cities) : " + JSON.stringify(cities));
+  console.log("KP : MySQL app.get(cities)");
+  //console.log("KP : MySQL app.get(cities) : " + JSON.stringify(cities));
   res.send(cities);
 });
 

@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 //KP : Add (or) import components from angular core
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
-// @Injectable({
-//   providedIn: 'root'
-// })
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
+//@Injectable()
 export class MySQLDBService {
 
   constructor(private http: HttpClient) {
@@ -40,9 +41,16 @@ export class MySQLDBService {
 
   }
 
-  getCities(){
+  async getCitiesAsync(){
+    return await this.http.get('http://localhost:3366/mysqlapi/cities');
+  };
+
+  getCitiesObservable() : Observable<any> {
     return this.http.get('http://localhost:3366/mysqlapi/cities');
   };
 
+  getCities() {
+    return this.http.get('http://localhost:3366/mysqlapi/cities');
+  };
 
 }

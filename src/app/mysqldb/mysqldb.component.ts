@@ -4,6 +4,13 @@ import { Router } from '@angular/router';
 import { DemoService } from '../services/demo.service';
 import { MySQLDBService } from  './mysqldb.service';
 
+//KP: Pagination Interface
+interface IServerResponse {
+  asyncItems: any[];
+  asyncTotal: Number;
+}
+
+
 @Component({
   selector: 'app-mysqldb',
   templateUrl: './mysqldb.component.html',
@@ -11,6 +18,10 @@ import { MySQLDBService } from  './mysqldb.service';
 })
 export class MySQLDBComponent implements OnInit {
 
+  constructor(
+    private _router : Router,
+    private _mySQLDBService: MySQLDBService  
+  ) { }
 
   title = 'KPNodeJSWebApp : Angular 6 : ng-App & MySQL';
   public foods;
@@ -19,13 +30,16 @@ export class MySQLDBComponent implements OnInit {
   public kpUri;
   public idols;
   public cities;
+  public citiesObs;
 
-  constructor(
-    private _router : Router,
-    private _mySQLDBService: MySQLDBService  
-  ) {
-    
-   }
+
+    //KP : Angular 6 Ngx-PaginationComponent
+    public data: Array<any>;
+    public totalRecords: String;
+    public page: Number = 1;
+  
+
+
 
   ngOnInit() {
     this.getIdols();
@@ -33,6 +47,7 @@ export class MySQLDBComponent implements OnInit {
     this.getBooks();
     this.getMovies();
     this.getCities();
+    this.getCitiesObs();
   }
 
   
@@ -71,12 +86,38 @@ export class MySQLDBComponent implements OnInit {
     }
   
     getCities(){
-      this._mySQLDBService.getCities().subscribe(
-        data => {this.cities = data},
+      this._mySQLDBService.getCities().subscribe((data) => {
+          console.log("KP : MySQLDB : " + data);
+          this.cities = data;
+        },
         err => console.error("KP : App-Component MongoDBService throwing errors : " + err),
         () => console.log("KP : App-Component MongoDBService Done loading Age Sorted Customers !")
       )
     };
   
+
+    getCitiesObs(){
+      this._mySQLDBService.getCitiesObservable().subscribe((data) => {
+      
+          console.log("KP : MySQLDB : " + data.results);
+          console.log("KP : MySQLDB Pagination : " + data.length  );
+          this.citiesObs = data;
+          this.totalRecords = data.length;
+          console.log("KP : MySQLDB Pagination : " + this.totalRecords );
+        },
+        err => console.error("KP : App-Component MongoDBService throwing errors : " + err),
+        () => console.log("KP : App-Component MongoDBService Done loading Age Sorted Customers !")
+      )
+    };
+  
+    public items = [];
+    public pageOfItems: Array<any>;
+  
+    onChangePage(pageOfItems: Array<any>) {
+      // update current page of items
+      this.pageOfItems = pageOfItems;
+    }
+
+
 
 }
