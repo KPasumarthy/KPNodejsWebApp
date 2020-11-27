@@ -1,45 +1,46 @@
 
-
  <!-- Page Content -->
 <div class="container">
 
 <div class="row">
 
-
 <div class="card text-center m-3">
     <h3 class="card-header">Angular 8 Pagination : Ngx-Pagination Example</h3>
     <div class="card-body">
-    <div  *ngIf="totalRecords" >
-        <h3>MySQLDB Cities Table</h3>
-        <table border="1" width="75%" class="table table-stripped" >
-            <tbody>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>District</th>
-                <th>CountryCode</th>
-                <th>Population</th>
-            </tr>
-            <tr *ngFor="let city of citiesObs | paginate :
-                        { id: 'listing_pagination', 
-                          itemsPerPage : 10,
-                          currentPage : page,
-                          totalItems : totalRecords }">
-              <td>{{city.ID}}</td>    
-              <td>{{city.Name}}</td>      
-              <td>{{city.District}}</td>  
-              <td>{{city.CountryCode}}</td>  
-              <td>{{city.Population}}</td>           
-            </tr>
-        </tbody>
-        </table>
-        <div *ngIf="totalRecords" class="card-footer pb-0 pt-1">
-            <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true"
-            (pageChange)="page = $event"></pagination-controls>
-        </div>
+      <div  *ngIf="totalRecords" >
+          <h3>MySQLDB Cities Table</h3>
+          <table border="1" width="75%" class="table table-stripped" >
+              <tbody>
+              <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>District</th>
+                  <th>CountryCode</th>
+                  <th>Population</th>
+              </tr>
+              <tr *ngFor="let city of citiesObs | paginate :
+                          { id: 'listing_pagination', 
+                            itemsPerPage : 10,
+                            currentPage : page,
+                            totalItems : totalRecords }">
+                <td>{{city.ID}}</td>    
+                <td>{{city.Name}}</td>      
+                <td>{{city.District}}</td>  
+                <td>{{city.CountryCode}}</td>  
+                <td>{{city.Population}}</td>           
+              </tr>
+          </tbody>
+          </table>
+          <div *ngIf="totalRecords" class="card-footer pb-0 pt-1">
+              <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true"
+              (pageChange)="page = $event"></pagination-controls>
+          </div>
+      </div>
     </div>
 </div>
 
+</div>
+</div>
 
 
 
@@ -79,11 +80,6 @@ KP : Commented Out! - WITH OUT Pagination K-->
 <!-- MySQLDB Component-->
 
 
-</div>
-<!-- /.row -->
-
-</div>
-<!-- /.container -->
 
 
 

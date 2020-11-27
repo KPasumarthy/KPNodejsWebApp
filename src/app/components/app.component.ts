@@ -79,7 +79,7 @@ export class AppComponent {
     this.modalRef = this.modalService.show(ModalComponent, {
       initialState:{
         modaltitle : "NGX Modal",
-        modaldata:  ["KP : This is the implementation of NGX Modal"] 
+        modaldata:  "KP : This is the implementation of NGX Modal"
       }
     })
   };
