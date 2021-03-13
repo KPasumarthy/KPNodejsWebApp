@@ -1,8 +1,51 @@
+<!-- KP : <script>
+var app = angular.module('myApp', []);
+app.controller('personCtrl', function($scope) {
+    $scope.firstName = "Kailash";
+    $scope.lastName = "Pasumarthy";
+    $scope.fullName = function() {
+        return $scope.firstName + " " + $scope.lastName;
+    };
+});
+</script> -->
 
  <!-- Page Content -->
 <div class="container">
 
 <div class="row">
+
+
+<div class="card text-center m-3">
+  <h3 class="card-header">Angular 8 : KPMVCWebAPIs</h3>
+  <!-- KP : <div class="card-body">
+    First Name: <input type="text" ng-model="firstName"><br>
+    Last Name: <input type="text" ng-model="lastName"><br>
+    </br>
+    Full Name: {{fullName()}}
+  </div> -->
+  <div  *ngIf="kpUriData" >
+          <h3>Person</h3>
+          <table border="1" width="75%" class="table table-stripped" >
+              <tbody>
+              <tr>
+                  <th>BusinessEntityID</th>
+                  <th>FirstName</th>
+                  <th>LastName</th>
+                  <th>MiddleName</th>
+                  <th>Rowguid</th>
+              </tr>
+
+              <tr *ngFor="let person of kpUriData">
+                <td>{{person.BusinessEntityID}}</td>    
+                <td>{{person.FirstName}}</td>      
+                <td>{{person.LastName}}</td>  
+                <td>{{person.CountryCode}}</td>  
+                <td>{{person.Rowguid}}</td>           
+              </tr>
+          </tbody>
+          </table>
+    </div>
+</div>
 
 <div class="card text-center m-3">
     <h3 class="card-header">Angular 8 Pagination : Ngx-Pagination Example</h3>

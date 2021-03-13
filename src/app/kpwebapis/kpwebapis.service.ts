@@ -16,13 +16,19 @@ export class KPWebApisService {
     return this.http.get('http://kpmvcwebapis.com/api/Persons/');
   }
 
+  ////KP : Uses http.get() to obtain a person data hosted on localhost API endpoint
+  getPerson(id: number): Observable<any> {
+    var uri = 'http://kpmvcwebapis.com/api/Persons/' + id.toString()
+    return this.http.get(uri);
+  }
+
   ////KP : Uses http.get() to obtain persons data hosted on localhost API endpoint
   getRandomUsers(): Observable<any> {
     return this.http.get('https://randomuser.me/api/?results=100');
   }
   ////KP : Uses http.get() to obtain persons data hosted on localhost API endpoint
   async getPersonsAsync() {
-    return  await this.http.get('http://kpmvcwebapis.com/api/Persons/');
+    return await this.http.get('http://kpmvcwebapis.com/api/Persons/');
   }
 
   ////KP : Uses http.get() to obtain persons data hosted on localhost API endpoint

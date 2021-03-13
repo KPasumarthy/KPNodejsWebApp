@@ -37,7 +37,6 @@ export class MongoDBNoSqlService {
   getIdols() {
       //return this.http.get('http://localhost:2727/idols');
     return this.http.get('http://localhost:1919/oracledbapi/ORAv3database');
-
   }
 
   getCustomersAgeSorted(){

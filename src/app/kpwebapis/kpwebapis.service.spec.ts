@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { KpwebapisService } from './kpwebapis.service';
+import { KPWebApisService } from './kpwebapis.service';
 
 describe('KpwebapisService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [KpwebapisService]
+      providers: [KPWebApisService]
     });
   });
 
-  it('should be created', inject([KpwebapisService], (service: KpwebapisService) => {
+  it('should be created', inject([KPWebApisService], (service: KPWebApisService) => {
     expect(service).toBeTruthy();
   }));
 });
