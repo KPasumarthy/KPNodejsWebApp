@@ -65,6 +65,20 @@ router.get("/contact", (req, res) => {
     to: "KP123@hotmail.com",
     subject: "AngularJS/ReactJS & Node Server SMTP Message",
     html: `<p>Name: ${name}</p><p>Email: ${email}</p><p>Message: ${message}</p>`,
+    attachments: [
+      {   // utf-8 string as an attachment
+          filename: 'text1.txt',
+          content: 'hello world!'
+      },        
+      {   // binary buffer as an attachment
+        filename: 'text2.txt',
+        content: fs.createReadStream('../../../Literature/ReactJSLiterature.txt')
+      },
+      {   // file on disk as an attachment
+          filename: 'text3.jpg',
+          path: '../../../Literature/ReactJSAPICall.JPG' // stream this file
+      },    
+    ] 
   };
 
   console.log(`KP : SMTP Mail Server Router on https://${hostname}:${port}/contact`);
