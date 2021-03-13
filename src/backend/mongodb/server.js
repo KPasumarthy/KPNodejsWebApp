@@ -207,51 +207,23 @@ app.get('/api/movies', function (req, res){
   res.send(movies);
 });
 
-///KP : http get WakefernStairCase api endpoint
-  /*** KP : Wakefern Hackethon
-  MarkPoko : There exists a staircase with N steps, and you can climb up either 1 or 2 steps at a time. 
-  Given N, write a function that returns the number of unique ways you can climb the staircase. 
-  The order of the steps matters.For example, if N is 4, then there are 5 unique ways:
-  1, 1, 1, 1
-  2, 1, 1
-  1, 2, 1    
-  1, 1, 2    
-  2, 2    
-  What if, instead of being able to climb 1 or 2 steps at a time, 
-  you could climb any number from a set of positive integers X? 
-  For example, if X = {1, 3, 5}, you could climb 1, 3, or 5 steps at a time.
-  ***/
-var wakefernStairCase = [
-  { "title": "Chi-Chen Huang" },
-  { "title": "Star Wars" },
-  { "title": "Batman Begins" }
-];
-app.get('/api/wakefernStairCase', function (req, res){
-  //res.setHeader('Content-Type','application/json');
-  res.setHeader('Content-Type', 'text/html');
+///KP : http post  api endpoint
+app.post('/api/receiveInfo', function(req, res){
+
+  //KP : Write the Received Data from POST Request
+  console.log(`KP : NodeJS Express App on https://${hostname}:${port}/api/receiveInfo'! - Data Received on POST Method : `);
+  console.log(`KP : /api/receiveInfo - req.body.name : ` +  req.body.name);
+  console.log(`KP : /api/receiveInfo - req.body.email : ` + req.body.email);
+  console.log(`KP : /api/receiveInfo - req.body.subject : ` + req.body.subject);
+  console.log(`KP : /api/receiveInfo - req.body.message : ` + req.body.message);
+  
+  res.setHeader('Content-Type','application/json');
+  //res.setHeader('Content-Type', 'text/html');
   res.setHeader('Access-Control-Allow-Origin','*');
-  res.setHeader('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
+  res.setHeader('Access-Control-Allow-Methods','POST');
+  res.send(books);
 
-  var Nn = 5;
-  var num = new Array(5);
-  var temp;
-  var i, n=5, j;
-  for (j = 1; j <= n; j++) {
-    for (i = 0; i < n-1; i++) {
-        temp = num[i];
-        num[i] = num[i+1];
-        num[i+1] = temp;
-        console.log(num, n);
-    }
-  }
-
-  res.send(wakefernStairCase);
 });
-
-
-function getStepsInWFCStairCase() {
-  return wakefernStairCase;
-}
 
 
 //KP : Node App Service APIs 
