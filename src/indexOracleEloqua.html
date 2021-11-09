@@ -1378,11 +1378,11 @@
   <!--KP : Oracle Eloqua-->
   <form method="post" name="cynchCommercialForm" action="https://s177345.t.eloqua.com/e/f2"
     onsubmit="return handleFormSubmit(this)" id="form18" class="elq-form">
-      <input value="cynchCommercialForm"  type="hidden" name="elqFormName">
-      <input value="177345" type="hidden" name="elqSiteId">
-      <input name="elqCampaignId" type="hidden">
-      <input type="hidden" name="elqCustomerGUID" value="">
-      <input type="hidden" name="elqCookieWrite" value="0">
+    <input value="cynchCommercialForm" type="hidden" name="elqFormName">
+    <input value="177345" type="hidden" name="elqSiteId">
+    <input name="elqCampaignId" type="hidden">
+    <input type="hidden" name="elqCustomerGUID" value="">
+    <input type="hidden" name="elqCookieWrite" value="0">
     <div class="layout container-fluid">
       <div class="row">
         <div class="grid-layout-col">
@@ -1800,31 +1800,32 @@
   </form>
   <script type="text/javascript" src="https://img03.en25.com/i/livevalidation_standalone.compressed.js"></script>
   <script>function handleFormSubmit(ele) { var submitButton = ele.querySelector('input[type=submit]'); var spinner = document.createElement('span'); spinner.setAttribute('class', 'loader'); submitButton.setAttribute('disabled', true); submitButton.style.cursor = 'wait'; submitButton.parentNode.appendChild(spinner); return true; } function resetSubmitButton(e) { var submitButtons = e.target.form.getElementsByClassName('submit-button'); for (var i = 0; i < submitButtons.length; i++) { submitButtons[i].disabled = false; } } function addChangeHandler(elements) { for (var i = 0; i < elements.length; i++) { elements[i].addEventListener('change', resetSubmitButton); } } var form = document.getElementById('form18'); addChangeHandler(form.getElementsByTagName('input')); addChangeHandler(form.getElementsByTagName('select')); addChangeHandler(form.getElementsByTagName('textarea')); var nodes = document.querySelectorAll('#form18 input[data-subscription]'); if (nodes) { for (var i = 0, len = nodes.length; i < len; i++) { var status = nodes[i].dataset ? nodes[i].dataset.subscription : nodes[i].getAttribute('data-subscription'); if (status === 'true') { nodes[i].checked = true; } } }; var nodes = document.querySelectorAll('#form18 select[data-value]'); if (nodes) { for (var i = 0; i < nodes.length; i++) { var node = nodes[i]; var selectedValue = node.dataset ? node.dataset.value : node.getAttribute('data-value'); if (selectedValue) { for (var j = 0; j < node.options.length; j++) { if (node.options[j].value === selectedValue) { node.options[j].selected = 'selected'; break; } } } } } this.getParentElement = function (list) { return list[list.length - 1].parentElement }; var dom0 = document.querySelector('#form18 #fe174'); var fe174 = new LiveValidation(dom0, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom1 = document.querySelector('#form18 #fe175'); var fe175 = new LiveValidation(dom1, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom2 = document.querySelector('#form18 #fe176'); var fe176 = new LiveValidation(dom2, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom3 = document.querySelector('#form18 #fe177'); var fe177 = new LiveValidation(dom3, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom4 = document.querySelector('#form18 #fe178'); var fe178 = new LiveValidation(dom4, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom5 = document.querySelector('#form18 #fe179'); var fe179 = new LiveValidation(dom5, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom6 = document.querySelector('#form18 #fe180'); var fe180 = new LiveValidation(dom6, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom7 = document.querySelector('#form18 #fe181'); var fe181 = new LiveValidation(dom7, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom8 = document.querySelector('#form18 #fe182'); var fe182 = new LiveValidation(dom8, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom9 = document.querySelector('#form18 #fe183'); var fe183 = new LiveValidation(dom9, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom10 = document.querySelector('#form18 #fe184'); var fe184 = new LiveValidation(dom10, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom11 = document.querySelector('#form18 #fe186'); var fe186 = new LiveValidation(dom11, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom12 = document.querySelector('#form18 #fe187'); var fe187 = new LiveValidation(dom12, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom13 = document.querySelector('#form18 #fe188'); var fe188 = new LiveValidation(dom13, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom14 = document.querySelector('#form18 #fe189'); var fe189 = new LiveValidation(dom14, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom15 = document.querySelectorAll('#form18 [name="StorageCageOwned"]'); var fe190 = new LiveValidation(dom15, { validMessage: "", onlyOnBlur: false, wait: 300, insertAfterWhatNode: this.getParentElement(dom15), isGroup: true }, true); fe190.add(Validate.Custom, { against: function (value) { return !value.match(/(telnet|ftp|https?):\/\/(?:[a-z0-9][a-z0-9-]{0,61}[a-z0-9]\.|[a-z0-9]\.)+[a-z]{2,63}/i); }, failureMessage: "Value must not contain any URL's" }); fe190.add(Validate.Custom, { against: function (value) { return !value.match(/(<([^>]+)>)/ig); }, failureMessage: "Value must not contain any HTML" }); var dom16 = document.querySelector('#form18 #fe191'); var fe191 = new LiveValidation(dom16, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom17 = document.querySelector('#form18 #fe192'); var fe192 = new LiveValidation(dom17, { validMessage: "", onlyOnBlur: false, wait: 300 });</script>
-   
 
 
-  <script type='text/javascript'><!--//
+
+  <script type='text/javascript'>
     var timerId = null, timeout = 5;
-    //--></script>
-    <script type='text/javascript'><!--//
+  </script>
+  <script type='text/javascript'>
+
     function WaitUntilCustomerGUIDIsRetrieved() {
-    if (!!(timerId)) {
+      if (!!(timerId)) {
         if (timeout == 0) {
-    return;
-    }
-    if (typeof this.GetElqCustomerGUID === 'function') {
-            document.forms["cynchCommercialForm"].elements["elqCustomerGUID"].value = GetElqCustomerGUID();
-    return;
-    }
-    timeout -= 1;
-    }
-    timerId = setTimeout("WaitUntilCustomerGUIDIsRetrieved()", 500);
-    return;
+          return;
+        }
+        if (typeof this.GetElqCustomerGUID === 'function') {
+          document.forms["cynchCommercialForm"].elements["elqCustomerGUID"].value = GetElqCustomerGUID();
+          return;
+        }
+        timeout -= 1;
+      }
+      timerId = setTimeout("WaitUntilCustomerGUIDIsRetrieved()", 500);
+      return;
     }
     window.onload = WaitUntilCustomerGUIDIsRetrieved;
     _elqQ.push(['elqGetCustomerGUID']);
-    //--></script>
-    
+  </script>
+
 
   <!--KP : Oracle Eloqua-->
 
