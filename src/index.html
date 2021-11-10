@@ -1,14 +1,15 @@
 <!--KP : <app-root> Selector Directive starts the AngJS ngApp -->
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>KPNodeJSWebApp</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <!-- <link rel="icon" type="image/x-icon" href="src/assets/favicon.ico"> -->
   <!-- <link rel="icon" type="image/x-icon"href="src/assets/favicon.ico"> -->
   <!-- <link rel="stylesheet" href="styles.css"> -->
@@ -18,24 +19,1997 @@
 
   <!-- Custom styles for this template -->
 
+  <!--KP : Oracle Eloqua-->
+  <style type="text/css">
+    .elq-form .elq-required {
+      color: red !important;
+      display: inline;
+      float: none;
+      font-weight: 700;
+      margin: 0;
+      padding: 0
+    }
+
+    .elq-form #elq-FormLastRow {
+      position: absolute;
+      left: -80%;
+      top: -80%
+    }
+
+    .elq-form .elq-label {
+      display: inline-block;
+      max-width: 100%;
+      font-weight: 400;
+      box-sizing: border-box;
+      margin-bottom: 0
+    }
+
+    .elq-form .elq-label-top {
+      padding-bottom: 3px
+    }
+
+    .elq-form .elq-item-label {
+      max-width: 100%;
+      font-weight: 400;
+      box-sizing: border-box
+    }
+
+    .elq-form .list-order {
+      margin-left: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis
+    }
+
+    .elq-form .one-column {
+      width: 100%;
+      clear: both
+    }
+
+    .elq-form .two-column {
+      float: left;
+      width: 38%
+    }
+
+    .elq-form .three-column {
+      float: left;
+      width: 30%
+    }
+
+    .elq-form .elq-item-textarea {
+      resize: vertical;
+      min-height: 48px;
+      max-height: 360px;
+      box-sizing: border-box
+    }
+
+    .elq-form .elq-item-input,
+    .elq-form .elq-item-select,
+    .elq-form .elq-item-textarea {
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      color: inherit;
+      font: inherit;
+      margin: 0
+    }
+
+    .elq-form .elq-item-select {
+      text-transform: none
+    }
+
+    .elq-form .row.single-checkbox-row {
+      margin-left: 0
+    }
+
+    .elq-form .elq-field-style {
+      padding-bottom: 10px
+    }
+
+    .elq-form .elq-field-style input[type=submit] {
+      -webkit-appearance: square-button
+    }
+
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg)
+      }
+
+      to {
+        -webkit-transform: rotate(1turn)
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg)
+      }
+
+      to {
+        transform: rotate(1turn)
+      }
+    }
+
+    .elq-form .loader {
+      vertical-align: middle;
+      display: inline-block;
+      margin-left: 10px;
+      border: 3px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 3px solid #3498db;
+      width: 20px;
+      height: 20px;
+      -webkit-animation: spin 2s linear infinite;
+      animation: spin 2s linear infinite
+    }
+
+    .elq-form input[type=checkbox],
+    .elq-form input[type=radio] {
+      margin: 0
+    }
+
+    .elq-form .list-order input[type=radio] {
+      margin-left: 1px
+    }
+
+    .elq-form *,
+    .elq-form :after,
+    .elq-form :before {
+      box-sizing: border-box
+    }
+
+    .elq-form html {
+      font-size: 10px;
+      -webkit-tap-highlight-color: transparent
+    }
+
+    .elq-form body {
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.42857;
+      color: #333;
+      background-color: #fff
+    }
+
+    .elq-form button,
+    .elq-form input,
+    .elq-form select,
+    .elq-form textarea {
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit
+    }
+
+    .elq-form a {
+      color: #337ab7;
+      text-decoration: none
+    }
+
+    .elq-form a:focus,
+    .elq-form a:hover {
+      color: #23527c;
+      text-decoration: underline
+    }
+
+    .elq-form a:focus {
+      outline: 5px auto -webkit-focus-ring-color;
+      outline-offset: -2px
+    }
+
+    .elq-form figure {
+      margin: 0
+    }
+
+    .elq-form img {
+      vertical-align: middle
+    }
+
+    .elq-form .img-responsive {
+      display: block;
+      max-width: 100%;
+      height: auto
+    }
+
+    .elq-form .img-rounded {
+      border-radius: 6px
+    }
+
+    .elq-form .img-thumbnail {
+      padding: 4px;
+      line-height: 1.42857;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      transition: all .2s ease-in-out;
+      display: inline-block;
+      max-width: 100%;
+      height: auto
+    }
+
+    .elq-form .img-circle {
+      border-radius: 50%
+    }
+
+    .elq-form hr {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      border: 0;
+      border-top: 1px solid #eee
+    }
+
+    .elq-form .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0
+    }
+
+    .elq-form .sr-only-focusable:active,
+    .elq-form .sr-only-focusable:focus {
+      position: static;
+      width: auto;
+      height: auto;
+      margin: 0;
+      overflow: visible;
+      clip: auto
+    }
+
+    .elq-form [role=button] {
+      cursor: pointer
+    }
+
+    .elq-form .container {
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto
+    }
+
+    .elq-form .container:after,
+    .elq-form .container:before {
+      display: table;
+      content: " "
+    }
+
+    .elq-form .container:after {
+      clear: both
+    }
+
+    @media (min-width:768px) {
+      .elq-form .container {
+        width: 750px
+      }
+    }
+
+    @media (min-width:992px) {
+      .elq-form .container {
+        width: 970px
+      }
+    }
+
+    @media (min-width:1200px) {
+      .elq-form .container {
+        width: 1170px
+      }
+    }
+
+    .elq-form .container-fluid {
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto
+    }
+
+    .elq-form .container-fluid:after,
+    .elq-form .container-fluid:before {
+      display: table;
+      content: " "
+    }
+
+    .elq-form .container-fluid:after {
+      clear: both
+    }
+
+    .elq-form .row {
+      margin-right: -15px;
+      margin-left: -15px
+    }
+
+    .elq-form .row:after,
+    .elq-form .row:before {
+      display: table;
+      content: " "
+    }
+
+    .elq-form .row:after {
+      clear: both
+    }
+
+    .elq-form .row-no-gutters {
+      margin-right: 0;
+      margin-left: 0
+    }
+
+    .elq-form .row-no-gutters [class*=col-] {
+      padding-right: 0;
+      padding-left: 0
+    }
+
+    .elq-form .col-lg-1,
+    .elq-form .col-lg-2,
+    .elq-form .col-lg-3,
+    .elq-form .col-lg-4,
+    .elq-form .col-lg-5,
+    .elq-form .col-lg-6,
+    .elq-form .col-lg-7,
+    .elq-form .col-lg-8,
+    .elq-form .col-lg-9,
+    .elq-form .col-lg-10,
+    .elq-form .col-lg-11,
+    .elq-form .col-lg-12,
+    .elq-form .col-md-1,
+    .elq-form .col-md-2,
+    .elq-form .col-md-3,
+    .elq-form .col-md-4,
+    .elq-form .col-md-5,
+    .elq-form .col-md-6,
+    .elq-form .col-md-7,
+    .elq-form .col-md-8,
+    .elq-form .col-md-9,
+    .elq-form .col-md-10,
+    .elq-form .col-md-11,
+    .elq-form .col-md-12,
+    .elq-form .col-sm-1,
+    .elq-form .col-sm-2,
+    .elq-form .col-sm-3,
+    .elq-form .col-sm-4,
+    .elq-form .col-sm-5,
+    .elq-form .col-sm-6,
+    .elq-form .col-sm-7,
+    .elq-form .col-sm-8,
+    .elq-form .col-sm-9,
+    .elq-form .col-sm-10,
+    .elq-form .col-sm-11,
+    .elq-form .col-sm-12,
+    .elq-form .col-xs-1,
+    .elq-form .col-xs-2,
+    .elq-form .col-xs-3,
+    .elq-form .col-xs-4,
+    .elq-form .col-xs-5,
+    .elq-form .col-xs-6,
+    .elq-form .col-xs-7,
+    .elq-form .col-xs-8,
+    .elq-form .col-xs-9,
+    .elq-form .col-xs-10,
+    .elq-form .col-xs-11,
+    .elq-form .col-xs-12 {
+      position: relative;
+      min-height: 1px;
+      padding-right: 15px;
+      padding-left: 15px
+    }
+
+    .elq-form .col-xs-1,
+    .elq-form .col-xs-2,
+    .elq-form .col-xs-3,
+    .elq-form .col-xs-4,
+    .elq-form .col-xs-5,
+    .elq-form .col-xs-6,
+    .elq-form .col-xs-7,
+    .elq-form .col-xs-8,
+    .elq-form .col-xs-9,
+    .elq-form .col-xs-10,
+    .elq-form .col-xs-11,
+    .elq-form .col-xs-12 {
+      float: left
+    }
+
+    .elq-form .col-xs-1 {
+      width: 8.33333%
+    }
+
+    .elq-form .col-xs-2 {
+      width: 16.66667%
+    }
+
+    .elq-form .col-xs-3 {
+      width: 25%
+    }
+
+    .elq-form .col-xs-4 {
+      width: 33.33333%
+    }
+
+    .elq-form .col-xs-5 {
+      width: 41.66667%
+    }
+
+    .elq-form .col-xs-6 {
+      width: 50%
+    }
+
+    .elq-form .col-xs-7 {
+      width: 58.33333%
+    }
+
+    .elq-form .col-xs-8 {
+      width: 66.66667%
+    }
+
+    .elq-form .col-xs-9 {
+      width: 75%
+    }
+
+    .elq-form .col-xs-10 {
+      width: 83.33333%
+    }
+
+    .elq-form .col-xs-11 {
+      width: 91.66667%
+    }
+
+    .elq-form .col-xs-12 {
+      width: 100%
+    }
+
+    .elq-form .col-xs-pull-0 {
+      right: auto
+    }
+
+    .elq-form .col-xs-pull-1 {
+      right: 8.33333%
+    }
+
+    .elq-form .col-xs-pull-2 {
+      right: 16.66667%
+    }
+
+    .elq-form .col-xs-pull-3 {
+      right: 25%
+    }
+
+    .elq-form .col-xs-pull-4 {
+      right: 33.33333%
+    }
+
+    .elq-form .col-xs-pull-5 {
+      right: 41.66667%
+    }
+
+    .elq-form .col-xs-pull-6 {
+      right: 50%
+    }
+
+    .elq-form .col-xs-pull-7 {
+      right: 58.33333%
+    }
+
+    .elq-form .col-xs-pull-8 {
+      right: 66.66667%
+    }
+
+    .elq-form .col-xs-pull-9 {
+      right: 75%
+    }
+
+    .elq-form .col-xs-pull-10 {
+      right: 83.33333%
+    }
+
+    .elq-form .col-xs-pull-11 {
+      right: 91.66667%
+    }
+
+    .elq-form .col-xs-pull-12 {
+      right: 100%
+    }
+
+    .elq-form .col-xs-push-0 {
+      left: auto
+    }
+
+    .elq-form .col-xs-push-1 {
+      left: 8.33333%
+    }
+
+    .elq-form .col-xs-push-2 {
+      left: 16.66667%
+    }
+
+    .elq-form .col-xs-push-3 {
+      left: 25%
+    }
+
+    .elq-form .col-xs-push-4 {
+      left: 33.33333%
+    }
+
+    .elq-form .col-xs-push-5 {
+      left: 41.66667%
+    }
+
+    .elq-form .col-xs-push-6 {
+      left: 50%
+    }
+
+    .elq-form .col-xs-push-7 {
+      left: 58.33333%
+    }
+
+    .elq-form .col-xs-push-8 {
+      left: 66.66667%
+    }
+
+    .elq-form .col-xs-push-9 {
+      left: 75%
+    }
+
+    .elq-form .col-xs-push-10 {
+      left: 83.33333%
+    }
+
+    .elq-form .col-xs-push-11 {
+      left: 91.66667%
+    }
+
+    .elq-form .col-xs-push-12 {
+      left: 100%
+    }
+
+    .elq-form .col-xs-offset-0 {
+      margin-left: 0
+    }
+
+    .elq-form .col-xs-offset-1 {
+      margin-left: 8.33333%
+    }
+
+    .elq-form .col-xs-offset-2 {
+      margin-left: 16.66667%
+    }
+
+    .elq-form .col-xs-offset-3 {
+      margin-left: 25%
+    }
+
+    .elq-form .col-xs-offset-4 {
+      margin-left: 33.33333%
+    }
+
+    .elq-form .col-xs-offset-5 {
+      margin-left: 41.66667%
+    }
+
+    .elq-form .col-xs-offset-6 {
+      margin-left: 50%
+    }
+
+    .elq-form .col-xs-offset-7 {
+      margin-left: 58.33333%
+    }
+
+    .elq-form .col-xs-offset-8 {
+      margin-left: 66.66667%
+    }
+
+    .elq-form .col-xs-offset-9 {
+      margin-left: 75%
+    }
+
+    .elq-form .col-xs-offset-10 {
+      margin-left: 83.33333%
+    }
+
+    .elq-form .col-xs-offset-11 {
+      margin-left: 91.66667%
+    }
+
+    .elq-form .col-xs-offset-12 {
+      margin-left: 100%
+    }
+
+    @media (min-width:768px) {
+
+      .elq-form .col-sm-1,
+      .elq-form .col-sm-2,
+      .elq-form .col-sm-3,
+      .elq-form .col-sm-4,
+      .elq-form .col-sm-5,
+      .elq-form .col-sm-6,
+      .elq-form .col-sm-7,
+      .elq-form .col-sm-8,
+      .elq-form .col-sm-9,
+      .elq-form .col-sm-10,
+      .elq-form .col-sm-11,
+      .elq-form .col-sm-12 {
+        float: left
+      }
+
+      .elq-form .col-sm-1 {
+        width: 8.33333%
+      }
+
+      .elq-form .col-sm-2 {
+        width: 16.66667%
+      }
+
+      .elq-form .col-sm-3 {
+        width: 25%
+      }
+
+      .elq-form .col-sm-4 {
+        width: 33.33333%
+      }
+
+      .elq-form .col-sm-5 {
+        width: 41.66667%
+      }
+
+      .elq-form .col-sm-6 {
+        width: 50%
+      }
+
+      .elq-form .col-sm-7 {
+        width: 58.33333%
+      }
+
+      .elq-form .col-sm-8 {
+        width: 66.66667%
+      }
+
+      .elq-form .col-sm-9 {
+        width: 75%
+      }
+
+      .elq-form .col-sm-10 {
+        width: 83.33333%
+      }
+
+      .elq-form .col-sm-11 {
+        width: 91.66667%
+      }
+
+      .elq-form .col-sm-12 {
+        width: 100%
+      }
+
+      .elq-form .col-sm-pull-0 {
+        right: auto
+      }
+
+      .elq-form .col-sm-pull-1 {
+        right: 8.33333%
+      }
+
+      .elq-form .col-sm-pull-2 {
+        right: 16.66667%
+      }
+
+      .elq-form .col-sm-pull-3 {
+        right: 25%
+      }
+
+      .elq-form .col-sm-pull-4 {
+        right: 33.33333%
+      }
+
+      .elq-form .col-sm-pull-5 {
+        right: 41.66667%
+      }
+
+      .elq-form .col-sm-pull-6 {
+        right: 50%
+      }
+
+      .elq-form .col-sm-pull-7 {
+        right: 58.33333%
+      }
+
+      .elq-form .col-sm-pull-8 {
+        right: 66.66667%
+      }
+
+      .elq-form .col-sm-pull-9 {
+        right: 75%
+      }
+
+      .elq-form .col-sm-pull-10 {
+        right: 83.33333%
+      }
+
+      .elq-form .col-sm-pull-11 {
+        right: 91.66667%
+      }
+
+      .elq-form .col-sm-pull-12 {
+        right: 100%
+      }
+
+      .elq-form .col-sm-push-0 {
+        left: auto
+      }
+
+      .elq-form .col-sm-push-1 {
+        left: 8.33333%
+      }
+
+      .elq-form .col-sm-push-2 {
+        left: 16.66667%
+      }
+
+      .elq-form .col-sm-push-3 {
+        left: 25%
+      }
+
+      .elq-form .col-sm-push-4 {
+        left: 33.33333%
+      }
+
+      .elq-form .col-sm-push-5 {
+        left: 41.66667%
+      }
+
+      .elq-form .col-sm-push-6 {
+        left: 50%
+      }
+
+      .elq-form .col-sm-push-7 {
+        left: 58.33333%
+      }
+
+      .elq-form .col-sm-push-8 {
+        left: 66.66667%
+      }
+
+      .elq-form .col-sm-push-9 {
+        left: 75%
+      }
+
+      .elq-form .col-sm-push-10 {
+        left: 83.33333%
+      }
+
+      .elq-form .col-sm-push-11 {
+        left: 91.66667%
+      }
+
+      .elq-form .col-sm-push-12 {
+        left: 100%
+      }
+
+      .elq-form .col-sm-offset-0 {
+        margin-left: 0
+      }
+
+      .elq-form .col-sm-offset-1 {
+        margin-left: 8.33333%
+      }
+
+      .elq-form .col-sm-offset-2 {
+        margin-left: 16.66667%
+      }
+
+      .elq-form .col-sm-offset-3 {
+        margin-left: 25%
+      }
+
+      .elq-form .col-sm-offset-4 {
+        margin-left: 33.33333%
+      }
+
+      .elq-form .col-sm-offset-5 {
+        margin-left: 41.66667%
+      }
+
+      .elq-form .col-sm-offset-6 {
+        margin-left: 50%
+      }
+
+      .elq-form .col-sm-offset-7 {
+        margin-left: 58.33333%
+      }
+
+      .elq-form .col-sm-offset-8 {
+        margin-left: 66.66667%
+      }
+
+      .elq-form .col-sm-offset-9 {
+        margin-left: 75%
+      }
+
+      .elq-form .col-sm-offset-10 {
+        margin-left: 83.33333%
+      }
+
+      .elq-form .col-sm-offset-11 {
+        margin-left: 91.66667%
+      }
+
+      .elq-form .col-sm-offset-12 {
+        margin-left: 100%
+      }
+    }
+
+    @media (min-width:992px) {
+
+      .elq-form .col-md-1,
+      .elq-form .col-md-2,
+      .elq-form .col-md-3,
+      .elq-form .col-md-4,
+      .elq-form .col-md-5,
+      .elq-form .col-md-6,
+      .elq-form .col-md-7,
+      .elq-form .col-md-8,
+      .elq-form .col-md-9,
+      .elq-form .col-md-10,
+      .elq-form .col-md-11,
+      .elq-form .col-md-12 {
+        float: left
+      }
+
+      .elq-form .col-md-1 {
+        width: 8.33333%
+      }
+
+      .elq-form .col-md-2 {
+        width: 16.66667%
+      }
+
+      .elq-form .col-md-3 {
+        width: 25%
+      }
+
+      .elq-form .col-md-4 {
+        width: 33.33333%
+      }
+
+      .elq-form .col-md-5 {
+        width: 41.66667%
+      }
+
+      .elq-form .col-md-6 {
+        width: 50%
+      }
+
+      .elq-form .col-md-7 {
+        width: 58.33333%
+      }
+
+      .elq-form .col-md-8 {
+        width: 66.66667%
+      }
+
+      .elq-form .col-md-9 {
+        width: 75%
+      }
+
+      .elq-form .col-md-10 {
+        width: 83.33333%
+      }
+
+      .elq-form .col-md-11 {
+        width: 91.66667%
+      }
+
+      .elq-form .col-md-12 {
+        width: 100%
+      }
+
+      .elq-form .col-md-pull-0 {
+        right: auto
+      }
+
+      .elq-form .col-md-pull-1 {
+        right: 8.33333%
+      }
+
+      .elq-form .col-md-pull-2 {
+        right: 16.66667%
+      }
+
+      .elq-form .col-md-pull-3 {
+        right: 25%
+      }
+
+      .elq-form .col-md-pull-4 {
+        right: 33.33333%
+      }
+
+      .elq-form .col-md-pull-5 {
+        right: 41.66667%
+      }
+
+      .elq-form .col-md-pull-6 {
+        right: 50%
+      }
+
+      .elq-form .col-md-pull-7 {
+        right: 58.33333%
+      }
+
+      .elq-form .col-md-pull-8 {
+        right: 66.66667%
+      }
+
+      .elq-form .col-md-pull-9 {
+        right: 75%
+      }
+
+      .elq-form .col-md-pull-10 {
+        right: 83.33333%
+      }
+
+      .elq-form .col-md-pull-11 {
+        right: 91.66667%
+      }
+
+      .elq-form .col-md-pull-12 {
+        right: 100%
+      }
+
+      .elq-form .col-md-push-0 {
+        left: auto
+      }
+
+      .elq-form .col-md-push-1 {
+        left: 8.33333%
+      }
+
+      .elq-form .col-md-push-2 {
+        left: 16.66667%
+      }
+
+      .elq-form .col-md-push-3 {
+        left: 25%
+      }
+
+      .elq-form .col-md-push-4 {
+        left: 33.33333%
+      }
+
+      .elq-form .col-md-push-5 {
+        left: 41.66667%
+      }
+
+      .elq-form .col-md-push-6 {
+        left: 50%
+      }
+
+      .elq-form .col-md-push-7 {
+        left: 58.33333%
+      }
+
+      .elq-form .col-md-push-8 {
+        left: 66.66667%
+      }
+
+      .elq-form .col-md-push-9 {
+        left: 75%
+      }
+
+      .elq-form .col-md-push-10 {
+        left: 83.33333%
+      }
+
+      .elq-form .col-md-push-11 {
+        left: 91.66667%
+      }
+
+      .elq-form .col-md-push-12 {
+        left: 100%
+      }
+
+      .elq-form .col-md-offset-0 {
+        margin-left: 0
+      }
+
+      .elq-form .col-md-offset-1 {
+        margin-left: 8.33333%
+      }
+
+      .elq-form .col-md-offset-2 {
+        margin-left: 16.66667%
+      }
+
+      .elq-form .col-md-offset-3 {
+        margin-left: 25%
+      }
+
+      .elq-form .col-md-offset-4 {
+        margin-left: 33.33333%
+      }
+
+      .elq-form .col-md-offset-5 {
+        margin-left: 41.66667%
+      }
+
+      .elq-form .col-md-offset-6 {
+        margin-left: 50%
+      }
+
+      .elq-form .col-md-offset-7 {
+        margin-left: 58.33333%
+      }
+
+      .elq-form .col-md-offset-8 {
+        margin-left: 66.66667%
+      }
+
+      .elq-form .col-md-offset-9 {
+        margin-left: 75%
+      }
+
+      .elq-form .col-md-offset-10 {
+        margin-left: 83.33333%
+      }
+
+      .elq-form .col-md-offset-11 {
+        margin-left: 91.66667%
+      }
+
+      .elq-form .col-md-offset-12 {
+        margin-left: 100%
+      }
+    }
+
+    @media (min-width:1200px) {
+
+      .elq-form .col-lg-1,
+      .elq-form .col-lg-2,
+      .elq-form .col-lg-3,
+      .elq-form .col-lg-4,
+      .elq-form .col-lg-5,
+      .elq-form .col-lg-6,
+      .elq-form .col-lg-7,
+      .elq-form .col-lg-8,
+      .elq-form .col-lg-9,
+      .elq-form .col-lg-10,
+      .elq-form .col-lg-11,
+      .elq-form .col-lg-12 {
+        float: left
+      }
+
+      .elq-form .col-lg-1 {
+        width: 8.33333%
+      }
+
+      .elq-form .col-lg-2 {
+        width: 16.66667%
+      }
+
+      .elq-form .col-lg-3 {
+        width: 25%
+      }
+
+      .elq-form .col-lg-4 {
+        width: 33.33333%
+      }
+
+      .elq-form .col-lg-5 {
+        width: 41.66667%
+      }
+
+      .elq-form .col-lg-6 {
+        width: 50%
+      }
+
+      .elq-form .col-lg-7 {
+        width: 58.33333%
+      }
+
+      .elq-form .col-lg-8 {
+        width: 66.66667%
+      }
+
+      .elq-form .col-lg-9 {
+        width: 75%
+      }
+
+      .elq-form .col-lg-10 {
+        width: 83.33333%
+      }
+
+      .elq-form .col-lg-11 {
+        width: 91.66667%
+      }
+
+      .elq-form .col-lg-12 {
+        width: 100%
+      }
+
+      .elq-form .col-lg-pull-0 {
+        right: auto
+      }
+
+      .elq-form .col-lg-pull-1 {
+        right: 8.33333%
+      }
+
+      .elq-form .col-lg-pull-2 {
+        right: 16.66667%
+      }
+
+      .elq-form .col-lg-pull-3 {
+        right: 25%
+      }
+
+      .elq-form .col-lg-pull-4 {
+        right: 33.33333%
+      }
+
+      .elq-form .col-lg-pull-5 {
+        right: 41.66667%
+      }
+
+      .elq-form .col-lg-pull-6 {
+        right: 50%
+      }
+
+      .elq-form .col-lg-pull-7 {
+        right: 58.33333%
+      }
+
+      .elq-form .col-lg-pull-8 {
+        right: 66.66667%
+      }
+
+      .elq-form .col-lg-pull-9 {
+        right: 75%
+      }
+
+      .elq-form .col-lg-pull-10 {
+        right: 83.33333%
+      }
+
+      .elq-form .col-lg-pull-11 {
+        right: 91.66667%
+      }
+
+      .elq-form .col-lg-pull-12 {
+        right: 100%
+      }
+
+      .elq-form .col-lg-push-0 {
+        left: auto
+      }
+
+      .elq-form .col-lg-push-1 {
+        left: 8.33333%
+      }
+
+      .elq-form .col-lg-push-2 {
+        left: 16.66667%
+      }
+
+      .elq-form .col-lg-push-3 {
+        left: 25%
+      }
+
+      .elq-form .col-lg-push-4 {
+        left: 33.33333%
+      }
+
+      .elq-form .col-lg-push-5 {
+        left: 41.66667%
+      }
+
+      .elq-form .col-lg-push-6 {
+        left: 50%
+      }
+
+      .elq-form .col-lg-push-7 {
+        left: 58.33333%
+      }
+
+      .elq-form .col-lg-push-8 {
+        left: 66.66667%
+      }
+
+      .elq-form .col-lg-push-9 {
+        left: 75%
+      }
+
+      .elq-form .col-lg-push-10 {
+        left: 83.33333%
+      }
+
+      .elq-form .col-lg-push-11 {
+        left: 91.66667%
+      }
+
+      .elq-form .col-lg-push-12 {
+        left: 100%
+      }
+
+      .elq-form .col-lg-offset-0 {
+        margin-left: 0
+      }
+
+      .elq-form .col-lg-offset-1 {
+        margin-left: 8.33333%
+      }
+
+      .elq-form .col-lg-offset-2 {
+        margin-left: 16.66667%
+      }
+
+      .elq-form .col-lg-offset-3 {
+        margin-left: 25%
+      }
+
+      .elq-form .col-lg-offset-4 {
+        margin-left: 33.33333%
+      }
+
+      .elq-form .col-lg-offset-5 {
+        margin-left: 41.66667%
+      }
+
+      .elq-form .col-lg-offset-6 {
+        margin-left: 50%
+      }
+
+      .elq-form .col-lg-offset-7 {
+        margin-left: 58.33333%
+      }
+
+      .elq-form .col-lg-offset-8 {
+        margin-left: 66.66667%
+      }
+
+      .elq-form .col-lg-offset-9 {
+        margin-left: 75%
+      }
+
+      .elq-form .col-lg-offset-10 {
+        margin-left: 83.33333%
+      }
+
+      .elq-form .col-lg-offset-11 {
+        margin-left: 91.66667%
+      }
+
+      .elq-form .col-lg-offset-12 {
+        margin-left: 100%
+      }
+    }
+
+    .elq-form .row {
+      display: inherit
+    }
+
+    .LV_invalid_field,
+    input.LV_invalid_field:active,
+    input.LV_invalid_field:hover,
+    textarea.LV_invalid_field:active,
+    textarea.LV_invalid_field:hover {
+      outline: 1px solid #c00
+    }
+
+    .LV_validation_message {
+      font-weight: 700;
+      margin: 0 0 0 5px
+    }
+
+    .LV_valid {
+      display: none
+    }
+
+    .LV_invalid {
+      color: #c00;
+      font-size: 10px
+    }
+
+    .submit-button-style {
+      padding: 7px 20px;
+      border: 1px solid #979797;
+      border-radius: 3px;
+      background-color: #fff;
+      color: #4a4a4a;
+      cursor: pointer
+    }
+
+    .checkbox-aligned {
+      margin-left: 5px;
+      display: inline
+    }
+
+    .form-element-layout {
+      padding: 5px 10px
+    }
+
+    .form-element-instruction {
+      font-size: 10px
+    }
+
+    .form-element-form-text {
+      margin: 0
+    }
+
+    .form-field-visible-xs-block {
+      display: none
+    }
+
+    .elq-form-design-field .list-order input[type=radio] {
+      margin-left: 1px
+    }
+
+    @media (max-width:767px) {
+      .form-field-visible-xs-block {
+        display: block
+      }
+    }
+
+    .form-field-hidden-xs {
+      display: block
+    }
+
+    @media (max-width:767px) {
+      .form-field-hidden-xs {
+        display: none
+      }
+    }
+
+    .custom-overlay {
+      margin-left: 2px;
+      background: #fff;
+      box-shadow: 0 0 4px 0 #777;
+      border-radius: 2px;
+      max-width: 256px
+    }
+  </style>
+
+  <script type="text/javascript" src="https://img03.en25.com/i/livevalidation_standalone.compressed.js"></script>
+
+  <script>function handleFormSubmit(ele) {
+      var submitButton = ele.querySelector('input[type=submit]');
+      var spinner = document.createElement('span'); spinner.setAttribute('class', 'loader'); submitButton.setAttribute('disabled', true); submitButton.style.cursor = 'wait'; submitButton.parentNode.appendChild(spinner); return true;
+    } function resetSubmitButton(e) { var submitButtons = e.target.form.getElementsByClassName('submit-button'); for (var i = 0; i < submitButtons.length; i++) { submitButtons[i].disabled = false; } } function addChangeHandler(elements) { for (var i = 0; i < elements.length; i++) { elements[i].addEventListener('change', resetSubmitButton); } } var form = document.getElementById('form18'); addChangeHandler(form.getElementsByTagName('input')); addChangeHandler(form.getElementsByTagName('select')); addChangeHandler(form.getElementsByTagName('textarea')); var nodes = document.querySelectorAll('#form18 input[data-subscription]'); if (nodes) { for (var i = 0, len = nodes.length; i < len; i++) { var status = nodes[i].dataset ? nodes[i].dataset.subscription : nodes[i].getAttribute('data-subscription'); if (status === 'true') { nodes[i].checked = true; } } }; var nodes = document.querySelectorAll('#form18 select[data-value]'); if (nodes) { for (var i = 0; i < nodes.length; i++) { var node = nodes[i]; var selectedValue = node.dataset ? node.dataset.value : node.getAttribute('data-value'); if (selectedValue) { for (var j = 0; j < node.options.length; j++) { if (node.options[j].value === selectedValue) { node.options[j].selected = 'selected'; break; } } } } } this.getParentElement = function (list) { return list[list.length - 1].parentElement }; var dom0 = document.querySelector('#form18 #fe174'); var fe174 = new LiveValidation(dom0, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom1 = document.querySelector('#form18 #fe175'); var fe175 = new LiveValidation(dom1, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom2 = document.querySelector('#form18 #fe176'); var fe176 = new LiveValidation(dom2, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom3 = document.querySelector('#form18 #fe177'); var fe177 = new LiveValidation(dom3, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom4 = document.querySelector('#form18 #fe178'); var fe178 = new LiveValidation(dom4, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom5 = document.querySelector('#form18 #fe179'); var fe179 = new LiveValidation(dom5, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom6 = document.querySelector('#form18 #fe180'); var fe180 = new LiveValidation(dom6, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom7 = document.querySelector('#form18 #fe181'); var fe181 = new LiveValidation(dom7, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom8 = document.querySelector('#form18 #fe182'); var fe182 = new LiveValidation(dom8, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom9 = document.querySelector('#form18 #fe183'); var fe183 = new LiveValidation(dom9, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom10 = document.querySelector('#form18 #fe184'); var fe184 = new LiveValidation(dom10, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom11 = document.querySelector('#form18 #fe186'); var fe186 = new LiveValidation(dom11, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom12 = document.querySelector('#form18 #fe187'); var fe187 = new LiveValidation(dom12, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom13 = document.querySelector('#form18 #fe188'); var fe188 = new LiveValidation(dom13, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom14 = document.querySelector('#form18 #fe189'); var fe189 = new LiveValidation(dom14, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom15 = document.querySelectorAll('#form18 [name="StorageCageOwned"]'); var fe190 = new LiveValidation(dom15, { validMessage: "", onlyOnBlur: false, wait: 300, insertAfterWhatNode: this.getParentElement(dom15), isGroup: true }, true); fe190.add(Validate.Custom, { against: function (value) { return !value.match(/(telnet|ftp|https?):\/\/(?:[a-z0-9][a-z0-9-]{0,61}[a-z0-9]\.|[a-z0-9]\.)+[a-z]{2,63}/i); }, failureMessage: "Value must not contain any URL's" }); fe190.add(Validate.Custom, { against: function (value) { return !value.match(/(<([^>]+)>)/ig); }, failureMessage: "Value must not contain any HTML" }); var dom16 = document.querySelector('#form18 #fe191'); var fe191 = new LiveValidation(dom16, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom17 = document.querySelector('#form18 #fe192'); var fe192 = new LiveValidation(dom17, { validMessage: "", onlyOnBlur: false, wait: 300 });</script>
+
+  <script type='text/javascript'>
+    var timerId = null, timeout = 5;
+  </script>
+
+  <script type="text/javascript">
+    var _elqQ = _elqQ || [];
+    _elqQ.push(['elqSetSiteId', '177345']);
+    // _elqQ.push(['elqUseFirstPartyCookie', 'cookie.cynch.com']);
+    // _elqQ.push(['elqTrackPageView', window.location.href]);
+
+    (function () {
+      function async_load() {
+        var s = document.createElement('script'); s.type = 'text/javascript';
+        s.async = true;
+        s.src = '//img.en25.com/i/elqCfg.min.js';
+        var x = document.getElementsByTagName('script')[0];
+        x.parentNode.insertBefore(s, x);
+      }
+      if (window.addEventListener) window.addEventListener('DOMContentLoaded', async_load, false);
+      else if (window.attachEvent) window.attachEvent('onload', async_load);
+    })();
+  </script>
+
+  <script type='text/javascript'>
+    function WaitUntilCustomerGUIDIsRetrieved() {
+      if (!!(timerId)) {
+        if (timeout == 0) {
+          return;
+        }
+        if (typeof this.GetElqCustomerGUID === 'function') {
+          document.forms["cynchCommercialForm"].elements["elqCustomerGUID"].value = GetElqCustomerGUID();
+          return;
+        }
+        timeout -= 1;
+      }
+      timerId = setTimeout("WaitUntilCustomerGUIDIsRetrieved()", 500);
+      return;
+    }
+    window.onload = WaitUntilCustomerGUIDIsRetrieved;
+    _elqQ.push(['elqGetCustomerGUID']);
+  </script>
+
+  <script>
+    window.onload = elqSetCustomerGUID;
+
+    //ELQ LOOKUP
+    function SetElqContent() {
+      if (this.GetElqContentPersonalizationValue) {
+        if (!window.parsecData.user.email) {
+          console.log("V=====")
+          window.parsecData.user.email = GetElqContentPersonalizationValue('V_ElqEmailAddress');
+          console.log(window.parsecData.user.email);
+          console.log("V=====")
+          contactLookup(window.parsecData.user.email);
+        } else {
+          window.parsecData.user.name = GetElqContentPersonalizationValue('C_FirstName');
+          window.parsecData.user.lname = GetElqContentPersonalizationValue('C_LastName');
+          window.dispatchEvent(gsEvent);
+
+          if (!window.dataLayer) {
+            window.dataLayer = [];
+          }
+
+          window.dataLayer.push({
+            event: "event",
+            category: "personalization",
+            action: "eloqua-cookie",
+            label: window.parsecData.user.lname
+          });
+        }
+      } else {
+        console.log("elq no data");
+      }
+    }
+
+    function contactLookup(myEmail2) {
+      console.log("Running function " + myEmail2);
+      _elqQ.push(['elqDataLookup', escape('24207569fdf34ef3934addf2bba45530'), '<C_EmailAddress>' + myEmail2 + '</C_EmailAddress>']);
+      console.log("Ran function " + myEmail2);
+    }
+
+    /* commenting out to use already occuring v lookup */
+    function visitorLookup() {
+      _elqQ.push(['elqDataLookup', escape('9f204c3e41b84f50b0fa84eb6e3a71a3'), '']);
+    }
+    visitorLookup();
+
+  </script>
+
+  <!--KP : Oracle Eloqua-->
+
+
 </head>
+
 <body>
   <!--KP : App-Headers -->
-  <app-root></app-root>
+  <!-- <app-root></app-root> -->
   <!-- <app-mongodbnosql></app-mongodbnosql> -->
   <!-- <demo-app></demo-app> -->
   <!--KP : App-Footers -->
 
+
+  <!--KP : Oracle Eloqua-->
+  <form method="post" name="cynchCommercialForm" action="https://s177345.t.eloqua.com/e/f2"
+    onsubmit="return handleFormSubmit(this)" id="form18" class="elq-form">
+    <input value="cynchCommercialForm" type="hidden" name="elqFormName">
+    <input value="177345" type="hidden" name="elqSiteId">
+    <input name="elqCampaignId" type="hidden">
+    <input type="hidden" name="elqCustomerGUID" value="">
+    <input type="hidden" name="elqCookieWrite" value="0">
+    <div class="layout container-fluid">
+      <div class="row">
+        <div class="grid-layout-col">
+          <div class="layout-col col-sm-12 col-xs-12">
+            <div id="formElement0" class="elq-field-style form-element-layout row">
+              <div style="text-align:left;" class="col-sm-12 col-xs-12"><label class="elq-label " for="fe174">First
+                  Name</label></div>
+              <div class="col-sm-12 col-xs-12">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="field-control-wrapper"><input type="text" class="elq-item-input" name="FirstName"
+                        id="fe174" value="" style="width:100%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="grid-layout-col">
+          <div class="layout-col col-sm-12 col-xs-12">
+            <div id="formElement1" class="elq-field-style form-element-layout row">
+              <div style="text-align:left;" class="col-sm-12 col-xs-12"><label class="elq-label " for="fe175">Last
+                  Name</label></div>
+              <div class="col-sm-12 col-xs-12">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="field-control-wrapper"><input type="text" class="elq-item-input" name="LastName"
+                        id="fe175" value="" style="width:100%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="grid-layout-col">
+          <div class="layout-col col-sm-12 col-xs-12">
+            <div id="formElement2" class="elq-field-style form-element-layout row">
+              <div style="text-align:left;" class="col-sm-12 col-xs-12"><label class="elq-label "
+                  for="fe176">Company</label></div>
+              <div class="col-sm-12 col-xs-12">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="field-control-wrapper"><input type="text" class="elq-item-input" name="CompanyName"
+                        id="fe176" value="" style="width:100%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="grid-layout-col">
+          <div class="layout-col col-sm-12 col-xs-12">
+            <div id="formElement3" class="elq-field-style form-element-layout row">
+              <div style="text-align:left;" class="col-sm-12 col-xs-12"><label class="elq-label " for="fe177">Position /
+                  Title</label></div>
+              <div class="col-sm-12 col-xs-12">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="field-control-wrapper"><input type="text" class="elq-item-input" name="Position"
+                        id="fe177" value="" style="width:100%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="grid-layout-col">
+          <div class="layout-col col-sm-12 col-xs-12">
+            <div id="formElement4" class="elq-field-style form-element-layout row">
+              <div style="text-align:left;" class="col-sm-12 col-xs-12"><label class="elq-label "
+                  for="fe178">Address</label></div>
+              <div class="col-sm-12 col-xs-12">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="field-control-wrapper"><input type="text" class="elq-item-input" name="Street1"
+                        id="fe178" value="" style="width:100%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="grid-layout-col">
+          <div class="layout-col col-sm-12 col-xs-12">
+            <div id="formElement5" class="elq-field-style form-element-layout row">
+              <div style="text-align:left;" class="col-sm-12 col-xs-12"><label class="elq-label "
+                  for="fe179">City</label></div>
+              <div class="col-sm-12 col-xs-12">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="field-control-wrapper"><input type="text" class="elq-item-input" name="City" id="fe179"
+                        value="" style="width:100%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="grid-layout-col">
+          <div class="layout-col col-sm-12 col-xs-12">
+            <div id="formElement6" class="elq-field-style form-element-layout row">
+              <div style="text-align:left;" class="col-sm-12 col-xs-12"><label class="elq-label "
+                  for="fe180">State</label></div>
+              <div class="col-sm-12 col-xs-12">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="field-control-wrapper"><select class="elq-item-select" id="fe180" name="State"
+                        style="width:100%;" data-value="">
+                        <option value="">Select</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AL">Alabama</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DC">D.C.</option>
+                        <option value="DE">Delaware</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="IA">Iowa</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MD">Maryland</option>
+                        <option value="ME">Maine</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MT">Montana</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NY">New York</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VA">Virginia</option>
+                        <option value="VT">Vermont</option>
+                        <option value="WA">Washington</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WY">Wyoming</option>
+                      </select></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="grid-layout-col">
+          <div class="layout-col col-sm-12 col-xs-12">
+            <div id="formElement7" class="elq-field-style form-element-layout row">
+              <div style="text-align:left;" class="col-sm-12 col-xs-12"><label class="elq-label " for="fe181">Zip
+                  Code</label></div>
+              <div class="col-sm-12 col-xs-12">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="field-control-wrapper"><input type="text" class="elq-item-input" name="ZipCode"
+                        id="fe181" value="" style="width:100%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="grid-layout-col">
+          <div class="layout-col col-sm-12 col-xs-12">
+            <div id="formElement8" class="elq-field-style form-element-layout row">
+              <div style="text-align:left;" class="col-sm-12 col-xs-12"><label class="elq-label "
+                  for="fe182">Email</label></div>
+              <div class="col-sm-12 col-xs-12">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="field-control-wrapper"><input type="text" class="elq-item-input" name="Email" id="fe182"
+                        value="" style="width:100%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="grid-layout-col">
+          <div class="layout-col col-sm-12 col-xs-12">
+            <div id="formElement9" class="elq-field-style form-element-layout row">
+              <div style="text-align:left;" class="col-sm-12 col-xs-12"><label class="elq-label "
+                  for="fe183">Phone</label></div>
+              <div class="col-sm-12 col-xs-12">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="field-control-wrapper"><input type="text" class="elq-item-input" name="Phone" id="fe183"
+                        value="" style="width:100%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="grid-layout-col">
+          <div class="layout-col col-sm-12 col-xs-12">
+            <div id="formElement10" class="elq-field-style form-element-layout row">
+              <div style="text-align:left;" class="col-sm-12 col-xs-12"><label class="elq-label " for="fe184">How many
+                  tanks do you currently keep on site?</label></div>
+              <div class="col-sm-12 col-xs-12">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="field-control-wrapper"><input type="text" class="elq-item-input" name="CurrentTanks"
+                        id="fe184" value="" style="width:100%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="grid-layout-col">
+          <div class="layout-col col-sm-12 col-xs-12">
+            <div id="formElement11" class="elq-field-style form-element-layout row">
+              <div style="text-align:left;" class="col-sm-12 col-xs-12"><label class="elq-label " for="fe186">How many
+                  tanks do you use per year?</label></div>
+              <div class="col-sm-12 col-xs-12">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="field-control-wrapper"><input type="text" class="elq-item-input" name="TanksPerYear"
+                        id="fe186" value="" style="width:100%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="grid-layout-col">
+          <div class="layout-col col-sm-12 col-xs-12">
+            <div id="formElement12" class="elq-field-style form-element-layout row">
+              <div style="text-align:left;" class="col-sm-12 col-xs-12"><label class="elq-label " for="fe187">How long
+                  before you're looking to make your first order for propane?</label></div>
+              <div class="col-sm-12 col-xs-12">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="field-control-wrapper"><select class="elq-item-select" id="fe187"
+                        name="FirstOrderEstimate" style="width:100%;" data-value="">
+                        <option value="">Select</option>
+                        <option value="Within 48 hours">Within 48 hours</option>
+                        <option value="This week">This week</option>
+                        <option value="This month">This month</option>
+                        <option value="More than a month">More than a month</option>
+                      </select></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="grid-layout-col">
+          <div class="layout-col col-sm-12 col-xs-12">
+            <div id="formElement13" class="elq-field-style form-element-layout row">
+              <div style="text-align:left;" class="col-sm-12 col-xs-12"><label class="elq-label " for="fe188">What type
+                  of appliance do you use the tanks on?</label></div>
+              <div class="col-sm-12 col-xs-12">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="field-control-wrapper"><select class="elq-item-select" id="fe188" name="ApplianceType"
+                        style="width:100%;" data-value="">
+                        <option value="">Select</option>
+                        <option value="Barbecue Grill">Barbecue Grill</option>
+                        <option value="Patio Heater">Patio Heater</option>
+                        <option value="Mosquito Device">Mosquito Device</option>
+                        <option value="Paving/Roofing Torch">Paving/Roofing Torch</option>
+                        <option value="Other (Explain below)">Other (Explain below)</option>
+                      </select></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="grid-layout-col">
+          <div class="layout-col col-sm-12 col-xs-12">
+            <div id="formElement14" class="elq-field-style form-element-layout row">
+              <div style="text-align:left;" class="col-sm-12 col-xs-12"><label class="elq-label " for="fe189">Other
+                  (Explain below)</label></div>
+              <div class="col-sm-12 col-xs-12">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="field-control-wrapper"><textarea class="elq-item-textarea" style="width:100%;"
+                        name="TypeOfApplianceOther" id="fe189"></textarea></div>
+                  </div>
+                </div>
+                <div class="form-element-instruction">Please enter the appliance(s) you use.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="grid-layout-col">
+          <div class="layout-col col-sm-12 col-xs-12">
+            <div id="formElement15" class="elq-field-style form-element-layout row">
+              <div style="text-align:left;" class="col-sm-12 col-xs-12"><label class="elq-label " for="fe190">Do you own
+                  a storage cage to store your extra cylinders?</label></div>
+              <div class="col-sm-12 col-xs-12">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="field-control-wrapper" id="fe190">
+                      <div class="list-order one-column"><input type="radio" id="radio-Yes_3xxb6gh" value="Yes"
+                          name="StorageCageOwned"><label class="checkbox-aligned elq-item-label"
+                          for="radio-Yes_3xxb6gh">Yes</label><br></div>
+                      <div class="list-order one-column"><input type="radio" id="radio-No_iknh10z" value="No"
+                          name="StorageCageOwned"><label class="checkbox-aligned elq-item-label"
+                          for="radio-No_iknh10z">No</label><br></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="grid-layout-col">
+          <div class="layout-col col-sm-12 col-xs-12">
+            <div id="formElement16" class="elq-field-style form-element-layout row">
+              <div style="text-align:left;" class="col-sm-12 col-xs-12"><label class="elq-label " for="fe191">Who is
+                  your current supplier?</label></div>
+              <div class="col-sm-12 col-xs-12">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="field-control-wrapper"><input type="text" class="elq-item-input" name="CurrentSupplier"
+                        id="fe191" value="" style="width:100%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="grid-layout-col">
+          <div class="layout-col col-sm-12 col-xs-12">
+            <div id="formElement17" class="elq-field-style form-element-layout row">
+              <div style="text-align:left;" class="col-sm-12 col-xs-12"><label class="elq-label " for="fe192">Additional
+                  Information</label></div>
+              <div class="col-sm-12 col-xs-12">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="field-control-wrapper"><textarea class="elq-item-textarea" style="width:100%;"
+                        name="AdditionalInfo" id="fe192"></textarea></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="grid-layout-col">
+          <div class="layout-col col-sm-12 col-xs-12">
+            <div id="formElement18" class="elq-field-style form-element-layout row">
+              <div class="col-sm-12 col-xs-12">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div><input type="Submit" class="submit-button-style " value="Submit" id="fe185"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <!--KP : Oracle Eloqua Scripts transferred to head section
+    
+  <script type="text/javascript" src="https://img03.en25.com/i/livevalidation_standalone.compressed.js"></script>
+
+  <script>function handleFormSubmit(ele) {
+      var submitButton = ele.querySelector('input[type=submit]');
+      var spinner = document.createElement('span'); spinner.setAttribute('class', 'loader'); submitButton.setAttribute('disabled', true); submitButton.style.cursor = 'wait'; submitButton.parentNode.appendChild(spinner); return true;
+    } function resetSubmitButton(e) { var submitButtons = e.target.form.getElementsByClassName('submit-button'); for (var i = 0; i < submitButtons.length; i++) { submitButtons[i].disabled = false; } } function addChangeHandler(elements) { for (var i = 0; i < elements.length; i++) { elements[i].addEventListener('change', resetSubmitButton); } } var form = document.getElementById('form18'); addChangeHandler(form.getElementsByTagName('input')); addChangeHandler(form.getElementsByTagName('select')); addChangeHandler(form.getElementsByTagName('textarea')); var nodes = document.querySelectorAll('#form18 input[data-subscription]'); if (nodes) { for (var i = 0, len = nodes.length; i < len; i++) { var status = nodes[i].dataset ? nodes[i].dataset.subscription : nodes[i].getAttribute('data-subscription'); if (status === 'true') { nodes[i].checked = true; } } }; var nodes = document.querySelectorAll('#form18 select[data-value]'); if (nodes) { for (var i = 0; i < nodes.length; i++) { var node = nodes[i]; var selectedValue = node.dataset ? node.dataset.value : node.getAttribute('data-value'); if (selectedValue) { for (var j = 0; j < node.options.length; j++) { if (node.options[j].value === selectedValue) { node.options[j].selected = 'selected'; break; } } } } } this.getParentElement = function (list) { return list[list.length - 1].parentElement }; var dom0 = document.querySelector('#form18 #fe174'); var fe174 = new LiveValidation(dom0, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom1 = document.querySelector('#form18 #fe175'); var fe175 = new LiveValidation(dom1, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom2 = document.querySelector('#form18 #fe176'); var fe176 = new LiveValidation(dom2, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom3 = document.querySelector('#form18 #fe177'); var fe177 = new LiveValidation(dom3, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom4 = document.querySelector('#form18 #fe178'); var fe178 = new LiveValidation(dom4, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom5 = document.querySelector('#form18 #fe179'); var fe179 = new LiveValidation(dom5, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom6 = document.querySelector('#form18 #fe180'); var fe180 = new LiveValidation(dom6, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom7 = document.querySelector('#form18 #fe181'); var fe181 = new LiveValidation(dom7, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom8 = document.querySelector('#form18 #fe182'); var fe182 = new LiveValidation(dom8, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom9 = document.querySelector('#form18 #fe183'); var fe183 = new LiveValidation(dom9, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom10 = document.querySelector('#form18 #fe184'); var fe184 = new LiveValidation(dom10, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom11 = document.querySelector('#form18 #fe186'); var fe186 = new LiveValidation(dom11, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom12 = document.querySelector('#form18 #fe187'); var fe187 = new LiveValidation(dom12, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom13 = document.querySelector('#form18 #fe188'); var fe188 = new LiveValidation(dom13, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom14 = document.querySelector('#form18 #fe189'); var fe189 = new LiveValidation(dom14, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom15 = document.querySelectorAll('#form18 [name="StorageCageOwned"]'); var fe190 = new LiveValidation(dom15, { validMessage: "", onlyOnBlur: false, wait: 300, insertAfterWhatNode: this.getParentElement(dom15), isGroup: true }, true); fe190.add(Validate.Custom, { against: function (value) { return !value.match(/(telnet|ftp|https?):\/\/(?:[a-z0-9][a-z0-9-]{0,61}[a-z0-9]\.|[a-z0-9]\.)+[a-z]{2,63}/i); }, failureMessage: "Value must not contain any URL's" }); fe190.add(Validate.Custom, { against: function (value) { return !value.match(/(<([^>]+)>)/ig); }, failureMessage: "Value must not contain any HTML" }); var dom16 = document.querySelector('#form18 #fe191'); var fe191 = new LiveValidation(dom16, { validMessage: "", onlyOnBlur: false, wait: 300 }); var dom17 = document.querySelector('#form18 #fe192'); var fe192 = new LiveValidation(dom17, { validMessage: "", onlyOnBlur: false, wait: 300 });</script>
+
+<script type='text/javascript'>
+var timerId = null, timeout = 5;
+</script>
+
+  <script type="text/javascript">
+    var _elqQ = _elqQ || [];
+    _elqQ.push(['elqSetSiteId', '177345']);
+    _elqQ.push(['elqUseFirstPartyCookie', 'cookie.cynch.com']);
+    _elqQ.push(['elqTrackPageView', window.location.href]);
+
+    (function () {
+      function async_load() {
+        var s = document.createElement('script'); s.type = 'text/javascript';
+        s.async = true;
+        s.src = '//img.en25.com/i/elqCfg.min.js';
+        var x = document.getElementsByTagName('script')[0];
+        x.parentNode.insertBefore(s, x);
+      }
+      if (window.addEventListener) window.addEventListener('DOMContentLoaded', async_load, false);
+      else if (window.attachEvent) window.attachEvent('onload', async_load);
+    })();
+  </script>
+
+  <script type='text/javascript'>
+    function WaitUntilCustomerGUIDIsRetrieved() {
+      if (!!(timerId)) {
+        if (timeout == 0) {
+          return;
+        }
+        if (typeof this.GetElqCustomerGUID === 'function') {
+          document.forms["cynchCommercialForm"].elements["elqCustomerGUID"].value = GetElqCustomerGUID();
+          return;
+        }
+        timeout -= 1;
+      }
+      timerId = setTimeout("WaitUntilCustomerGUIDIsRetrieved()", 500);
+      return;
+    }
+    window.onload = WaitUntilCustomerGUIDIsRetrieved;
+    _elqQ.push(['elqGetCustomerGUID']);
+  </script>
+
+  <script>
+    window.onload = elqSetCustomerGUID;
+
+    //ELQ LOOKUP
+    function SetElqContent() {
+      if (this.GetElqContentPersonalizationValue) {
+        if (!window.parsecData.user.email) {
+          console.log("V=====")
+          window.parsecData.user.email = GetElqContentPersonalizationValue('V_ElqEmailAddress');
+          console.log(window.parsecData.user.email);
+          console.log("V=====")
+          contactLookup(window.parsecData.user.email);
+        } else {
+          window.parsecData.user.name = GetElqContentPersonalizationValue('C_FirstName');
+          window.parsecData.user.lname = GetElqContentPersonalizationValue('C_LastName');
+          window.dispatchEvent(gsEvent);
+
+          if (!window.dataLayer) {
+            window.dataLayer = [];
+          }
+
+          window.dataLayer.push({
+            event: "event",
+            category: "personalization",
+            action: "eloqua-cookie",
+            label: window.parsecData.user.lname
+          });
+        }
+      } else {
+        console.log("elq no data");
+      }
+    }
+
+    function contactLookup(myEmail2) {
+      console.log("Running function " + myEmail2);
+      _elqQ.push(['elqDataLookup', escape('24207569fdf34ef3934addf2bba45530'), '<C_EmailAddress>' + myEmail2 + '</C_EmailAddress>']);
+      console.log("Ran function " + myEmail2);
+    }
+
+    /* commenting out to use already occuring v lookup */
+    function visitorLookup(){
+    _elqQ.push(['elqDataLookup', escape('9f204c3e41b84f50b0fa84eb6e3a71a3'),'']);
+    }
+    visitorLookup();
+
+  </script> -->
+
+  <!--KP : Oracle Eloqua-->
+
   <!--KP : Bootstrap Scripts-->
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" 
-            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" 
-            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
   <!--KP : Bootstrap Scripts-->
 
 </body>
-</html> 
+
+</html>
