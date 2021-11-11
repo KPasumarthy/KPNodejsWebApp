@@ -47,6 +47,9 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true
+            },
+            "es5": {
+              "tsConfig": "./tsconfig-es5.app.json"
             }
           }
         },
@@ -58,6 +61,9 @@
           "configurations": {
             "production": {
               "browserTarget": "KPNodeJSWebApp:build:production"
+            },
+            "es5": {
+              "browserTarget": "KPNodeJSWebAp:build:es5"
             }
           }
         },

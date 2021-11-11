@@ -36,8 +36,8 @@ import { SimpleModalService } from "ngx-simple-modal";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = `KPNodeJSWebApp 
-  Angular 6 : ng-App & MongoDB`;    ///// KP : Angular 6 - Backticks
+  title = `KPNodeJSWebApp : 
+  Angular Application`;    ///// KP : Angular 6 - Backticks
   modalRef: BsModalRef;
 
   //constructor(private _demoService: DemoService) {}  
