@@ -40,6 +40,7 @@ import { KPWebApisService } from './kpwebapis/kpwebapis.service';
 import { SimpleModalModule } from 'ngx-simple-modal';
 import { SimpleModComponent } from './simplemod/simplemod.component';
 import { SimpleModalService } from "ngx-simple-modal";
+import { EloquaComponent } from './eloqua/eloqua.component';
 
 
 
@@ -85,7 +86,8 @@ import { SimpleModalService } from "ngx-simple-modal";
     ModalComponent,
     KpwebapisComponent,
     SimpleModComponent,
-    MySQLDBComponent
+    MySQLDBComponent,
+    EloquaComponent
     //DemoService
   ],
   //providers: [DemoService], //KP : DemoService - A Working Provider
