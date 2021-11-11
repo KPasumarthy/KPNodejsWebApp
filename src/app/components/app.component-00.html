@@ -29,14 +29,17 @@
     -->
 
 <!--KP : ngx Modal-->
-<!-- <div class="container my-l">
+<div class="container my-l">
   <div class="card">
     <div class="card-body">
       <h4>Ngx Bootstrap Modal Component</h4>
       <div (click)="openNGXModal()" class="btn btn-success">Open Ngx-Modal</div>
+      <!-- KP : Disabled SimpleModal 
+              <button type="button" class="btn btn-primary" (click)="showConfirm()">Open Ng-SimpleModal</button> 
+            <! KP : Disabled SimpleModal -->
     </div>
   </div>
-</div> -->
+</div>
 <!--KP : ngx Modal-->
 
 <!--KP : ng-Simple-Modal
@@ -53,7 +56,60 @@
       </div>
 <!KP : ng-Simple-Modal-->
 
+<!--KP : ng Modal-->
+<!--KP : //{ path: 'mongodbnosql', component: MongoDBNoSqlComponent},  -->
+<app-top-nav-bar></app-top-nav-bar>
 
+<app-primitives></app-primitives>
+<app-pagination></app-pagination>
+<app-mysqldb></app-mysqldb>
+<app-mongodbnosql></app-mongodbnosql>
+<app-oracledb></app-oracledb>
+<!-- <app-heroes></app-heroes> -->
+<!-- <app-messages></app-messages> -->
+<app-eloqua></app-eloqua>
+<app-blog></app-blog>
+<app-footer></app-footer>
+<!--KP : Heroes API Service & Components failing here : Commented Out!!!-->
+
+<!-- <div>
+      <h3>Angular 6 Demo App : Idols</h3>
+      <ul>
+        <li *ngFor="let idol of idols">{{idol}}</li>
+      </ul>
+  
+      <h3>URIs</h3>
+      <ul>
+        <li *ngFor="let uri of kpUri">{{uri}}</li>
+      </ul>
+                      
+      <h3>MongoDB Server APIs : Age Sorted Customers</h3>
+      <ul>
+        <li *ngFor="let customer of customersAgeSorted">
+          {{customer.first_name}} {{customer.last_name}}
+          {{customer.age}} {{customer.address.city}}
+        </li>
+      </ul>
+
+      <h3>Angular 6 HttpClient Demo Service APIs</h3> 
+      <h3>Books</h3>
+      <ul>
+        <li *ngFor="let book of books">{{book.title}} : {{book.author}}</li>
+      </ul>
+  
+      <h3>Foods</h3>
+      <ul>
+        <li *ngFor="let food of foods">{{food.id}} : {{food.name}}</li>
+      </ul>
+  
+      <h3>Movies</h3>
+      <ul>
+        <li *ngFor="let movie of movies">{{movie.title}}</li>
+      </ul>
+
+  </div> -->
+
+<!-- </div> -->
 
 <div class="footer" style="text-align:center">
   <!-- KP : <img width="30" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">       -->

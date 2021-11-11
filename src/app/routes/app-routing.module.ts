@@ -9,6 +9,7 @@ import { MongoDBNoSqlComponent } from '../mongodbnosql/mongodbnosql.component';
 import { OracledbComponent } from '../oracledb/oracledb.component';
 import { MySQLDBComponent } from '../mysqldb/mysqldb.component';
 import { PaginationComponent } from '../pagination/pagination.component';
+import { EloquaComponent } from '../eloqua/eloqua.component';
 
 //KP : Constant Routes
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'oracledb', component: OracledbComponent},
   { path: 'pagination', component:PaginationComponent},
   { path: 'mysql', component:MySQLDBComponent},
+  { path: 'eloqua', component:EloquaComponent},
 ];
 
 @NgModule({
