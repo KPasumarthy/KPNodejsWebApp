@@ -42,6 +42,7 @@
     "ngx-simple-modal": "1.4.13",
     "nodemailer": "^6.5.0",
     "oracledb": "^4.2.0",
+    "pg": "^8.11.3",
     "rxjs": "^6.3.3",
     "web-animations-js": "^2.3.2",
     "zone.js": "~0.8.26"
