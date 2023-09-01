@@ -40,7 +40,7 @@ server.listen(port, () => {
 //KP : Trial 1
 // // This example uses Node 8's async/await syntax.
 const { Client } = require('pg');
-const mypw = "NodeJSPostgreSQLPassword2020";  // set mypw to the hr schema password
+const mypw = "NodeJSPostgresPassword";  // set mypw to the hr schema password
 var pgExeResult = "";
 var pgdvdAllActorsResult = "";
 
@@ -65,9 +65,12 @@ async function run() {
      //KP: Execute Queries on postgres DB
      var result = await pgClient.query(
       "SELECT actor_id, first_name, last_name, last_update FROM public.actor where actor_id <= 10"
+      //"SELECT actor_id, first_name, last_name, last_update FROM public.actor where actor_id = 10"
     );
-    console.log(result.rows);
-    pgdvdAllActorsResult = result;
+    //console.log(result.rows);
+    pgdvdAllActorsResult = result.rows;
+    //pgdvdAllActorsResult = result.rows[0];
+    console.log(pgdvdAllActorsResult);
 
 
   } catch (err) {
