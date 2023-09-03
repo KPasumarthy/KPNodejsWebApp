@@ -56,6 +56,7 @@ const { Client } = require('pg');
 const mypw = "NodeJSPostgresPassword";  // set mypw to the hr schema password
 var pgExeResult = "";
 var pgdvdAllActorsResult = "";
+var pgActor = "";
 
 async function run() {
 
@@ -124,9 +125,8 @@ async function getActor(id) {
     //KP: Execute Queries on postgres DB
     var result = await pgClient.query(selectCmd);
     //console.log(result.rows);
-    pgdvdAllActorsResult = result.rows[0];
-    //pgdvdAllActorsResult = result.rows[0];
-    console.log(pgdvdAllActorsResult);
+    pgActor = result.rows[0];
+    console.log(pgActor);
 
 
   } catch (err) {
@@ -165,8 +165,8 @@ async function saveActor(actor) {
     //  //KP: Execute Queries on postgres DB
     var result = await pgClient.query(insertCmd);
     console.log(result.rows);
-    pgdvdAllActorsResult = insertCmd;
-    console.log(pgdvdAllActorsResult);
+    pgActor = insertCmd;
+    console.log(pgActor);
 
 
   } catch (err) {
@@ -206,8 +206,8 @@ async function updateActor(actor) {
     //  //KP: Execute Queries on postgres DB
     var result = await pgClient.query(updateCmd);
     console.log(result.rows);
-    pgdvdAllActorsResult = updateCmd;
-    console.log(pgdvdAllActorsResult);
+    pgActor = updateCmd;
+    console.log(pgActor);
 
 
   } catch (err) {
@@ -247,7 +247,7 @@ async function deleteActor(actor) {
     //  //KP: Execute Queries on postgres DB
     var result = await pgClient.query(deleteCmd);
     console.log(result.rows);
-    pgdvdAllActorsResult = deleteCmd;
+    pgActor = deleteCmd;
 
 
   } catch (err) {
@@ -294,7 +294,7 @@ app.get('/postgres/api/dvdrental/getActor/:id', function (req, res) {
 
   getActor(id).then(() => {
     console.log("KP : PostgreSQL Service APIs /postgres/api/dvdrental/getActor : " + id);
-    res.status(200).send(pgdvdAllActorsResult);
+    res.status(200).send(pgActor);
   })
     .catch((e) => {
       res.send(400).send(e);
@@ -320,7 +320,7 @@ app.post('/postgres/api/dvdrental/createActor', function (req, res) {
 
   saveActor(actor).then(() => {
     console.log("KP : PostgreSQL Service APIs /postgres/api/dvdrental/createActor : app.post(createActor) : " + pgdvdAllActorsResult);
-    res.status(200).send(pgdvdAllActorsResult);
+    res.status(200).send(pgActor);
   })
     .catch((e) => {
       res.send(400).send(e);
@@ -344,7 +344,7 @@ app.put('/postgres/api/dvdrental/updateActor', function (req, res) {
 
   updateActor(actor).then(() => {
     console.log("KP : PostgreSQL Service APIs /postgres/api/dvdrental/updateActor : app.put(updateActor) : " + pgdvdAllActorsResult);
-    res.status(200).send(pgdvdAllActorsResult);
+    res.status(200).send(pgActor);
   })
     .catch((e) => {
       res.send(400).send(e);
@@ -369,7 +369,7 @@ app.delete('/postgres/api/dvdrental/deleteActor', function (req, res) {
 
   deleteActor(actor).then(() => {
     console.log("KP : PostgreSQL Service APIs /postgres/api/dvdrental/deleteActor : app.deleteActor(deleteActor) : " + pgdvdAllActorsResult);
-    res.status(200).send(pgdvdAllActorsResult);
+    res.status(200).send(pgActor);
   })
     .catch((e) => {
       res.send(400).send(e);
