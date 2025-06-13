@@ -4,12 +4,65 @@
  <div class="container">
 
   <div class="row">
+
+    
+<style>
+  table, th, td {
+      border: 2px solid green;
+      border-collapse: collapse;
+      padding: 5px;
+  }
+
+      table tr:nth-child(odd) {
+          background-color: #f1f1f1;
+      }
+
+      table tr:nth-child(even) {
+          background-color: #FFF0F5;
+      }
+</style>
   
   <!-- KPWebApisService Component-->
   <div>
   
       <h3>Angular 6 HttpClient KPWebApisService Service APIs</h3> 
-      <h3>Books</h3>
+    
+      <br>
+
+      <br>
+      <h4>Angular 6 HttpClient KPWebApisService .NET Core Service APIs.</h4>
+      <h4>Books</h4>
+      <table border="1" width="50%">
+          <tbody>
+          <tr>
+              <th ng-click="orderByMe('isbn')">ISBN</th>
+              <th ng-click="orderByMe('title')">Title</th>
+              <th ng-click="orderByMe('subtitle')">SubTitle</th>
+              <th ng-click="orderByMe('author')">Author</th>
+              <th ng-click="orderByMe('published')">Published</th>
+              <th ng-click="orderByMe('publisher')">Publisher</th>
+              <th ng-click="orderByMe('pages')">Pages</th>
+              <th ng-click="orderByMe('description')">Description</th>
+              <th ng-click="orderByMe('website')">Website</th>
+          </tr>
+
+          <tr  *ngFor="let book of books" class="ng-scope">
+            <td class="ng-binding"> {{book.isbn}} </td>
+            <td class="ng-binding">{{book.title}}</td>
+            <td class="ng-binding"> {{book.subtitle}} </td>
+            <td class="ng-binding">  {{book.author}} </td>
+            <td class="ng-binding">  {{book.published}} </td>
+            <td class="ng-binding">  {{book.publisher}} </td>
+            <td class="ng-binding">  {{book.pages}} </td>
+            <td class="ng-binding">  {{book.description}} </td>
+            <td class="ng-binding">  {{book.website}} </td>
+            <var></var>
+        </tr><!-- end ngRepeat: x in names | orderBy : myOrderBy -->
+
+      </tbody>
+      </table>
+      <br>
+      
       <ul>
         <li *ngFor="let book of books">
           {{book.isbn}} 
