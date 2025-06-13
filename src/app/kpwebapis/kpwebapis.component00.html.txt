@@ -100,82 +100,19 @@
           <input id="last-name" type="text" formControlName="lastName" />
         </form> -->
 
+        <!-- <form>
+          <label for="first-name">First Name: </label>
+          <input id="first-name" type="text" formControlName="firstName" />
+          <label for="last-name">Last Name: </label>
+          <input id="last-name" type="text" formControlName="lastName" />
+        </form> -->
+
         <!-- <label for="name">Name: </label> -->
         <!-- <input id="name" type="text" [formControl]="name"> -->
 
-        <h4>Books : Enter ISBN Value</h4>
-        <input [(ngModel)]="inputISBNValue" (input)="onInputChange($event)"  placeholder="Enter ISBN Value"  />
-        <div *ngIf="isVisibleBookSeearched">
-          This element is visible when isVisibleBookSeearched is true.
-
-        <p>KP :  You entered ISBN : {{ inputISBNValue }}</p>
-        <table border="1" width="50%">
-          <tbody>
- 
-            <tr>
-
-              <!-- <th class="tableHeader" 
-              *ngFor="let col of tableHeaders" 
-              (click)="sort(col.propertyName)"> -->
-
-              <!-- <th *ngFor="let col of tableHeaders" 
-              (click)="sort(col.propertyName)">ISBN</th> -->
-
-              <!-- <th ng-click="sort(col.propertyName)">ISBN</th> -->
-              <!-- <th ng-click="sort('isbn')">ISBN</th> -->
-              <!-- 
-              <th *ngFor="let book of books" 
-              (click)="sort(book.isbn)">ISBN</th> -->
-
-              <th id="isbn" (click)="sort('isbn')" >ISBN</th>
-              <th id="isbn" (click)="sort('isbn')" >ISBN</th>
-              <th id="title" (click)="sort('title')" >Title</th>
-              <th id="subtitle" (click)="sort('subtitle')" >SubTitle</th>
-              <th id="author" (click)="sort('author')" >Author</th>
-              <th id="published" (click)="sort('published')" >Published</th>
-              <th id="publisher" (click)="sort('publisher')" >Publisher</th>
-              <th id="pages" (click)="sort('pages')" >Pages</th>
-              <!-- <th id="description" (click)="sort('description')" >Description</th> -->
-              <!-- <th id="website" (click)="sort('website')" >Website</th> -->
-
-          </tr>
-
-         <tr> 
-
-            <td class="ng-binding"> {{bookSearched.isbn}} </td>
-            <td class="ng-binding"> {{bookSearched.isbn}} </td>
-            <td class="ng-binding">{{bookSearched.title}}</td>
-            <td class="ng-binding"> {{bookSearched.subtitle}} </td>
-            <td class="ng-binding">  {{bookSearched.author}} </td>
-            <td class="ng-binding">  {{bookSearched.published}} </td>
-            <td class="ng-binding">  {{bookSearched.publisher}} </td>
-            <td class="ng-binding">  {{bookSearched.pages}} </td>
-            <!-- <td class="ng-binding">  {{bookSearched.description}} </td> -->
-            <!-- <td class="ng-binding">  {{bookSearched.website}} </td> -->
-            <var></var>
-        </tr>
-
-      </tbody>
-      </table>
-
-        <p> ISBN Book :
-          {{bookSearched.isbn}} 
-          {{bookSearched.title}} 
-          {{bookSearched.subtitle}} 
-          {{bookSearched.author}} 
-          {{bookSearched.published}} 
-          {{bookSearched.publisher}} 
-          {{bookSearched.pages}} 
-          {{bookSearched.description}}  
-          {{bookSearched.website}}
-        </p>
-      </div>
-
 
         <br>
-        <br>
 
-      <h5>Catalog : ISBN Books : </h5> 
       <ul>
         <li *ngFor="let book of books">
           {{book.isbn}} 

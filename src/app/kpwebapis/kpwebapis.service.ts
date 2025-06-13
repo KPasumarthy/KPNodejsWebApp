@@ -19,9 +19,10 @@ export class KPWebApisService {
   }
 
   ////KP : Uses http.get() to obtain a person data hosted on localhost API endpoint
-  getBook(id: number): Observable<any> {
+  getBook(id: string): Observable<any> {
     //var uri = 'http://kpmvcwebapis.com/api/Persons/' + id.toString()
     var uri = 'http://localhost:5249/api/books/9781593277574'
+    var uri = 'http://localhost:5249/api/books/' + id.toString()
     return this.http.get(uri);
   }
 
