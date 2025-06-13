@@ -11,14 +11,38 @@ export class KPWebApisService {
     console.log("KP : KPWebApisService for accessing 'KPWebAPIs' hosted-on localhost...");
   }
 
+
+  ////KP : Uses http.get() to obtain persons data hosted on localhost API endpoint
+  getBooks(): Observable<any> {
+    //return this.http.get('http://kpmvcwebapis.com/api/Persons/');
+    return this.http.get('http://localhost:5249/api/books/');
+  }
+
+  ////KP : Uses http.get() to obtain a person data hosted on localhost API endpoint
+  getBook(id: number): Observable<any> {
+    //var uri = 'http://kpmvcwebapis.com/api/Persons/' + id.toString()
+    var uri = 'http://localhost:5249/api/books/9781593277574'
+    return this.http.get(uri);
+  }
+
+
+  ////KP : Uses http.get() to obtain persons data hosted on localhost API endpoint
+  async getBooksAsync() {
+    //return await this.http.get('http://kpmvcwebapis.com/api/Persons/');
+    return await this.http.get('http://localhost:5249/api/books/');
+  }
+
+ 
   ////KP : Uses http.get() to obtain persons data hosted on localhost API endpoint
   getPersons(): Observable<any> {
-    return this.http.get('http://kpmvcwebapis.com/api/Persons/');
+    //return this.http.get('http://kpmvcwebapis.com/api/Persons/');
+    return this.http.get('http://localhost:5249/api/books/');
   }
 
   ////KP : Uses http.get() to obtain a person data hosted on localhost API endpoint
   getPerson(id: number): Observable<any> {
-    var uri = 'http://kpmvcwebapis.com/api/Persons/' + id.toString()
+    //var uri = 'http://kpmvcwebapis.com/api/Persons/' + id.toString()
+    var uri = 'http://localhost:5249/api/books/9781593277574'
     return this.http.get(uri);
   }
 
@@ -28,7 +52,8 @@ export class KPWebApisService {
   }
   ////KP : Uses http.get() to obtain persons data hosted on localhost API endpoint
   async getPersonsAsync() {
-    return await this.http.get('http://kpmvcwebapis.com/api/Persons/');
+    //return await this.http.get('http://kpmvcwebapis.com/api/Persons/');
+    return await this.http.get('http://localhost:5249/api/books/');
   }
 
   ////KP : Uses http.get() to obtain persons data hosted on localhost API endpoint

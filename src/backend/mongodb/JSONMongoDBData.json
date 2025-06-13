@@ -4,7 +4,7 @@
 //}
 
 ///JSON Objects
-{
+[{
   "_id": 1,
   "first_name": "Kailash",
   "last_name": "Pasumarthy",
@@ -18,4 +18,80 @@
   },
   "age": 45,
   "balance": 2736.45
+},
+{
+  "_id": 2,
+  "first_name": "Kailash",
+  "last_name": "Pasumarthy",
+  "gender": "male",
+  "address": {
+    "street": "262 Cental Avenue",
+    "city": "Edison",
+    "state": "NJ",
+    "zipcode": "08817",
+    "country": "USA"
+  },
+  "age": 45,
+  "balance": 2736.45
+},
+{
+  "_id": 3,
+  "first_name": "Kailash",
+  "last_name": "Pasumarthy",
+  "gender": "male",
+  "address": {
+    "street": "99 Grace Street",
+    "city": "Jersey City",
+    "state": "NJ",
+    "zipcode": "07307",
+    "country": "USA"
+  },
+  "age": 46,
+  "balance": 2736.45
+},
+{
+  "_id": 4,
+  "first_name": "Kailash",
+  "last_name": "Pasumarthy",
+  "gender": "male",
+  "address": {
+    "street": "113 Patterson Street",
+    "city": "Jersey City",
+    "state": "NJ",
+    "zipcode": "07307",
+    "country": "USA"
+  },
+  "age": 47,
+  "balance": 2736.45
+},
+{
+  "_id": 5,
+  "first_name": "Kailash",
+  "last_name": "Pasumarthy",
+  "gender": "male",
+  "address": {
+    "street": "60 Timber Ridge Road",
+    "city": "North Brunswick",
+    "state": "NJ",
+    "zipcode": "08902",
+    "country": "USA"
+  },
+  "age": 49,
+  "balance": 2736.45
+},
+{
+  "_id": 6,
+  "first_name": "Kailash",
+  "last_name": "Pasumarthy",
+  "gender": "male",
+  "address": {
+    "street": "24 Misty Meadow Lane",
+    "city": "Hamilton",
+    "state": "NJ",
+    "zipcode": "08619",
+    "country": "USA"
+  },
+  "age": 50,
+  "balance": 2736.45
 }
+]
