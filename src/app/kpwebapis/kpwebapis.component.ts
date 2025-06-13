@@ -23,7 +23,9 @@ export class KpwebapisComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    let  colName = "isbn";
     this.getBooks();
+    this.sort(colName);
   }
 
   getBooks() {
@@ -39,5 +41,11 @@ export class KpwebapisComponent implements OnInit {
       () => console.log("KP : App-Component KPWebApisService Done loading books!")
     )
   }
+
+  sort(colName) {
+    console.log("KP : App-Component KPWebApisService sort(colName) : " + colName)
+
+    this.books.sort((a, b) => a[colName] > b[colName] ? 1 : a[colName] < b[colName] ? -1 : 0)
+}
 
 }

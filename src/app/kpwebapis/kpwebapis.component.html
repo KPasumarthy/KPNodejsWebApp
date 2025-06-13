@@ -34,19 +34,39 @@
       <h4>Books</h4>
       <table border="1" width="50%">
           <tbody>
-          <tr>
-              <th ng-click="orderByMe('isbn')">ISBN</th>
-              <th ng-click="orderByMe('title')">Title</th>
-              <th ng-click="orderByMe('subtitle')">SubTitle</th>
-              <th ng-click="orderByMe('author')">Author</th>
-              <th ng-click="orderByMe('published')">Published</th>
-              <th ng-click="orderByMe('publisher')">Publisher</th>
-              <th ng-click="orderByMe('pages')">Pages</th>
-              <th ng-click="orderByMe('description')">Description</th>
-              <th ng-click="orderByMe('website')">Website</th>
+ 
+            <tr>
+
+              <!-- <th class="tableHeader" 
+              *ngFor="let col of tableHeaders" 
+              (click)="sort(col.propertyName)"> -->
+
+              <!-- <th *ngFor="let col of tableHeaders" 
+              (click)="sort(col.propertyName)">ISBN</th> -->
+
+              <!-- <th ng-click="sort(col.propertyName)">ISBN</th> -->
+              <!-- <th ng-click="sort('isbn')">ISBN</th> -->
+              <!-- 
+              <th *ngFor="let book of books" 
+              (click)="sort(book.isbn)">ISBN</th> -->
+
+              <th id="isbn" (click)="sort('isbn')" >ISBN</th>
+              <th id="isbn" (click)="sort('isbn')" >ISBN</th>
+              <th id="title" (click)="sort('title')" >Title</th>
+              <th id="subtitle" (click)="sort('subtitle')" >SubTitle</th>
+              <th id="author" (click)="sort('author')" >Author</th>
+              <th id="published" (click)="sort('published')" >Published</th>
+              <th id="publisher" (click)="sort('publisher')" >Publisher</th>
+              <th id="pages" (click)="sort('pages')" >Pages</th>
+              <!-- <th id="description" (click)="sort('description')" >Description</th> -->
+              <!-- <th id="website" (click)="sort('website')" >Website</th> -->
+
           </tr>
 
-          <tr  *ngFor="let book of books" class="ng-scope">
+         <tr  *ngFor="let book of books" 
+              (click)="sort(book.isbn)" class="ng-scope"> 
+
+            <td class="ng-binding"> {{book.isbn}} </td>
             <td class="ng-binding"> {{book.isbn}} </td>
             <td class="ng-binding">{{book.title}}</td>
             <td class="ng-binding"> {{book.subtitle}} </td>
@@ -54,8 +74,8 @@
             <td class="ng-binding">  {{book.published}} </td>
             <td class="ng-binding">  {{book.publisher}} </td>
             <td class="ng-binding">  {{book.pages}} </td>
-            <td class="ng-binding">  {{book.description}} </td>
-            <td class="ng-binding">  {{book.website}} </td>
+            <!-- <td class="ng-binding">  {{book.description}} </td> -->
+            <!-- <td class="ng-binding">  {{book.website}} </td> -->
             <var></var>
         </tr><!-- end ngRepeat: x in names | orderBy : myOrderBy -->
 
