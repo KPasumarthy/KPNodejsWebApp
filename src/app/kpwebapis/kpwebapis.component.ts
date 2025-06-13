@@ -31,6 +31,7 @@ export class KpwebapisComponent implements OnInit {
   public inputISBNValue: string = ''; // Property to hold the ISBN input value
   public bookSearched: string = ''; 
   public isVisibleBookSeearched: boolean = false;
+  public span = document.createElement("span");
 
   constructor(
           private _router : Router,
@@ -41,7 +42,9 @@ export class KpwebapisComponent implements OnInit {
     let  colName = "isbn";
     this.getBooks();
     this.sort(colName);
+
   }
+
 
   onInputChange(event: Event): void {
     const target = event.target as HTMLInputElement;
@@ -88,5 +91,9 @@ export class KpwebapisComponent implements OnInit {
    onSubmit(bookISBN){
     console.log("KP : App-Component KPWebApisService Book ISBN : " + bookISBN)
    }
+
+
+
+
 
 }

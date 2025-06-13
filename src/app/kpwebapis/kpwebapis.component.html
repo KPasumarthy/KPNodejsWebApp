@@ -20,6 +20,36 @@
       table tr:nth-child(even) {
           background-color: #FFF0F5;
       }
+
+      .dropdown-cell {
+     position: relative; /* Required for absolute positioning of the arrow */
+     padding-right: 20px; /* Make space for the arrow */
+   }
+
+   .dropdown-cell:after {
+     content: "";
+     position: absolute;
+     top: 50%;
+     right: 5px;
+     margin-top: -3px;
+     border-top: 5px solid black;
+     border-left: 5px solid transparent;
+     border-right: 5px solid transparent;
+   }
+
+   .iconChangeOnMouseHover {
+      background-color: blue; /* Original background color */
+      /*color: rgb(255, 255, 255); /* Text color */
+      padding: 10px 20px; /* Padding */
+      border: none; /* No border */
+      border-radius: 5px; /* Rounded corners */
+      cursor: pointer; /* Pointer cursor on hover */
+    }
+
+    .iconChangeOnMouseHover:hover {
+      background-color: green; /* Background color changes on hover */
+    }
+
 </style>
   
   <!-- KPWebApisService Component-->
@@ -32,10 +62,11 @@
       <br>
       <h4>Angular 6 HttpClient KPWebApisService .NET Core Service APIs.</h4>
       <h4>Books</h4>
-      <table border="1" width="50%">
+   
+      <table width="50%"  >
           <tbody>
  
-            <tr>
+            <tr class="iconChangeOnMouseHover">
 
               <!-- <th class="tableHeader" 
               *ngFor="let col of tableHeaders" 
@@ -50,23 +81,25 @@
               <th *ngFor="let book of books" 
               (click)="sort(book.isbn)">ISBN</th> -->
 
-              <th id="isbn" (click)="sort('isbn')" >ISBN</th>
-              <th id="isbn" (click)="sort('isbn')" >ISBN</th>
-              <th id="title" (click)="sort('title')" >Title</th>
-              <th id="subtitle" (click)="sort('subtitle')" >SubTitle</th>
-              <th id="author" (click)="sort('author')" >Author</th>
-              <th id="published" (click)="sort('published')" >Published</th>
-              <th id="publisher" (click)="sort('publisher')" >Publisher</th>
-              <th id="pages" (click)="sort('pages')" >Pages</th>
+              <th  class="dropdown-cell" id="isbn" (click)="sort('isbn')" >ISBN</th>
+              <th  class="dropdown-cell" id="isbn" (click)="sort('isbn')" >ISBN</th>
+              <th  class="dropdown-cell" id="title" (click)="sort('title')" >Title</th>
+              <th  class="dropdown-cell" id="subtitle" (click)="sort('subtitle')" >SubTitle</th>
+              <th  class="dropdown-cell" id="author" (click)="sort('author')" >Author</th>
+              <th  class="dropdown-cell" id="published" (click)="sort('published')" >Published</th>
+              <th  class="dropdown-cell" id="publisher" (click)="sort('publisher')" >Publisher</th>
+              <th  class="dropdown-cell" id="pages" (click)="sort('pages')" >Pages</th>
               <!-- <th id="description" (click)="sort('description')" >Description</th> -->
               <!-- <th id="website" (click)="sort('website')" >Website</th> -->
 
           </tr>
+          <!-- <td class="dropdown-cell">
 
+          </td> -->
          <tr  *ngFor="let book of books" 
               (click)="sort(book.isbn)" class="ng-scope"> 
 
-            <td class="ng-binding"> {{book.isbn}} </td>
+            <td class="dropdown-cell" class="ng-binding"> {{book.isbn}} </td>
             <td class="ng-binding"> {{book.isbn}} </td>
             <td class="ng-binding">{{book.title}}</td>
             <td class="ng-binding"> {{book.subtitle}} </td>
@@ -81,6 +114,7 @@
 
       </tbody>
       </table>
+
       <br>
       
       <!-- <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
@@ -109,7 +143,7 @@
           This element is visible when isVisibleBookSeearched is true.
 
         <p>KP :  You entered ISBN : {{ inputISBNValue }}</p>
-        <table border="1" width="50%">
+        <table width="50%">
           <tbody>
  
             <tr>
